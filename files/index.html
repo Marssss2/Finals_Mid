@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UPSkillS — Learn Programming</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ─── NAVBAR ─────────────────────────────────────────────────── -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="logo" aria-label="UPSkillS Home">
+        <span class="logo-up">UP</span><span class="logo-mid">Skill</span><span class="logo-s">S</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#home"    class="nav-link">Home</a>
+        <a href="#courses" class="nav-link">Courses</a>
+        <a href="#about"   class="nav-link">About Us</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Dark / Light toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+          <span class="toggle-track">
+            <span class="toggle-thumb"></span>
+            <span class="toggle-icon sun" aria-hidden="true">☀</span>
+            <span class="toggle-icon moon" aria-hidden="true">☾</span>
+          </span>
+        </button>
+
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ─── HOME / HERO ────────────────────────────────────────────── -->
+    <section class="hero" id="home" aria-label="Hero">
+      <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="hero-content">
+        <p class="hero-eyebrow" aria-hidden="true">// start your journey</p>
+        <h1 class="hero-title">
+          <span class="ht-up">UP</span><span class="ht-skill">Skill</span><span class="ht-s">S</span>
+        </h1>
+        <p class="hero-subtitle">Learn the fundamentals of programming</p>
+        <a href="#courses" class="btn btn-primary">
+          <span>Start Learning</span>
+          <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <div class="hero-stats" aria-label="Quick facts">
+          <div class="stat"><span class="stat-num">4</span><span class="stat-label">Courses</span></div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat"><span class="stat-num">Free</span><span class="stat-label">Forever</span></div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat"><span class="stat-num">4</span><span class="stat-label">Creators</span></div>
+        </div>
+      </div>
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <span>scroll</span>
+        <span class="scroll-arrow">↓</span>
+      </div>
+    </section>
+
+    <!-- ─── COURSES ────────────────────────────────────────────────── -->
+    <section class="section courses" id="courses" aria-labelledby="courses-heading">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-tag">// 01 — courses</p>
+          <h2 class="section-title" id="courses-heading">What You'll Learn</h2>
+          <p class="section-desc">Handpicked fundamentals to get you coding from day one.</p>
+        </div>
+
+        <div class="cards-grid" role="list">
+
+          <!-- Card 1 -->
+          <article class="course-card" role="listitem" tabindex="0" aria-label="Basic Python course">
+            <div class="card-accent" aria-hidden="true"></div>
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 4C13 4 14 9 14 9V14H24V16H9S4 15.5 4 26.5 8.5 37 8.5 37H12V31.5S11.5 27 16 27H31S35.5 27.5 35.5 23V11.5C35.5 11.5 36.5 4 24 4Z" fill="currentColor" opacity=".85"/>
+                <path d="M24 44C35 44 34 39 34 39V34H24V32H39S44 32.5 44 21.5 39.5 11 39.5 11H36V16.5S36.5 21 32 21H17S12.5 20.5 12.5 25V36.5C12.5 36.5 11.5 44 24 44Z" fill="currentColor" opacity=".5"/>
+                <circle cx="20" cy="10" r="1.5" fill="var(--bg)"/>
+                <circle cx="28" cy="38" r="1.5" fill="var(--bg)"/>
+              </svg>
+            </div>
+            <div class="card-body">
+              <span class="card-tag">Beginner</span>
+              <h3 class="card-title">Basic Python</h3>
+              <p class="card-desc">Master variables, loops, functions, and data structures in the most beginner-friendly language around.</p>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-outline" aria-label="View Basic Python course">View Course</button>
+              <span class="card-meta" aria-label="8 lessons">8 lessons</span>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="course-card" role="listitem" tabindex="0" aria-label="HTML course">
+            <div class="card-accent" aria-hidden="true"></div>
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 6L11 40L24 44L37 40L40 6H8Z" fill="currentColor" opacity=".2"/>
+                <path d="M24 40.5L35 37.5L37.5 10H24V40.5Z" fill="currentColor" opacity=".5"/>
+                <path d="M24 10H11L12.5 28L24 31.5V10Z" fill="currentColor" opacity=".85"/>
+                <path d="M24 22H18L17.5 17H24V22Z" fill="var(--bg)"/>
+                <path d="M24 33.5L18.5 32L18 27H21L21.2 29.5L24 30.3V33.5Z" fill="var(--bg)"/>
+              </svg>
+            </div>
+            <div class="card-body">
+              <span class="card-tag">Beginner</span>
+              <h3 class="card-title">HTML</h3>
+              <p class="card-desc">Build the skeleton of the web. Learn semantic markup, document structure, forms, and accessibility basics.</p>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-outline" aria-label="View HTML course">View Course</button>
+              <span class="card-meta" aria-label="6 lessons">6 lessons</span>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="course-card" role="listitem" tabindex="0" aria-label="CSS course">
+            <div class="card-accent" aria-hidden="true"></div>
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 6L11 40L24 44L37 40L40 6H8Z" fill="currentColor" opacity=".2"/>
+                <path d="M24 40.5L35 37.5L37.5 10H24V40.5Z" fill="currentColor" opacity=".5"/>
+                <path d="M24 10H11L12.5 28L24 31.5V10Z" fill="currentColor" opacity=".85"/>
+                <rect x="17" y="15" width="14" height="4" rx="1" fill="var(--bg)"/>
+                <rect x="17" y="22" width="10" height="4" rx="1" fill="var(--bg)"/>
+              </svg>
+            </div>
+            <div class="card-body">
+              <span class="card-tag">Beginner</span>
+              <h3 class="card-title">CSS</h3>
+              <p class="card-desc">Style the web with color, layout, animations, and responsive design. From box model to Flexbox and Grid.</p>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-outline" aria-label="View CSS course">View Course</button>
+              <span class="card-meta" aria-label="10 lessons">10 lessons</span>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="course-card" role="listitem" tabindex="0" aria-label="JavaScript course">
+            <div class="card-accent" aria-hidden="true"></div>
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="6" width="36" height="36" rx="3" fill="currentColor" opacity=".2"/>
+                <rect x="6" y="6" width="36" height="36" rx="3" stroke="currentColor" stroke-width="1.5" opacity=".5"/>
+                <path d="M20 32C20 34.5 18.5 36 16 36C13.8 36 12.5 34.8 12 33.2L14.5 31.7C14.8 32.7 15.3 33.5 16 33.5C16.8 33.5 17 33 17 32V20H20V32Z" fill="currentColor" opacity=".85"/>
+                <path d="M29 36C26.3 36 24.5 34.7 23.5 32.8L26 31.2C26.6 32.3 27.4 33 29 33C30.3 33 31 32.4 31 31.5C31 30.4 30.2 30 28.8 29.3L28 29C25.8 28 24.3 26.7 24.3 24.2C24.3 21.9 26 20.2 28.8 20.2C30.8 20.2 32.2 21 33.2 22.8L30.8 24.4C30.3 23.5 29.8 23 28.8 23C27.8 23 27.3 23.6 27.3 24.3C27.3 25.2 27.8 25.6 29.2 26.2L30 26.5C32.6 27.6 34 28.8 34 31.4C34 34.2 31.9 36 29 36Z" fill="currentColor" opacity=".85"/>
+              </svg>
+            </div>
+            <div class="card-body">
+              <span class="card-tag">Intermediate</span>
+              <h3 class="card-title">JavaScript</h3>
+              <p class="card-desc">Make the web interactive. DOM manipulation, events, async programming, and modern ES6+ syntax.</p>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-outline" aria-label="View JavaScript course">View Course</button>
+              <span class="card-meta" aria-label="12 lessons">12 lessons</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── ABOUT US ───────────────────────────────────────────────── -->
+    <section class="section about" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-tag">// 02 — about us</p>
+          <h2 class="section-title" id="about-heading">Meet the Creators</h2>
+          <p class="section-desc">Four students on a mission to make programming education accessible to everyone.</p>
+        </div>
+
+        <div class="team-grid" role="list">
+
+          <!-- Member 1 -->
+          <article class="member-card" role="listitem" tabindex="0" aria-label="Student 1">
+            <div class="member-avatar" aria-hidden="true">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="40" r="40" fill="var(--avatar-bg-1)"/>
+                <circle cx="40" cy="32" r="13" fill="var(--accent)" opacity=".7"/>
+                <ellipse cx="40" cy="70" rx="22" ry="18" fill="var(--accent)" opacity=".5"/>
+              </svg>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">Student 1</h3>
+              <p class="member-role">Python Specialist</p>
+              <p class="member-bio">Passionate about algorithms and making code readable for absolute beginners.</p>
+            </div>
+            <div class="member-number" aria-hidden="true">01</div>
+          </article>
+
+          <!-- Member 2 -->
+          <article class="member-card" role="listitem" tabindex="0" aria-label="Student 2">
+            <div class="member-avatar" aria-hidden="true">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="40" r="40" fill="var(--avatar-bg-2)"/>
+                <circle cx="40" cy="32" r="13" fill="var(--accent)" opacity=".7"/>
+                <ellipse cx="40" cy="70" rx="22" ry="18" fill="var(--accent)" opacity=".5"/>
+              </svg>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">Student 2</h3>
+              <p class="member-role">HTML Architect</p>
+              <p class="member-bio">Advocates for semantic, accessible markup that puts users first on every project.</p>
+            </div>
+            <div class="member-number" aria-hidden="true">02</div>
+          </article>
+
+          <!-- Member 3 -->
+          <article class="member-card" role="listitem" tabindex="0" aria-label="Student 3">
+            <div class="member-avatar" aria-hidden="true">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="40" r="40" fill="var(--avatar-bg-3)"/>
+                <circle cx="40" cy="32" r="13" fill="var(--accent)" opacity=".7"/>
+                <ellipse cx="40" cy="70" rx="22" ry="18" fill="var(--accent)" opacity=".5"/>
+              </svg>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">Student 3</h3>
+              <p class="member-role">CSS Designer</p>
+              <p class="member-bio">Turns plain HTML into polished interfaces with a sharp eye for spacing and color.</p>
+            </div>
+            <div class="member-number" aria-hidden="true">03</div>
+          </article>
+
+          <!-- Member 4 -->
+          <article class="member-card" role="listitem" tabindex="0" aria-label="Student 4">
+            <div class="member-avatar" aria-hidden="true">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="40" r="40" fill="var(--avatar-bg-4)"/>
+                <circle cx="40" cy="32" r="13" fill="var(--accent)" opacity=".7"/>
+                <ellipse cx="40" cy="70" rx="22" ry="18" fill="var(--accent)" opacity=".5"/>
+              </svg>
+            </div>
+            <div class="member-info">
+              <h3 class="member-name">Student 4</h3>
+              <p class="member-role">JS Engineer</p>
+              <p class="member-bio">Loves breaking down async complexity into intuitive, digestible explanations.</p>
+            </div>
+            <div class="member-number" aria-hidden="true">04</div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────────────── -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="container footer-inner">
+      <span class="footer-logo">
+        <span class="logo-up">UP</span><span class="logo-mid">Skill</span><span class="logo-s">S</span>
+      </span>
+      <p class="footer-copy">© 2025 UPSkillS. Built by students, for students.</p>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#home">Home</a>
+        <a href="#courses">Courses</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
