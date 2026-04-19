@@ -564,9 +564,9 @@ footer {
 }
 
 .team-photo {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
+  width: 150px;
+  height: 200px;
+  border-radius: 5%;
   overflow: hidden;
   margin: 0 auto 1rem;
   border: 2px solid var(--border);
