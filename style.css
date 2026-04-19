@@ -599,6 +599,13 @@ footer {
   display: block;
 }
 
+.team-role_short{
+   font-size: 0.70rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.3rem;
+}
+
 @media (max-width: 700px) {
   .team-grid { grid-template-columns: repeat(2, 1fr); }
 }
