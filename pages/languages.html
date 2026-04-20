@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UPSkillS — Programming Languages & Topics</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+
+  <!-- ── LOADING SCREEN ── -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">UP<span>Skill</span>S</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+      <p class="loader-text">&gt;_ loading topics...</p>
+    </div>
+  </div>
+
+  <!-- ── BACK TO TOP ── -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- ── GRID BACKGROUND ── -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════
+       HEADER
+  ══════════════════════════════════════════ -->
+  <header id="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">UP<span>Skill</span>S</a>
+      <nav class="nav-topics">
+        <a href="#python">Python</a>
+        <a href="#javascript">JavaScript</a>
+        <a href="#css">CSS</a>
+        <a href="#git">Git</a>
+        <a href="#sql">SQL</a>
+        <a href="#cpp">C/C++</a>
+        <a href="#typescript">TypeScript</a>
+        <a href="#java">Java</a>
+        <a href="#php">PHP</a>
+        <a href="#webdev">Web Dev</a>
+        <a href="#ai">AI/ML</a>
+        <a href="#data">Data Eng</a>
+        <a href="#cybersecurity">Cybersecurity</a>
+        <a href="#analytics">Analytics</a>
+        <a href="#dbdesign">DB Design</a>
+        <a href="../pages/roadmap.html">Roadmaps</a>
+        <a href="../index.html#about">About</a>
+      </nav>
+    </div>
+    <p class="tagline">&gt;_ Upgrade your skills. One resource at a time.</p>
+    <div class="header-line"></div>
+  </header>
+
+  <!-- ── PAGE HERO ── -->
+  <div class="page-hero">
+    <div class="page-hero-badge">&gt;_ topics / languages</div>
+    <h1 class="page-hero-title">Programming Languages <span>&amp; Topics</span></h1>
+    <p class="page-hero-desc">Browse our full collection of curated tutorials across 15 topics. Use the search bar or the quick-nav pills to jump to what you need.</p>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       SEARCH BAR
+  ══════════════════════════════════════════ -->
+  <div class="search-wrap">
+    <div class="search-inner">
+      <span class="search-icon">⌕</span>
+      <input
+        type="text"
+        id="searchInput"
+        class="search-input"
+        placeholder="Search topics or videos... (e.g. Python, SQL, Git)"
+        autocomplete="off"
+      />
+      <button class="search-clear" id="searchClear">✕</button>
+    </div>
+    <p class="search-status" id="searchStatus"></p>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       QUICK NAV PILLS
+  ══════════════════════════════════════════ -->
+  <div class="topic-nav-strip">
+    <a href="#python"        class="tnav-pill">🐍 Python</a>
+    <a href="#javascript"    class="tnav-pill">⚡ JavaScript</a>
+    <a href="#css"           class="tnav-pill">🎨 CSS</a>
+    <a href="#git"           class="tnav-pill">🔀 Git</a>
+    <a href="#sql"           class="tnav-pill">🗄 SQL</a>
+    <a href="#cpp"           class="tnav-pill">⚙️ C/C++</a>
+    <a href="#typescript"    class="tnav-pill">📘 TypeScript</a>
+    <a href="#java"          class="tnav-pill">☕ Java</a>
+    <a href="#php"           class="tnav-pill">🐘 PHP</a>
+    <a href="#webdev"        class="tnav-pill">🌐 Web Dev</a>
+    <a href="#ai"            class="tnav-pill">🤖 AI / ML</a>
+    <a href="#data"          class="tnav-pill">📊 Data Eng</a>
+    <a href="#cybersecurity" class="tnav-pill">🔒 Cybersecurity</a>
+    <a href="#analytics"     class="tnav-pill">📈 Analytics</a>
+    <a href="#dbdesign"      class="tnav-pill">🗂 DB Design</a>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       MAIN — ALL TOPIC SECTIONS
+  ══════════════════════════════════════════ -->
+  <main id="main-content">
+
+    <!-- ── 01 PYTHON ── -->
+    <section class="topic-section" id="python" data-section="python">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-title-group">
+          <h2 class="section-title">Python</h2>
+          <span class="section-pill pill-cyan">Beginner Friendly</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid">
+
+        <a class="card" href="https://youtu.be/Rq5gJVxz55Q?si=xnHCc3Vcq8E_uSY6" target="_blank" rel="noopener" data-title="Python for Beginners Full Course" data-tags="python beginner">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/Rq5gJVxz55Q/hqdefault.jpg" alt="Python Beginners" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-cyan">Python</span>
+            <p class="card-title">Python for Beginners – Full Course</p>
+            <p class="card-meta">▶ Watch on YouTube (Data with Baraa)</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://youtu.be/IbMDCwVm63M?si=8evpZ2zVTQg7nPts" target="_blank" rel="noopener" data-title="Python OOP Object Oriented Programming" data-tags="python oop">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/IbMDCwVm63M/hqdefault.jpg" alt="Python OOP" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-cyan">Python</span>
+            <p class="card-title">Python OOP – Object Oriented Programming</p>
+            <p class="card-meta">▶ Watch on YouTube (Bro Code)</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://youtu.be/PXMJ6FS7llk?si=jA0KSY6uF-orrQ6P" target="_blank" rel="noopener" data-title="Automate Tasks with Python" data-tags="python automation">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/PXMJ6FS7llk/hqdefault.jpg" alt="Automate Python" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-cyan">Python</span>
+            <p class="card-title">Automate Tasks with Python</p>
+            <p class="card-meta">▶ Watch on YouTube (freeCodeCamp)</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ── 02 JAVASCRIPT ── -->
+    <section class="topic-section" id="javascript" data-section="javascript">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-title-group">
+          <h2 class="section-title">JavaScript</h2>
+          <span class="section-pill pill-green">Web Essential</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid">
+
+        <a class="card" href="https://youtu.be/OOOfBC1grl0?si=dMxbHjjgZ7I3yPwG" target="_blank" rel="noopener" data-title="JavaScript Crash Course for Beginners" data-tags="javascript beginner">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/OOOfBC1grl0/hqdefault.jpg" alt="JS Crash Course" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-green">JavaScript</span>
+            <p class="card-title">JavaScript Crash Course for Beginners</p>
+            <p class="card-meta">▶ Watch on YouTube (Boot Dev &amp; Coder Coder)</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://youtu.be/5fb2aPlgoys?si=Q44Ap9ABf3qIzEaf" target="_blank" rel="noopener" data-title="JavaScript DOM Manipulation" data-tags="javascript dom">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/5fb2aPlgoys/hqdefault.jpg" alt="JS DOM" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-green">JavaScript</span>
+            <p class="card-title">JavaScript DOM Manipulation</p>
+            <p class="card-meta">▶ Watch on YouTube (freeCodeCamp)</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://youtu.be/ZYb_ZU8LNxs?si=x_8rvEG04cddCG38" target="_blank" rel="noopener" data-title="Async JavaScript Promises Fetch API" data-tags="javascript async promises">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/ZYb_ZU8LNxs/hqdefault.jpg" alt="Async JS" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-green">JavaScript</span>
+            <p class="card-title">Async JS – Promises &amp; Fetch API</p>
+            <p class="card-meta">▶ Watch on YouTube (freeCodeCamp)</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ── 03 CSS ── -->
+    <section class="topic-section" id="css" data-section="css">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-title-group">
+          <h2 class="section-title">CSS</h2>
+          <span class="section-pill pill-cyan">Design &amp; Layout</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid">
+
+        <a class="card" href="https://youtu.be/euEYZ4DtIG0?si=S33zc3cw6zl4Ixxn" target="_blank" rel="noopener" data-title="CSS Full Course Including Flexbox" data-tags="css flexbox design">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/euEYZ4DtIG0/hqdefault.jpg" alt="CSS Flexbox" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-cyan">CSS</span>
+            <p class="card-title">CSS Full Course – Including Flexbox</p>
+            <p class="card-meta">▶ Watch on YouTube (Future Fullstack)</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://youtu.be/JYfiaSKeYhE?si=q7-m5Mh0wfZUqamB" target="_blank" rel="noopener" data-title="CSS Grid Layout Crash Course" data-tags="css grid layout">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/JYfiaSKeYhE/hqdefault.jpg" alt="CSS Grid" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-cyan">CSS</span>
+            <p class="card-title">CSS Grid Layout Crash Course</p>
+            <p class="card-meta">▶ Watch on YouTube (Coding2GO)</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://youtu.be/j6Ule7GXaRs?si=st1Rew5PItkl9YuU" target="_blank" rel="noopener" data-title="Responsive Design for Beginners" data-tags="css responsive design">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/j6Ule7GXaRs/hqdefault.jpg" alt="Responsive CSS" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-cyan">CSS</span>
+            <p class="card-title">Responsive Design for Beginners</p>
+            <p class="card-meta">▶ Watch on YouTube (Flux Academy)</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ── 04 GIT ── -->
+    <section class="topic-section" id="git" data-section="git">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-title-group">
+          <h2 class="section-title">Git &amp; GitHub</h2>
+          <span class="section-pill pill-green">Must Know</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid">
+
+        <a class="card" href="https://youtu.be/RGOj5yH7evk?si=KBkdzfCgyiXr7gAp" target="_blank" rel="noopener" data-title="Git GitHub Crash Course" data-tags="git github version control">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/RGOj5yH7evk/hqdefault.jpg" alt="Git Crash Course" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-green">Git</span>
+            <p class="card-title">Git &amp; GitHub Crash Course</p>
+            <p class="card-meta">▶ Watch on YouTube (freeCodeCamp)</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://youtu.be/Q1kHG842HoI?si=UFAxRC3zlTo_C_yc" target="_blank" rel="noopener" data-title="Git Branching and Merging" data-tags="git branch merge">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/Q1kHG842HoI/hqdefault.jpg" alt="Git Branching" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-green">Git</span>
+            <p class="card-title">Git Branching and Merging</p>
+            <p class="card-meta">▶ Watch on YouTube (SuperSimpleDev)</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ── 05 SQL ── -->
+    <section class="topic-section" id="sql" data-section="sql database query">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <div class="section-title-group">
+          <h2 class="section-title">SQL</h2>
+          <span class="section-pill pill-cyan">Data Essentials</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid">
+
+        <a class="card" href="https://youtu.be/7GVFYt6_ZFM?si=8R-r3aq1AaIHTW9q" target="_blank" rel="noopener" data-title="SQL Full Course for Beginners" data-tags="sql database beginner">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/7GVFYt6_ZFM/hqdefault.jpg" alt="SQL Full Course" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-cyan">SQL</span>
+            <p class="card-title">SQL Full Course for Beginners</p>
+            <p class="card-meta">▶ Watch on YouTube (Data with Baraa)</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://youtu.be/Qr1Go2gP8fo?si=G0NcODUcHkJbxjvF" target="_blank" rel="noopener" data-title="Advanced SQL Joins Subqueries" data-tags="sql advanced joins subqueries">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/Qr1Go2gP8fo/hqdefault.jpg" alt="Advanced SQL" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-cyan">SQL</span>
+            <p class="card-title">Advanced SQL – Joins &amp; Subqueries</p>
+            <p class="card-meta">▶ Watch on YouTube (Alex the Analyst)</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ── 06 C/C++ ── -->
+    <section class="topic-section" id="cpp" data-section="c cpp c++ programming systems">
+      <div class="section-header">
+        <div class="section-num">06</div>
+        <div class="section-title-group">
+          <h2 class="section-title">C / C++</h2>
+          <span class="section-pill pill-green">Systems Programming</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid">
+
+        <a class="card" href="https://youtu.be/8jLOx1hD3_o?si=F7h_f3vJLaSnQWXI" target="_blank" rel="noopener" data-title="C Programming Full Course for Beginners" data-tags="c programming beginner">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/8jLOx1hD3_o/hqdefault.jpg" alt="C Programming" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-green">C</span>
+            <p class="card-title">C Programming – Full Course for Beginners</p>
+            <p class="card-meta">▶ Watch on YouTube (freeCodeCamp)</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://youtu.be/-TkoO8Z07hI?si=VFVzaJd4K0OUdp3c" target="_blank" rel="noopener" data-title="C++ Tutorial for Beginners Full Course" data-tags="c++ cpp beginner">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/-TkoO8Z07hI/hqdefault.jpg" alt="C++ Tutorial" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-green">C++</span>
+            <p class="card-title">C++ Tutorial for Beginners – Full Course</p>
+            <p class="card-meta">▶ Watch on YouTube (freeCodeCamp)</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ── 07 TYPESCRIPT ── -->
+    <section class="topic-section" id="typescript" data-section="typescript javascript types">
+      <div class="section-header">
+        <div class="section-num">07</div>
+        <div class="section-title-group">
+          <h2 class="section-title">TypeScript</h2>
+          <span class="section-pill pill-cyan">Typed JavaScript</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid">
+
+        <a class="card" href="https://youtu.be/30LWjhZzg50?si=LFe1p1fXdGAekGiv" target="_blank" rel="noopener" data-title="TypeScript Full Course for Beginners" data-tags="typescript beginner javascript">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/30LWjhZzg50/hqdefault.jpg" alt="TypeScript" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-cyan">TypeScript</span>
+            <p class="card-title">TypeScript – Full Course for Beginners</p>
+            <p class="card-meta">▶ Watch on YouTube (Dave Gray)</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ── 08 JAVA ── -->
+    <section class="topic-section" id="java" data-section="java oop object oriented">
+      <div class="section-header">
+        <div class="section-num">08</div>
+        <div class="section-title-group">
+          <h2 class="section-title">Java</h2>
+          <span class="section-pill pill-green">Enterprise Ready</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid">
+
+        <a class="card" href="https://youtu.be/A74TOX803D0?si=dKFm5cN7e_VqxT2K" target="_blank" rel="noopener" data-title="Java Full Course for Beginners" data-tags="java beginner oop">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/A74TOX803D0/hqdefault.jpg" alt="Java Full Course" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-green">Java</span>
+            <p class="card-title">Java – Full Course for Beginners</p>
+            <p class="card-meta">▶ Watch on YouTube (Bro Code)</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ── 09 PHP ── -->
+    <section class="topic-section" id="php" data-section="php server backend web">
+      <div class="section-header">
+        <div class="section-num">09</div>
+        <div class="section-title-group">
+          <h2 class="section-title">PHP</h2>
+          <span class="section-pill pill-cyan">Server-Side Scripting</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid">
+
+        <a class="card" href="https://youtu.be/BUCiSSyIGGU?si=7VWnkKXcSlkiCt9H" target="_blank" rel="noopener" data-title="PHP Full Course for Beginners" data-tags="php beginner backend server">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/BUCiSSyIGGU/hqdefault.jpg" alt="PHP Full Course" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-cyan">PHP</span>
+            <p class="card-title">PHP – Full Course for Beginners</p>
+            <p class="card-meta">▶ Watch on YouTube (Bro Code)</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ── 10 WEB DEV ── -->
+    <section class="topic-section" id="webdev" data-section="web development html css javascript node express api">
+      <div class="section-header">
+        <div class="section-num">10</div>
+        <div class="section-title-group">
+          <h2 class="section-title">Web Development</h2>
+          <span class="section-pill pill-green">Frontend + Backend</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid">
+
+        <a class="card" href="https://youtu.be/ysEN5RaKOlA?si=pUd9VGLDLbGwqppS" target="_blank" rel="noopener" data-title="Web Development Full Course HTML CSS JavaScript" data-tags="webdev html css javascript beginner">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/ysEN5RaKOlA/hqdefault.jpg" alt="Web Dev Full Course" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-green">Web Dev</span>
+            <p class="card-title">Web Dev Full Course – HTML, CSS, JS</p>
+            <p class="card-meta">▶ Watch on YouTube (SuperSimpleDev)</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://youtu.be/Oe421EPjeBE?si=qpTfNaHjqt1Ysmve" target="_blank" rel="noopener" data-title="Node.js Express Crash Course" data-tags="webdev nodejs express backend api">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/Oe421EPjeBE/hqdefault.jpg" alt="Node Express" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-green">Web Dev</span>
+            <p class="card-title">Node.js &amp; Express Crash Course</p>
+            <p class="card-meta">▶ Watch on YouTube (Traversy Media)</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ── 11 AI / ML ── -->
+    <section class="topic-section" id="ai" data-section="ai ml machine learning artificial intelligence deep learning neural">
+      <div class="section-header">
+        <div class="section-num">11</div>
+        <div class="section-title-group">
+          <h2 class="section-title">AI / Machine Learning</h2>
+          <span class="section-pill pill-cyan">The Future</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid">
+
+        <a class="card" href="https://youtu.be/i_LwzRVP7bg?si=Rk6YOL7c7bJKLcCz" target="_blank" rel="noopener" data-title="Machine Learning Full Course for Beginners" data-tags="ai ml machine learning beginner python">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/i_LwzRVP7bg/hqdefault.jpg" alt="ML Course" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-cyan">AI / ML</span>
+            <p class="card-title">Machine Learning – Full Course</p>
+            <p class="card-meta">▶ Watch on YouTube (freeCodeCamp)</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://youtu.be/aircAruvnKk?si=BbPUgqAfkjcO96Wz" target="_blank" rel="noopener" data-title="Neural Networks Deep Learning" data-tags="ai deep learning neural network tensorflow">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/aircAruvnKk/hqdefault.jpg" alt="Neural Networks" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-cyan">AI / ML</span>
+            <p class="card-title">Neural Networks – Deep Learning</p>
+            <p class="card-meta">▶ Watch on YouTube (3Blue1Brown)</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ── 12 DATA ENGINEERING ── -->
+    <section class="topic-section" id="data" data-section="data engineering pipeline spark airflow kafka etl">
+      <div class="section-header">
+        <div class="section-num">12</div>
+        <div class="section-title-group">
+          <h2 class="section-title">Data Engineering</h2>
+          <span class="section-pill pill-green">Pipelines &amp; Scale</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid">
+
+        <a class="card" href="https://youtu.be/qWru-b6m030?si=FdJw-1rPEb3YQC25" target="_blank" rel="noopener" data-title="Data Engineering Full Course" data-tags="data engineering beginner pipeline">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/qWru-b6m030/hqdefault.jpg" alt="Data Engineering" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-green">Data Eng</span>
+            <p class="card-title">Data Engineering – Full Course</p>
+            <p class="card-meta">▶ Watch on YouTube (Data with Zach)</p>
+          </div>
+        </a>
+
+        <a class="card" href="https://youtu.be/oKKqYa5oGlE?si=3klv3mILiuqdGOaZ" target="_blank" rel="noopener" data-title="Apache Spark Tutorial for Beginners" data-tags="data spark apache bigdata">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/oKKqYa5oGlE/hqdefault.jpg" alt="Apache Spark" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-green">Data Eng</span>
+            <p class="card-title">Apache Spark – Beginner Tutorial</p>
+            <p class="card-meta">▶ Watch on YouTube (freeCodeCamp)</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ── 13 CYBERSECURITY ── -->
+    <section class="topic-section" id="cybersecurity" data-section="cybersecurity hacking security network">
+      <div class="section-header">
+        <div class="section-num">13</div>
+        <div class="section-title-group">
+          <h2 class="section-title">Cybersecurity</h2>
+          <span class="section-pill pill-green">Stay Protected</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid">
+
+        <a class="card" href="YOUTUBE_LINK_HERE" target="_blank" rel="noopener" data-title="Cybersecurity Full Course for Beginners" data-tags="cybersecurity hacking beginner security">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/VIDEO_ID/0.jpg" alt="Cybersecurity Beginners" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-green">Cybersecurity</span>
+            <p class="card-title">Cybersecurity Full Course for Beginners</p>
+            <p class="card-meta">▶ Replace VIDEO_ID &amp; YOUTUBE_LINK_HERE</p>
+          </div>
+        </a>
+
+        <a class="card" href="YOUTUBE_LINK_HERE" target="_blank" rel="noopener" data-title="Ethical Hacking Full Course" data-tags="cybersecurity ethical hacking pentest">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/VIDEO_ID/0.jpg" alt="Ethical Hacking" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-green">Cybersecurity</span>
+            <p class="card-title">Ethical Hacking – Full Course</p>
+            <p class="card-meta">▶ Replace VIDEO_ID &amp; YOUTUBE_LINK_HERE</p>
+          </div>
+        </a>
+
+        <a class="card" href="YOUTUBE_LINK_HERE" target="_blank" rel="noopener" data-title="Network Security Fundamentals" data-tags="cybersecurity network security firewall">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/VIDEO_ID/0.jpg" alt="Network Security" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-green">Cybersecurity</span>
+            <p class="card-title">Network Security Fundamentals</p>
+            <p class="card-meta">▶ Replace VIDEO_ID &amp; YOUTUBE_LINK_HERE</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ── 14 DATA ANALYTICS ── -->
+    <section class="topic-section" id="analytics" data-section="data analytics excel tableau powerbi visualization">
+      <div class="section-header">
+        <div class="section-num">14</div>
+        <div class="section-title-group">
+          <h2 class="section-title">Data Analytics</h2>
+          <span class="section-pill pill-cyan">Insights from Data</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid">
+
+        <a class="card" href="YOUTUBE_LINK_HERE" target="_blank" rel="noopener" data-title="Data Analytics Full Course for Beginners" data-tags="data analytics beginner excel">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/VIDEO_ID/0.jpg" alt="Data Analytics" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-cyan">Analytics</span>
+            <p class="card-title">Data Analytics Full Course for Beginners</p>
+            <p class="card-meta">▶ Replace VIDEO_ID &amp; YOUTUBE_LINK_HERE</p>
+          </div>
+        </a>
+
+        <a class="card" href="YOUTUBE_LINK_HERE" target="_blank" rel="noopener" data-title="Power BI Full Course Dashboard" data-tags="data analytics powerbi dashboard visualization">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/VIDEO_ID/0.jpg" alt="Power BI" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-cyan">Analytics</span>
+            <p class="card-title">Power BI – Full Dashboard Course</p>
+            <p class="card-meta">▶ Replace VIDEO_ID &amp; YOUTUBE_LINK_HERE</p>
+          </div>
+        </a>
+
+        <a class="card" href="YOUTUBE_LINK_HERE" target="_blank" rel="noopener" data-title="Python for Data Analysis Pandas NumPy" data-tags="data analytics python pandas numpy">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/VIDEO_ID/0.jpg" alt="Python Data Analysis" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-cyan">Analytics</span>
+            <p class="card-title">Python for Data Analysis – Pandas &amp; NumPy</p>
+            <p class="card-meta">▶ Replace VIDEO_ID &amp; YOUTUBE_LINK_HERE</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ── 15 DATABASE DESIGN ── -->
+    <section class="topic-section" id="dbdesign" data-section="database design schema erd normalization">
+      <div class="section-header">
+        <div class="section-num">15</div>
+        <div class="section-title-group">
+          <h2 class="section-title">Database Design</h2>
+          <span class="section-pill pill-green">Structure Your Data</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="cards-grid">
+
+        <a class="card" href="YOUTUBE_LINK_HERE" target="_blank" rel="noopener" data-title="Database Design Full Course" data-tags="database design schema beginner">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/VIDEO_ID/0.jpg" alt="Database Design" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-green">DB Design</span>
+            <p class="card-title">Database Design – Full Course</p>
+            <p class="card-meta">▶ Replace VIDEO_ID &amp; YOUTUBE_LINK_HERE</p>
+          </div>
+        </a>
+
+        <a class="card" href="YOUTUBE_LINK_HERE" target="_blank" rel="noopener" data-title="Entity Relationship Diagram ERD Tutorial" data-tags="database erd entity relationship diagram">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/VIDEO_ID/0.jpg" alt="ERD Tutorial" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-green">DB Design</span>
+            <p class="card-title">Entity Relationship Diagrams (ERD) Tutorial</p>
+            <p class="card-meta">▶ Replace VIDEO_ID &amp; YOUTUBE_LINK_HERE</p>
+          </div>
+        </a>
+
+        <a class="card" href="YOUTUBE_LINK_HERE" target="_blank" rel="noopener" data-title="Database Normalization Explained" data-tags="database normalization 1nf 2nf 3nf">
+          <div class="card-thumb">
+            <img src="https://img.youtube.com/vi/VIDEO_ID/0.jpg" alt="Database Normalization" loading="lazy" />
+            <div class="card-overlay"><span class="play-btn">▶</span></div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-green">DB Design</span>
+            <p class="card-title">Database Normalization Explained</p>
+            <p class="card-meta">▶ Replace VIDEO_ID &amp; YOUTUBE_LINK_HERE</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- No results message -->
+    <div class="no-results" id="noResults" style="display:none;">
+      <p>&gt;_ no results found for "<span id="noResultsQuery"></span>"</p>
+      <p class="no-results-sub">Try searching for: python, javascript, css, git, sql, ai</p>
+    </div>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-logo">UP<span>Skill</span>S</p>
+      <p class="footer-sub">Built for students. Curated with purpose.</p>
+      <div class="footer-line"></div>
+      <p class="footer-note">All video resources belong to their respective creators on YouTube.<br>UPSkillS is a non-commercial student project — PSU College of Engineering &amp; Architecture.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>
