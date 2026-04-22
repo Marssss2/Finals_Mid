@@ -20,9 +20,9 @@
   --cyan-glow:   rgba(0, 229, 255, 0.25);
   --green:       #00ff88;
   --green-dim:   rgba(0, 255, 136, 0.12);
-  --text:        #b8cce0;
-  --text-bright: #ddeeff;
-  --text-dim:    #445566;
+  --text:        #c8d8e8;
+  --text-bright: #6a7f96;
+  --text-dim:    #9ab4cc;
   --font:        'JetBrains Mono', monospace;
   --radius:      6px;
   --radius-lg:   10px;
@@ -576,34 +576,24 @@ main {
   transform: translateY(-3px);
 }
 
-.institution-img-placeholder {
+.institution-img {
   width: 100%;
-  height: 160px;
-  background: linear-gradient(135deg, #0c1828, #0a1520);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  position: relative;
+  height: 220px;
   overflow: hidden;
 }
-.institution-img-placeholder::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-.institution-img-placeholder img {
+
+.institution-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.3s;
 }
+
+.institution-card:hover .institution-img img {
+  transform: scale(1.03);
+}
+
 .img-placeholder-icon {
   font-size: 2.5rem;
   opacity: 0.4;
@@ -663,19 +653,25 @@ main {
 }
 .about-history p + p { margin-top: 0.6rem; }
 
-/* ── Team Grid ── */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 1rem;
 }
 
-/* 5th member — centered sa 4-col grid */
-.team-card:nth-child(5) {
-  grid-column: 2 / 4;
-  max-width: 280px;
-  margin: 0 auto;
-  width: 100%;
+.team-card:nth-child(1) { grid-column: 1 / 3; }
+.team-card:nth-child(2) { grid-column: 3 / 5; }
+.team-card:nth-child(3) { grid-column: 5 / 7; }
+.team-card:nth-child(4) { grid-column: 2 / 4; }
+.team-card:nth-child(5) { grid-column: 4 / 6; }
+
+@media (max-width: 700px) {
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .team-card:nth-child(n) { grid-column: auto; }
+}
+
+@media (max-width: 400px) {
+  .team-grid { grid-template-columns: 1fr; }
 }
 
 .team-card {
