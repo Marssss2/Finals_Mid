@@ -670,9 +670,12 @@ main {
   gap: 1rem;
 }
 
-/* 5th member — centered */
+/* 5th member — centered sa 4-col grid */
 .team-card:nth-child(5) {
   grid-column: 2 / 4;
+  max-width: 280px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .team-card {
