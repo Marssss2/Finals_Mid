@@ -631,12 +631,33 @@ main {
 
 /* ── About History ── */
 .about-history {
-  background: var(--bg-card);
+  background-color: var(--bg-card);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border: 1px solid var(--border-dim);
   border-left: 3px solid var(--cyan);
   border-radius: var(--radius);
   padding: 1.4rem 1.6rem;
   margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Dark overlay para readable yung text */
+.about-history::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 11, 17, 0.82);
+  z-index: 0;
+}
+
+/* Text above overlay */
+.about-history p,
+.about-history-title {
+  position: relative;
+  z-index: 1;
 }
 .about-history-title {
   font-size: 0.7rem;
@@ -1116,9 +1137,12 @@ footer {
 }
 .learn-card:hover::after { opacity: 1; }
 
-.learn-icon {
-  font-size: 1.6rem;
+.learn-icon img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
 }
+
 .learn-title {
   font-size: 0.82rem;
   font-weight: 700;
