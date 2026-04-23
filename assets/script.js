@@ -1,8 +1,47 @@
 // ═══════════════════════════════════════════════
-// UPSkillS — script.js (v5)
+// UPSkillS — script.js (v7)
 // ═══════════════════════════════════════════════
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  // ── MATRIX RAIN ANIMATION ─────────────────────
+  const canvas = document.getElementById('matrix-canvas');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン日本語文字コードABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&';
+    const fontSize = 14;
+    const columns = Math.floor(canvas.width / fontSize);
+    const drops = Array(columns).fill(1);
+
+    function drawMatrix() {
+      ctx.fillStyle = 'rgba(8, 11, 17, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.font = fontSize + 'px JetBrains Mono, monospace';
+
+      for (let i = 0; i < drops.length; i++) {
+        const char = chars[Math.floor(Math.random() * chars.length)];
+        ctx.fillStyle = Math.random() > 0.95 ? '#00ff88' : '#00e5ff';
+        ctx.globalAlpha = Math.random() * 0.6 + 0.3;
+        ctx.fillText(char, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+
+    setInterval(drawMatrix, 50);
+  }
 
   // ── 1. LOADING SCREEN ─────────────────────────
   const loader = document.getElementById('loader');
@@ -71,15 +110,15 @@ document.addEventListener('DOMContentLoaded', () => {
   if (header) {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 60) {
-        header.style.position   = 'sticky';
-        header.style.top        = '0';
-        header.style.background = 'rgba(8,11,17,0.95)';
+        header.style.position       = 'sticky';
+        header.style.top            = '0';
+        header.style.background     = 'rgba(8,11,17,0.95)';
         header.style.backdropFilter = 'blur(12px)';
         header.style.borderBottom   = '1px solid #1a2438';
         header.style.paddingBottom  = '0.8rem';
-        header.style.zIndex    = '100';
+        header.style.zIndex         = '100';
       } else {
-        header.style.background = '';
+        header.style.background     = '';
         header.style.backdropFilter = '';
         header.style.borderBottom   = '';
         header.style.paddingBottom  = '';

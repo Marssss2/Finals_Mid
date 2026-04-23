@@ -22,6 +22,7 @@
 
   <!-- ── GRID BACKGROUND ── -->
   <div class="bg-grid" aria-hidden="true"></div>
+  <canvas id="matrix-canvas"></canvas>
 
   <!-- ══════════════════════════════════════════
        HEADER
@@ -133,49 +134,42 @@
     <div class="learn-grid">
 
       <div class="learn-card">
-        <div class="learn-icon">🐍</div>
         <div class="learn-title">Programming Languages</div>
         <div class="learn-desc">Master Python, JavaScript, Java, C/C++, TypeScript, PHP and more — from beginner-friendly syntax to advanced OOP and real-world applications.</div>
       </div>
 
       <div class="learn-card">
-        <div class="learn-icon">🌐</div>
         <div class="learn-title">Web Development</div>
         <div class="learn-desc">Build modern websites and full-stack apps. Cover HTML, CSS, responsive design, REST APIs, Node.js, and frontend/backend architecture.</div>
       </div>
 
       <div class="learn-card">
-        <div class="learn-icon">🗄</div>
         <div class="learn-title">Databases & SQL</div>
         <div class="learn-desc">Learn relational databases, write efficient SQL queries, design schemas, and understand normalization — essential for every developer.</div>
       </div>
 
       <div class="learn-card">
-        <div class="learn-icon">🤖</div>
         <div class="learn-title">AI & Machine Learning</div>
         <div class="learn-desc">Explore machine learning fundamentals, neural networks, and hands-on tools like scikit-learn and TensorFlow. No PhD required.</div>
       </div>
 
       <div class="learn-card">
-        <div class="learn-icon">📊</div>
         <div class="learn-title">Data Engineering & Analytics</div>
         <div class="learn-desc">Go from raw data to insights. Build pipelines with Airflow and Spark, visualize with Power BI, and analyze with Pandas and NumPy.</div>
       </div>
 
       <div class="learn-card">
-        <div class="learn-icon">🔒</div>
         <div class="learn-title">Cybersecurity</div>
         <div class="learn-desc">Understand threats, ethical hacking fundamentals, network security, and how to protect systems — a must-know for all tech professionals.</div>
       </div>
 
       <div class="learn-card">
-        <div class="learn-icon">🔀</div>
         <div class="learn-title">Git & Version Control</div>
         <div class="learn-desc">Learn branching, merging, pull requests, and collaborative workflows with Git and GitHub — the backbone of any software project.</div>
       </div>
 
       <div class="learn-card">
-        <div class="learn-icon">🗺</div>
+
         <div class="learn-title">Structured Learning Paths</div>
         <div class="learn-desc">Don't know where to start? Follow curated roadmaps — Web Dev, Data Engineering, and Full Stack — that guide you step by step toward your goal.</div>
       </div>
@@ -323,7 +317,11 @@
           students can find the best YouTube tutorials for every major programming topic — without the noise.
         </p>
         <p>
-          [ Add your group's background, project origin story, or course context here. ]
+          We are Computer Engineering students from Pampanga State University (formerly Don Honorio Ventura State University), brought together by a shared goal of developing a meaningful web-based learning platform. Although we each have different strengths and areas of specialization, we combined our skills to successfully build this project.
+
+Angelo Abe Marasigan is passionate about databases, with strong interests in SQL and Python development, while Jesson Franco Flores focuses on cybersecurity and networking, ensuring system security and connectivity awareness. Art Vincent Icban is dedicated to research and documentation, contributing valuable insights for the project’s structure and content, while Christian Danico De Guzman shares the same passion for research and system analysis, helping improve the overall design and logic of the platform. Noel Mark Manalo excels in debugging and web development, ensuring that the system runs smoothly and functions properly.
+
+Despite our differences in expertise, we worked collaboratively as one team, combining our knowledge and skills to create a simple yet efficient platform that aims to help students access and learn programming resources more effectively.context here.
         </p>
       </div>
 
@@ -397,5 +395,33 @@
   </footer>
 
   <script src="assets/js/script.js"></script>
+  <script>
+    // Direct matrix test
+    const canvas = document.getElementById('matrix-canvas');
+    console.log('Canvas:', canvas);
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const chars = '01ABCDEFGHIJKLMNOP';
+      const fontSize = 14;
+      const columns = Math.floor(canvas.width / fontSize);
+      const drops = Array(columns).fill(1);
+      function drawMatrix() {
+        ctx.fillStyle = 'rgba(8,11,17,0.05)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.font = fontSize + 'px monospace';
+        for (let i = 0; i < drops.length; i++) {
+          const char = chars[Math.floor(Math.random() * chars.length)];
+          ctx.fillStyle = '#00e5ff';
+          ctx.globalAlpha = 0.5;
+          ctx.fillText(char, i * fontSize, drops[i] * fontSize);
+          if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+          drops[i]++;
+        }
+      }
+      setInterval(drawMatrix, 50);
+    }
+  </script>
 </body>
 </html>

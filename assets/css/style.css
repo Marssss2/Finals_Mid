@@ -22,7 +22,7 @@
   --green-dim:   rgba(0, 255, 136, 0.12);
   --text:        #c8d8e8;
   --text-bright: #6a7f96;
-  --text-dim:    #9ab4cc;
+  --text-dim:    #b8cfd8;
   --font:        'JetBrains Mono', monospace;
   --radius:      6px;
   --radius-lg:   10px;
@@ -35,7 +35,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font);
-  font-size: 13px;
+  font-size: 20px;
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -171,7 +171,7 @@ header {
   justify-content: flex-end;
 }
 .nav-topics a {
-  font-size: 0.58rem;
+  font-size: 0.65rem;
   color: var(--text-dim);
   padding: 3px 8px;
   border-radius: 3px;
@@ -189,7 +189,7 @@ header {
 
 .tagline {
   margin-top: 0.9rem;
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   color: var(--text-dim);
   letter-spacing: 0.04em;
 }
@@ -994,12 +994,28 @@ footer {
 }
 
 .roadmap-card {
-  background: var(--bg-card);
+  background-color: var(--bg-card);
+  background-size: cover;
+  background-position: center;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 1.4rem;
   transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
 }
+.roadmap-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 11, 17, 0.80);
+  z-index: 0;
+}
+.roadmap-card > * {
+  position: relative;
+  z-index: 1;
+}
+
 .roadmap-card:hover {
   border-color: var(--cyan);
   transform: translateY(-3px);
@@ -1342,4 +1358,17 @@ footer {
   color: var(--text-dim);
   max-width: 560px;
   line-height: 1.9;
+}
+/* ══════════════════════════════════════════════
+   MATRIX RAIN CANVAS BACKGROUND
+══════════════════════════════════════════════ */
+#matrix-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.5;
+  pointer-events: none;
 }
