@@ -857,7 +857,31 @@
     </div>
   </footer>
 
-  <script src="../assets/js/script.js"></script>
-  
+<script src="../assets/js/script.js"></script>
+  <script>
+    window.onload = function() {
+      const c = document.getElementById('matrix-canvas');
+      if (!c) { console.log('NO CANVAS'); return; }
+      const x = c.getContext('2d');
+      c.width = window.innerWidth;
+      c.height = window.innerHeight;
+      const ch = '01アイウエカキクABCDEF';
+      const fs = 14;
+      const cols = Math.floor(c.width / fs);
+      const dr = Array(cols).fill(1);
+      setInterval(() => {
+        x.fillStyle = 'rgba(8,11,17,0.05)';
+        x.fillRect(0,0,c.width,c.height);
+        x.font = fs + 'px monospace';
+        dr.forEach((d,i) => {
+          x.fillStyle = Math.random() > 0.95 ? '#00ff88' : '#00e5ff';
+          x.globalAlpha = 0.7;
+          x.fillText(ch[Math.floor(Math.random()*ch.length)], i*fs, d*fs);
+          if (d*fs > c.height && Math.random() > 0.975) dr[i] = 0;
+          dr[i]++;
+        });
+      }, 50);
+    };
+  </script>
 </body>
 </html>
