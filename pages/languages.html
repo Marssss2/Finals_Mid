@@ -7,6 +7,33 @@
   <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
+    <!-- Progress Tracker -->
+  <div class="progress-tracker" id="progressTracker">
+    <div class="progress-label">&gt;_ PROGRESS</div>
+    <div class="progress-counter" id="progressCounter">0</div>
+    <div class="progress-total">/ 15 topics</div>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progressBarFill" style="width:0%"></div>
+    </div>
+    <button class="progress-toggle" id="progressToggle" onclick="toggleProgressList()">▾ show topics</button>
+    <div class="progress-topics collapsed" id="progressTopics">
+      <div class="progress-topic-item" id="pt-python"><span class="progress-dot"></span>Python</div>
+      <div class="progress-topic-item" id="pt-javascript"><span class="progress-dot"></span>JavaScript</div>
+      <div class="progress-topic-item" id="pt-css"><span class="progress-dot"></span>CSS</div>
+      <div class="progress-topic-item" id="pt-git"><span class="progress-dot"></span>Git</div>
+      <div class="progress-topic-item" id="pt-sql"><span class="progress-dot"></span>SQL</div>
+      <div class="progress-topic-item" id="pt-cpp"><span class="progress-dot"></span>C/C++</div>
+      <div class="progress-topic-item" id="pt-typescript"><span class="progress-dot"></span>TypeScript</div>
+      <div class="progress-topic-item" id="pt-java"><span class="progress-dot"></span>Java</div>
+      <div class="progress-topic-item" id="pt-php"><span class="progress-dot"></span>PHP</div>
+      <div class="progress-topic-item" id="pt-webdev"><span class="progress-dot"></span>Web Dev</div>
+      <div class="progress-topic-item" id="pt-ai"><span class="progress-dot"></span>AI / ML</div>
+      <div class="progress-topic-item" id="pt-data"><span class="progress-dot"></span>Data Eng</div>
+      <div class="progress-topic-item" id="pt-cybersecurity"><span class="progress-dot"></span>Cybersecurity</div>
+      <div class="progress-topic-item" id="pt-analytics"><span class="progress-dot"></span>Analytics</div>
+      <div class="progress-topic-item" id="pt-dbdesign"><span class="progress-dot"></span>DB Design</div>
+    </div>
+  </div>
 
   <!-- ── LOADING SCREEN ── -->
   <div class="loader" id="loader">
@@ -1175,7 +1202,45 @@
     document.getElementById('quizOverlay').addEventListener('click', function(e) {
       if (e.target === this) closeQuiz();
     });
+          // ── PROGRESS TRACKER ──────────────────────────00
+      const TOPICS = ['python','javascript','css','git','sql','cpp','typescript','java','php','webdev','ai','data','cybersecurity','analytics','dbdesign'];
 
+      function updateProgress() {
+        const completed = TOPICS.filter(t => localStorage.getItem('cert_' + t) === 'done');
+        const count = completed.length;
+        document.getElementById('progressCounter').textContent = count;
+        document.getElementById('progressBarFill').style.width = ((count / 15) * 100) + '%';
+        TOPICS.forEach(t => {
+          const el = document.getElementById('pt-' + t);
+          if (el) {
+            if (localStorage.getItem('cert_' + t) === 'done') {
+              el.classList.add('done');
+            } else {
+              el.classList.remove('done');
+            }
+          }
+        });
+      }
+
+      function toggleProgressList() {
+        const list = document.getElementById('progressTopics');
+        const btn = document.getElementById('progressToggle');
+        list.classList.toggle('collapsed');
+        btn.textContent = list.classList.contains('collapsed') ? '▾ show topics' : '▴ hide topics';
+      }
+
+      // I-update ang progress kapag nakakuha ng certificate
+      const _origDownload = downloadCertificate;
+      window.downloadCertificate = function() {
+        _origDownload();
+        if (currentTopic) {
+          localStorage.setItem('cert_' + currentTopic, 'done');
+          updateProgress();
+        }
+      }
+
+      // I-load ang progress sa start
+      updateProgress();
   </script>
 
 </body>
