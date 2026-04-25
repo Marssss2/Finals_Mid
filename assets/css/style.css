@@ -1664,3 +1664,20 @@ footer {
   white-space: nowrap;
 }
 .header-greeting span { color: #00e5ff; }
+
+/* ══════════════════════════════════════════
+   VIDEO HOVER PREVIEW
+══════════════════════════════════════════ */
+.card-thumb iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  border: none;
+}
+.card:hover .card-thumb iframe { opacity: 1; }
+.card:hover .card-thumb img { opacity: 0; transition: opacity 0.3s; }
+.card:hover .card-overlay { opacity: 0; }
