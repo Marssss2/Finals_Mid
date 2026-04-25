@@ -1294,6 +1294,32 @@
 
       // I-load ang progress sa start
       updateProgress();
+
+    
+// ── OPTIMIZED LAZY LOAD IFRAMES ──────────────
+      document.querySelectorAll('.card').forEach(card => {
+        const iframe = card.querySelector('iframe');
+        if (!iframe) return;
+        
+        const src = iframe.getAttribute('src');
+        iframe.removeAttribute('src'); // alisin muna
+
+        // Mag-load lang ng iframe kapag nag-hover
+        card.addEventListener('mouseenter', () => {
+          if (!iframe.getAttribute('src')) {
+            iframe.setAttribute('src', src);
+          }
+        });
+
+        // I-unload kapag nag-hover out
+        card.addEventListener('mouseleave', () => {
+          iframe.removeAttribute('src');
+        });
+      });
+      // ── DISABLE ALL IFRAMES ──────────────
+      document.querySelectorAll('iframe').forEach(iframe => {
+        iframe.remove();
+      });
   </script>
 
 </body>
