@@ -156,4 +156,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-});
+  });
+  function downloadFormCertificate() {
+    const name = document.getElementById('formCertNameInput').value.trim();
+    if (!name) { alert('Please enter your full name!'); return; }
+    
+    // I-store ang name para sa certificate
+    const certNameInput = document.getElementById('certNameInput');
+    if (certNameInput) certNameInput.value = name;
+    
+    // I-close ang form modal
+    document.getElementById('formCertOverlay').classList.remove('active');
+    
+    // I-generate ang certificate
+    score = 5; // perfect score para sa form completers
+    downloadCertificate();
+  }

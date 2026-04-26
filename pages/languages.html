@@ -183,7 +183,7 @@
         </a>
 
       </div>
-      <button class="btn-certificate" onclick="openQuiz('python')">🎓 Get Certificate</button>
+      <button class="btn-certificate" onclick="openFormCert('python', 'https://docs.google.com/forms/d/e/1FAIpQLSdjCc9aDkAC22Ox9IbRyl5UQzguo3LZSRq8Yb-D6nhg8qFjbQ/viewform')">🎓 Get Certificate</button>
     </section>
 
     <!-- ── 02 JAVASCRIPT ── -->
@@ -238,7 +238,7 @@
         </a>
 
       </div>
-      <button class="btn-certificate" onclick="openQuiz('javascript')">🎓 Get Certificate</button>
+      <button class="btn-certificate" onclick="openFormCert('javascript', 'https://docs.google.com/forms/d/e/1FAIpQLScKU6G6SEbiyHHXpBkwBCF20kvXQCfUW336xPLVT_FbkIY0iw/viewform')">🎓 Get Certificate</button>
     </section>
 
     <!-- ── 03 CSS ── -->
@@ -988,7 +988,20 @@
       </div>
     </div>
   </div>
-
+  <!-- Form Certificate Modal -->
+  <div class="upskills-overlay" id="formCertOverlay">
+    <div class="upskills-modal">
+      <button class="modal-close" onclick="document.getElementById('formCertOverlay').classList.remove('active')">✕</button>
+      <div class="modal-label">&gt;_ certificate unlock</div>
+      <h2 class="modal-title">Almost There! 🎓</h2>
+      <p class="modal-subtitle">Complete the Google Form that opened in a new tab, then come back here to download your certificate.</p>
+      <div class="cert-name-group" style="margin-top: 20px;">
+        <label class="cert-name-label">&gt;_ enter your full name for the certificate:</label>
+        <input type="text" class="cert-name-input" id="formCertNameInput" placeholder="e.g. Angelo Abe Marasigan" maxlength="60" />
+      </div>
+      <button class="btn-download-cert" onclick="downloadFormCertificate()">🎓 Download Certificate</button>
+    </div>
+  </div>
   <!-- Hidden canvas for certificate -->
   <canvas id="certCanvas" style="display:none"></canvas>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -1016,115 +1029,6 @@
           dr[i]++;
         });
       }, 50);
-    };
-
-
-    const QUIZ_DATA = {
-      python: { label: 'Python', questions: [
-        { q: 'What is the correct way to declare a variable in Python?', options: ['var x = 5', 'x = 5', 'int x = 5', 'declare x = 5'], answer: 1 },
-        { q: 'Which of the following is used to define a function in Python?', options: ['function', 'def', 'func', 'define'], answer: 1 },
-        { q: 'What does the len() function do?', options: ['Returns the last element', 'Returns the length of an object', 'Deletes a list', 'Sorts a list'], answer: 1 },
-        { q: 'Which data type is mutable in Python?', options: ['tuple', 'string', 'list', 'int'], answer: 2 },
-        { q: 'What is the output of: print(2 ** 3)?', options: ['6', '8', '9', '5'], answer: 1 },
-      ]},
-      javascript: { label: 'JavaScript', questions: [
-        { q: 'Which keyword is used to declare a constant in JavaScript?', options: ['var', 'let', 'const', 'static'], answer: 2 },
-        { q: 'What does DOM stand for?', options: ['Data Object Model', 'Document Object Model', 'Display Output Method', 'Dynamic Object Manipulation'], answer: 1 },
-        { q: 'Which method adds an element to the end of an array?', options: ['push()', 'pop()', 'shift()', 'append()'], answer: 0 },
-        { q: 'What is the correct way to write a comment in JavaScript?', options: ['# comment', '<!-- comment -->', '// comment', '** comment'], answer: 2 },
-        { q: 'What does === check in JavaScript?', options: ['Value only', 'Type only', 'Value and type', 'Neither'], answer: 2 },
-      ]},
-      css: { label: 'CSS', questions: [
-        { q: 'Which property changes the text color in CSS?', options: ['text-color', 'font-color', 'color', 'foreground'], answer: 2 },
-        { q: 'What does CSS stand for?', options: ['Creative Style Sheets', 'Cascading Style Sheets', 'Computer Style Syntax', 'Colorful Style System'], answer: 1 },
-        { q: 'Which unit is relative to the viewport width?', options: ['px', 'em', 'vw', 'rem'], answer: 2 },
-        { q: 'Which property is used to add space inside an element?', options: ['margin', 'padding', 'spacing', 'border'], answer: 1 },
-        { q: 'What value of display makes an element a flex container?', options: ['block', 'inline', 'flex', 'grid'], answer: 2 },
-      ]},
-      git: { label: 'Git', questions: [
-        { q: 'Which command initializes a new Git repository?', options: ['git start', 'git init', 'git new', 'git create'], answer: 1 },
-        { q: 'What does git commit do?', options: ['Uploads to GitHub', 'Saves a snapshot of staged changes', 'Deletes a branch', 'Merges branches'], answer: 1 },
-        { q: 'Which command shows the current status of the working directory?', options: ['git log', 'git diff', 'git status', 'git show'], answer: 2 },
-        { q: 'What is a "branch" in Git?', options: ['A backup of the repo', 'A separate line of development', 'A deleted commit', 'A remote server'], answer: 1 },
-        { q: 'Which command pushes changes to a remote repository?', options: ['git send', 'git upload', 'git push', 'git deploy'], answer: 2 },
-      ]},
-      sql: { label: 'SQL', questions: [
-        { q: 'Which SQL statement is used to retrieve data?', options: ['GET', 'FETCH', 'SELECT', 'PULL'], answer: 2 },
-        { q: 'What does WHERE clause do?', options: ['Sorts results', 'Filters rows based on a condition', 'Groups rows', 'Joins tables'], answer: 1 },
-        { q: 'Which keyword removes duplicate values in a SELECT query?', options: ['UNIQUE', 'DISTINCT', 'FILTER', 'REMOVE'], answer: 1 },
-        { q: 'What is a PRIMARY KEY?', options: ['A key that can be null', 'A unique identifier for each row', 'A foreign reference', 'An index column'], answer: 1 },
-        { q: 'Which JOIN returns all rows from both tables?', options: ['INNER JOIN', 'LEFT JOIN', 'RIGHT JOIN', 'FULL OUTER JOIN'], answer: 3 },
-      ]},
-      cpp: { label: 'C/C++', questions: [
-        { q: 'What is the correct syntax to output text in C++?', options: ['print("Hello")', 'echo "Hello"', 'cout << "Hello"', 'printf["Hello"]'], answer: 2 },
-        { q: 'Which symbol is used to access a member of a pointer in C++?', options: ['.', '::', '->', '=>'], answer: 2 },
-        { q: 'What does #include do?', options: ['Defines a function', 'Imports a library/header file', 'Declares a variable', 'Starts the main function'], answer: 1 },
-        { q: 'Which data type stores a single character in C++?', options: ['string', 'char', 'letter', 'byte'], answer: 1 },
-        { q: 'What is the entry point of a C++ program?', options: ['start()', 'run()', 'main()', 'init()'], answer: 2 },
-      ]},
-      typescript: { label: 'TypeScript', questions: [
-        { q: 'TypeScript is a superset of which language?', options: ['Python', 'Java', 'JavaScript', 'C#'], answer: 2 },
-        { q: 'How do you declare a typed variable in TypeScript?', options: ['let x = string', 'let x: string', 'string x', 'var x as string'], answer: 1 },
-        { q: 'What does an interface define in TypeScript?', options: ['A class implementation', 'A function body', 'The shape/structure of an object', 'A module'], answer: 2 },
-        { q: 'Which TypeScript type allows any value?', options: ['unknown', 'any', 'object', 'void'], answer: 1 },
-        { q: 'What is the file extension of a TypeScript file?', options: ['.js', '.tsx', '.ts', '.type'], answer: 2 },
-      ]},
-      java: { label: 'Java', questions: [
-        { q: 'Which keyword is used to create an object in Java?', options: ['create', 'new', 'make', 'object'], answer: 1 },
-        { q: 'What is the main method signature in Java?', options: ['public void main()', 'public static void main(String[] args)', 'static main()', 'void start()'], answer: 1 },
-        { q: 'Which of these is NOT a primitive type in Java?', options: ['int', 'boolean', 'String', 'double'], answer: 2 },
-        { q: 'What does OOP stand for?', options: ['Object Oriented Programming', 'Open Output Processing', 'Ordered Object Parsing', 'Optional Output Parameter'], answer: 0 },
-        { q: 'Which keyword prevents a method from being overridden?', options: ['static', 'final', 'private', 'abstract'], answer: 1 },
-      ]},
-      php: { label: 'PHP', questions: [
-        { q: 'How do you start a PHP block?', options: ['<php>', '<?php', '<script php>', '[php]'], answer: 1 },
-        { q: 'Which symbol starts a variable in PHP?', options: ['@', '#', '$', '&'], answer: 2 },
-        { q: 'Which function outputs text in PHP?', options: ['print_text()', 'display()', 'echo', 'write()'], answer: 2 },
-        { q: 'Which superglobal holds form POST data?', options: ['$_GET', '$_SESSION', '$_POST', '$_FORM'], answer: 2 },
-        { q: 'How do you concatenate strings in PHP?', options: ['+', '&', '.', ','], answer: 2 },
-      ]},
-      webdev: { label: 'Web Dev', questions: [
-        { q: 'What does HTML stand for?', options: ['Hyper Text Markup Language', 'High Text Machine Language', 'Hyper Transfer Markup Logic', 'Home Tool Markup Language'], answer: 0 },
-        { q: 'Which HTTP method is used to send data to a server?', options: ['GET', 'POST', 'FETCH', 'SEND'], answer: 1 },
-        { q: 'What is a REST API?', options: ['A database type', 'A design architecture for web services', 'A CSS framework', 'A JavaScript library'], answer: 1 },
-        { q: 'Which tag is used to link a CSS file in HTML?', options: ['<style>', '<css>', '<link>', '<script>'], answer: 2 },
-        { q: 'What does "responsive design" mean?', options: ['Fast loading website', 'Layout adapts to different screen sizes', 'Site responds to voice commands', 'Backend responds quickly'], answer: 1 },
-      ]},
-      ai: { label: 'AI / ML', questions: [
-        { q: 'What does ML stand for?', options: ['Multiple Logic', 'Machine Learning', 'Model Language', 'Mathematical Loop'], answer: 1 },
-        { q: 'Which type of learning uses labeled data?', options: ['Unsupervised', 'Reinforcement', 'Supervised', 'Transfer'], answer: 2 },
-        { q: 'What is a neural network inspired by?', options: ['Computer circuits', 'The human brain', 'Statistical models', 'Database schemas'], answer: 1 },
-        { q: 'What is overfitting in ML?', options: ['Model performs well on training but poorly on new data', 'Model is too simple', 'Model trains too slowly', 'Model has too few parameters'], answer: 0 },
-        { q: 'Which library is commonly used for ML in Python?', options: ['NumPy only', 'Django', 'scikit-learn', 'Flask'], answer: 2 },
-      ]},
-      data: { label: 'Data Engineering', questions: [
-        { q: 'What is an ETL pipeline?', options: ['Encrypt, Transfer, Log', 'Extract, Transform, Load', 'Execute, Test, Launch', 'Edit, Tag, Link'], answer: 1 },
-        { q: 'Which tool is commonly used for big data processing?', options: ['Microsoft Word', 'Apache Spark', 'Photoshop', 'Git'], answer: 1 },
-        { q: 'What is a data warehouse?', options: ['A physical storage room', 'A system for analytical querying of structured data', 'A NoSQL database', 'A file server'], answer: 1 },
-        { q: 'Which format is commonly used for data exchange?', options: ['DOC', 'JSON', 'EXE', 'DLL'], answer: 1 },
-        { q: 'What does Apache Airflow do?', options: ['Stores data', 'Visualizes dashboards', 'Orchestrates and schedules data pipelines', 'Encrypts files'], answer: 2 },
-      ]},
-      cybersecurity: { label: 'Cybersecurity', questions: [
-        { q: 'What is phishing?', options: ['A type of encryption', 'A social engineering attack to steal credentials', 'A firewall rule', 'A network protocol'], answer: 1 },
-        { q: 'What does HTTPS stand for?', options: ['Hyper Text Transfer Protocol Secure', 'High Traffic Transfer Protocol System', 'Hyper Text Transport Protocol Standard', 'Home Transfer Protocol Secure'], answer: 0 },
-        { q: 'What is a firewall?', options: ['An antivirus program', 'A network security system that monitors traffic', 'A type of malware', 'A password manager'], answer: 1 },
-        { q: 'Which attack floods a server with traffic to make it unavailable?', options: ['Phishing', 'SQL Injection', 'DDoS', 'Brute Force'], answer: 2 },
-        { q: 'What is two-factor authentication (2FA)?', options: ['Using two passwords', 'Verifying identity with two different methods', 'Logging in from two devices', 'Encrypting data twice'], answer: 1 },
-      ]},
-      analytics: { label: 'Analytics', questions: [
-        { q: 'What is a KPI?', options: ['Key Performance Indicator', 'Known Process Interface', 'Kernel Process Index', 'Key Program Input'], answer: 0 },
-        { q: 'Which tool is popular for data visualization?', options: ['Git', 'Power BI', 'VS Code', 'Docker'], answer: 1 },
-        { q: 'What does a pivot table do?', options: ['Rotates the screen', 'Summarizes and reorganizes data', 'Deletes duplicate rows', 'Sorts alphabetically'], answer: 1 },
-        { q: 'What is mean in statistics?', options: ['The most frequent value', 'The middle value', 'The average of all values', 'The highest value'], answer: 2 },
-        { q: 'Which Python library is used for data manipulation?', options: ['Flask', 'Pandas', 'Django', 'Pygame'], answer: 1 },
-      ]},
-      dbdesign: { label: 'DB Design', questions: [
-        { q: 'What is normalization in database design?', options: ['Speeding up queries', 'Organizing data to reduce redundancy', 'Encrypting data', 'Backing up the database'], answer: 1 },
-        { q: 'What is a foreign key?', options: ['A key from another country', 'A field that references the primary key of another table', 'A duplicate primary key', 'An encrypted key'], answer: 1 },
-        { q: 'What does ERD stand for?', options: ['Entity Relationship Diagram', 'External Reference Database', 'Event Record Display', 'Encoded Relational Data'], answer: 0 },
-        { q: 'Which normal form eliminates transitive dependencies?', options: ['1NF', '2NF', '3NF', 'BCNF'], answer: 2 },
-        { q: 'What is an index in a database?', options: ['A backup file', 'A data structure that speeds up data retrieval', 'A type of join', 'A primary key constraint'], answer: 1 },
-      ]},
     };
 
     let currentTopic = null, currentQuestionIndex = 0, score = 0, answered = false, quizQuestions = [];
@@ -1320,6 +1224,14 @@
       document.querySelectorAll('iframe').forEach(iframe => {
         iframe.remove();
       });
+      // ── GOOGLE FORM CERT FLOW ──────────────
+      function openFormCert(topic, formUrl) {
+        currentTopic = topic;
+        window.open(formUrl, '_blank');
+        
+        // Ipakita ang modal para sa certificate download
+        document.getElementById('formCertOverlay').classList.add('active');
+      }
   </script>
 
 </body>
