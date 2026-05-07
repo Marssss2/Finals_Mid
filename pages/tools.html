@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UPSkillS — Tools & Setup Guide</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+
+  <!-- LOADING SCREEN -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">UP<span>Skill</span>S</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+      <p class="loader-text">&gt;_ loading tools...</p>
+    </div>
+  </div>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- GRID BG -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- HEADER -->
+  <header id="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">UP<span>Skill</span>S</a>
+      <nav class="nav-topics">
+        <a href="../index.html">Home</a>
+        <a href="languages.html">Languages</a>
+        <a href="roadmap.html">Roadmaps</a>
+        <a href="tools.html" class="active">Tools</a>
+        <a href="../index.html#about">About</a>
+      </nav>
+    </div>
+    <p class="tagline">&gt;_ Upgrade your skills. One resource at a time.</p>
+    <div class="header-line"></div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-badge">&gt;_ getting started</div>
+    <h1 class="page-hero-title">Tools &amp; <span>Setup Guide</span></h1>
+    <p class="page-hero-desc">Before you start learning, you need the right tools. Here's everything you need to install and set up your development environment — with download links and quick guides.</p>
+  </div>
+
+  <!-- MAIN -->
+  <main id="main-content">
+
+    <!-- 01 CODE EDITORS -->
+    <section class="topic-section" id="editors">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-title-group">
+          <h2 class="section-title">Code Editors</h2>
+          <span class="section-pill pill-cyan">Start Here</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <p class="tools-section-desc">A code editor is where you write your code. Pick one and stick with it.</p>
+      <div class="tools-grid">
+
+        <div class="tool-card recommended">
+          <div class="tool-header">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" class="tool-icon" />
+            <div>
+              <p class="tool-name">Visual Studio Code</p>
+              <span class="tool-badge badge-green">Recommended</span>
+            </div>
+          </div>
+          <p class="tool-desc">The most popular free code editor. Supports every language, has thousands of extensions, and runs on Windows, Mac, and Linux.</p>
+          <div class="tool-tags">
+            <span class="tool-tag">Python</span>
+            <span class="tool-tag">JavaScript</span>
+            <span class="tool-tag">Web Dev</span>
+            <span class="tool-tag">All Languages</span>
+          </div>
+          <a href="https://code.visualstudio.com/download" target="_blank" rel="noopener" class="tool-btn">⬇ Download VS Code</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pycharm/pycharm-original.svg" alt="PyCharm" class="tool-icon" />
+            <div>
+              <p class="tool-name">PyCharm</p>
+              <span class="tool-badge badge-cyan">Python Only</span>
+            </div>
+          </div>
+          <p class="tool-desc">The best IDE specifically for Python. Has powerful debugging, code completion, and project management tools built-in.</p>
+          <div class="tool-tags">
+            <span class="tool-tag">Python</span>
+            <span class="tool-tag">Data Science</span>
+            <span class="tool-tag">AI/ML</span>
+          </div>
+          <a href="https://www.jetbrains.com/pycharm/download/" target="_blank" rel="noopener" class="tool-btn">⬇ Download PyCharm</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" alt="IntelliJ" class="tool-icon" />
+            <div>
+              <p class="tool-name">IntelliJ IDEA</p>
+              <span class="tool-badge badge-cyan">Java / Kotlin</span>
+            </div>
+          </div>
+          <p class="tool-desc">The industry-standard IDE for Java development. Powerful smart code completion and analysis tools for enterprise development.</p>
+          <div class="tool-tags">
+            <span class="tool-tag">Java</span>
+            <span class="tool-tag">Kotlin</span>
+            <span class="tool-tag">Spring Boot</span>
+          </div>
+          <a href="https://www.jetbrains.com/idea/download/" target="_blank" rel="noopener" class="tool-btn">⬇ Download IntelliJ</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 02 RUNTIME ENVIRONMENTS -->
+    <section class="topic-section" id="runtimes">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-title-group">
+          <h2 class="section-title">Runtime Environments</h2>
+          <span class="section-pill pill-green">Required</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <p class="tools-section-desc">Runtimes let your computer actually run code. Install the ones for the languages you're learning.</p>
+      <div class="tools-grid">
+
+        <div class="tool-card recommended">
+          <div class="tool-header">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="tool-icon" />
+            <div>
+              <p class="tool-name">Python</p>
+              <span class="tool-badge badge-green">Recommended</span>
+            </div>
+          </div>
+          <p class="tool-desc">The most beginner-friendly programming language. Required for Python, Data Engineering, AI/ML, and Data Analytics tracks.</p>
+          <div class="tool-tags">
+            <span class="tool-tag">Python</span>
+            <span class="tool-tag">AI/ML</span>
+            <span class="tool-tag">Data Eng</span>
+            <span class="tool-tag">Analytics</span>
+          </div>
+          <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="tool-btn">⬇ Download Python</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="tool-icon" />
+            <div>
+              <p class="tool-name">Node.js</p>
+              <span class="tool-badge badge-cyan">JavaScript</span>
+            </div>
+          </div>
+          <p class="tool-desc">Lets you run JavaScript outside the browser. Required for backend development with Node.js and Express.</p>
+          <div class="tool-tags">
+            <span class="tool-tag">JavaScript</span>
+            <span class="tool-tag">Web Dev</span>
+            <span class="tool-tag">Backend</span>
+          </div>
+          <a href="https://nodejs.org/en/download" target="_blank" rel="noopener" class="tool-btn">⬇ Download Node.js</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="tool-icon" />
+            <div>
+              <p class="tool-name">Java JDK</p>
+              <span class="tool-badge badge-cyan">Java</span>
+            </div>
+          </div>
+          <p class="tool-desc">Java Development Kit — required to write and run Java programs. Download JDK 17 LTS for the latest stable version.</p>
+          <div class="tool-tags">
+            <span class="tool-tag">Java</span>
+            <span class="tool-tag">Spring Boot</span>
+            <span class="tool-tag">Android</span>
+          </div>
+          <a href="https://www.oracle.com/java/technologies/downloads/" target="_blank" rel="noopener" class="tool-btn">⬇ Download Java JDK</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 03 VERSION CONTROL -->
+    <section class="topic-section" id="versioncontrol">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-title-group">
+          <h2 class="section-title">Version Control</h2>
+          <span class="section-pill pill-cyan">Must Have</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <p class="tools-section-desc">Version control lets you track changes in your code and collaborate with others. Every developer needs Git.</p>
+      <div class="tools-grid">
+
+        <div class="tool-card recommended">
+          <div class="tool-header">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="tool-icon" />
+            <div>
+              <p class="tool-name">Git</p>
+              <span class="tool-badge badge-green">Recommended</span>
+            </div>
+          </div>
+          <p class="tool-desc">The industry standard for version control. Track changes, create branches, and collaborate on any project. Free and open source.</p>
+          <div class="tool-tags">
+            <span class="tool-tag">All Languages</span>
+            <span class="tool-tag">Collaboration</span>
+            <span class="tool-tag">Open Source</span>
+          </div>
+          <a href="https://git-scm.com/downloads" target="_blank" rel="noopener" class="tool-btn">⬇ Download Git</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub Desktop" class="tool-icon" style="filter:invert(1);" />
+            <div>
+              <p class="tool-name">GitHub Desktop</p>
+              <span class="tool-badge badge-cyan">GUI for Git</span>
+            </div>
+          </div>
+          <p class="tool-desc">A visual interface for Git. Great for beginners who prefer not to use the command line. Syncs directly with GitHub.</p>
+          <div class="tool-tags">
+            <span class="tool-tag">Beginner Friendly</span>
+            <span class="tool-tag">GitHub</span>
+            <span class="tool-tag">GUI</span>
+          </div>
+          <a href="https://desktop.github.com/" target="_blank" rel="noopener" class="tool-btn">⬇ Download GitHub Desktop</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="tool-icon" style="filter:invert(1);" />
+            <div>
+              <p class="tool-name">GitHub Account</p>
+              <span class="tool-badge badge-cyan">Free</span>
+            </div>
+          </div>
+          <p class="tool-desc">Host your code online, collaborate with others, and build your developer portfolio. Sign up for a free account at github.com.</p>
+          <div class="tool-tags">
+            <span class="tool-tag">Portfolio</span>
+            <span class="tool-tag">Collaboration</span>
+            <span class="tool-tag">Free</span>
+          </div>
+          <a href="https://github.com/signup" target="_blank" rel="noopener" class="tool-btn">⬇ Create GitHub Account</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 04 PACKAGE MANAGERS -->
+    <section class="topic-section" id="packages">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-title-group">
+          <h2 class="section-title">Package Managers</h2>
+          <span class="section-pill pill-green">Essential</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <p class="tools-section-desc">Package managers let you install libraries and tools with a single command. Installed automatically with Python and Node.js.</p>
+      <div class="tools-grid">
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="pip" class="tool-icon" />
+            <div>
+              <p class="tool-name">pip</p>
+              <span class="tool-badge badge-green">Python</span>
+            </div>
+          </div>
+          <p class="tool-desc">Python's built-in package manager. Use it to install libraries like pandas, numpy, django, and more. Comes with Python automatically.</p>
+          <div class="tool-tags">
+            <span class="tool-tag">Python</span>
+            <span class="tool-tag">Built-in</span>
+          </div>
+          <div class="tool-code">
+            <code>pip install package-name</code>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" alt="npm" class="tool-icon" />
+            <div>
+              <p class="tool-name">npm</p>
+              <span class="tool-badge badge-cyan">JavaScript</span>
+            </div>
+          </div>
+          <p class="tool-desc">Node Package Manager — comes with Node.js. Install JavaScript libraries and frameworks like Express, React, and more.</p>
+          <div class="tool-tags">
+            <span class="tool-tag">JavaScript</span>
+            <span class="tool-tag">Node.js</span>
+            <span class="tool-tag">Built-in</span>
+          </div>
+          <div class="tool-code">
+            <code>npm install package-name</code>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="pip" class="tool-icon" />
+            <div>
+              <p class="tool-name">Virtual Environment</p>
+              <span class="tool-badge badge-green">Python</span>
+            </div>
+          </div>
+          <p class="tool-desc">Isolate Python packages per project. Best practice for every Python project to avoid version conflicts between projects.</p>
+          <div class="tool-tags">
+            <span class="tool-tag">Python</span>
+            <span class="tool-tag">Best Practice</span>
+          </div>
+          <div class="tool-code">
+            <code>python -m venv env</code>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 05 DATABASE TOOLS -->
+    <section class="topic-section" id="databases">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <div class="section-title-group">
+          <h2 class="section-title">Database Tools</h2>
+          <span class="section-pill pill-cyan">Data Storage</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <p class="tools-section-desc">Databases store your app's data. Different tools are used for different purposes.</p>
+      <div class="tools-grid">
+
+        <div class="tool-card recommended">
+          <div class="tool-header">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="tool-icon" />
+            <div>
+              <p class="tool-name">MySQL</p>
+              <span class="tool-badge badge-green">Recommended</span>
+            </div>
+          </div>
+          <p class="tool-desc">The most popular open-source relational database. Great for learning SQL and building web applications with PHP or Python.</p>
+          <div class="tool-tags">
+            <span class="tool-tag">SQL</span>
+            <span class="tool-tag">PHP</span>
+            <span class="tool-tag">Web Dev</span>
+          </div>
+          <a href="https://dev.mysql.com/downloads/" target="_blank" rel="noopener" class="tool-btn">⬇ Download MySQL</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="tool-icon" />
+            <div>
+              <p class="tool-name">PostgreSQL</p>
+              <span class="tool-badge badge-cyan">Advanced SQL</span>
+            </div>
+          </div>
+          <p class="tool-desc">A powerful open-source database with advanced features. Preferred for data engineering, analytics, and production applications.</p>
+          <div class="tool-tags">
+            <span class="tool-tag">SQL</span>
+            <span class="tool-tag">Data Eng</span>
+            <span class="tool-tag">Analytics</span>
+          </div>
+          <a href="https://www.postgresql.org/download/" target="_blank" rel="noopener" class="tool-btn">⬇ Download PostgreSQL</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-header">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQLite" class="tool-icon" />
+            <div>
+              <p class="tool-name">SQLite</p>
+              <span class="tool-badge badge-cyan">Beginner</span>
+            </div>
+          </div>
+          <p class="tool-desc">A lightweight database that stores data in a single file. Perfect for learning SQL basics and small projects. No installation required.</p>
+          <div class="tool-tags">
+            <span class="tool-tag">SQL</span>
+            <span class="tool-tag">Beginner</span>
+            <span class="tool-tag">Built-in</span>
+          </div>
+          <a href="https://www.sqlite.org/download.html" target="_blank" rel="noopener" class="tool-btn">⬇ Download SQLite</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-banner" style="margin-top: 1rem;">
+      <div class="cta-inner">
+        <div class="cta-text">
+          <h3>Ready to start coding?</h3>
+          <p>Now that you have your tools set up, head over to our curated tutorials and start learning today.</p>
+        </div>
+        <div class="cta-btns">
+          <a href="languages.html" class="btn-primary">&gt;_ Browse All Topics</a>
+          <a href="roadmap.html" class="btn-secondary">View Roadmaps</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-logo">UP<span>Skill</span>S</p>
+      <p class="footer-sub">Built for students. Curated with purpose.</p>
+      <div class="footer-line"></div>
+      <p class="footer-note">All video resources belong to their respective creators on YouTube.<br>UPSkillS is a non-commercial student project — PSU College of Engineering &amp; Architecture.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/script.js"></script>
+  <script>
+    window.onload = function() {
+      const c = document.getElementById('matrix-canvas');
+      if (!c) return;
+      const x = c.getContext('2d');
+      c.width = window.innerWidth;
+      c.height = window.innerHeight;
+      const ch = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&';
+      const fs = 14;
+      const cols = Math.floor(c.width / fs);
+      const dr = Array(cols).fill(1);
+      setInterval(() => {
+        x.fillStyle = 'rgba(8,11,17,0.05)';
+        x.fillRect(0,0,c.width,c.height);
+        x.font = fs + 'px monospace';
+        dr.forEach((d,i) => {
+          x.fillStyle = Math.random() > 0.95 ? '#00ff88' : '#00e5ff';
+          x.globalAlpha = 0.7;
+          x.fillText(ch[Math.floor(Math.random()*ch.length)], i*fs, d*fs);
+          if (d*fs > c.height && Math.random() > 0.975) dr[i] = 0;
+          dr[i]++;
+        });
+      }, 50);
+    };
+  </script>
+</body>
+</html>

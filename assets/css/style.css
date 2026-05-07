@@ -1681,3 +1681,150 @@ footer {
 .card:hover .card-thumb iframe { opacity: 1; }
 .card:hover .card-thumb img { opacity: 0; transition: opacity 0.3s; }
 .card:hover .card-overlay { opacity: 0; }
+
+/* ══════════════════════════════════════════════
+   TOOLS PAGE
+══════════════════════════════════════════════ */
+.tools-section-desc {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+}
+ 
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+ 
+.tool-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+ 
+.tool-card:hover {
+  border-color: var(--cyan);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,229,255,0.1);
+}
+ 
+.tool-card.recommended {
+  border-color: rgba(0,255,136,0.3);
+}
+ 
+.tool-card.recommended:hover {
+  border-color: var(--green);
+  box-shadow: 0 10px 30px rgba(0,255,136,0.1);
+}
+ 
+.tool-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+ 
+.tool-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+ 
+.tool-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+ 
+.tool-badge {
+  font-size: 0.58rem;
+  padding: 2px 8px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  display: inline-block;
+}
+ 
+.badge-green {
+  background: var(--green-dim);
+  color: var(--green);
+  border: 1px solid rgba(0,255,136,0.3);
+}
+ 
+.badge-cyan {
+  background: var(--cyan-dim);
+  color: var(--cyan);
+  border: 1px solid rgba(0,229,255,0.3);
+}
+ 
+.tool-desc {
+  font-size: 0.75rem;
+  color: var(--text);
+  line-height: 1.7;
+}
+ 
+.tool-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+ 
+.tool-tag {
+  font-size: 0.6rem;
+  padding: 2px 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  color: var(--text-dim);
+}
+ 
+.tool-btn {
+  display: inline-block;
+  font-family: var(--font);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--bg);
+  background: var(--cyan);
+  padding: 0.55rem 1.2rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  text-align: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+  margin-top: auto;
+}
+ 
+.tool-btn:hover {
+  box-shadow: 0 0 20px rgba(0,229,255,0.4);
+  transform: translateY(-1px);
+}
+ 
+.tool-card.recommended .tool-btn {
+  background: var(--green);
+  color: var(--bg);
+}
+ 
+.tool-card.recommended .tool-btn:hover {
+  box-shadow: 0 0 20px rgba(0,255,136,0.4);
+}
+ 
+.tool-code {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.6rem 1rem;
+}
+ 
+.tool-code code {
+  font-family: var(--font);
+  font-size: 0.72rem;
+  color: var(--cyan);
+}
