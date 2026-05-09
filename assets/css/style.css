@@ -1828,3 +1828,69 @@ footer {
   font-size: 0.72rem;
   color: var(--cyan);
 }
+/* ── Typing Animation ── */
+.typed-line::after {
+  content: '|';
+  color: var(--cyan);
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+/* ── Glitch Effect sa Logo ── */
+.logo {
+  position: relative;
+}
+
+.logo:hover {
+  animation: glitch 0.4s ease infinite;
+}
+
+.logo::before,
+.logo::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.logo::before {
+  color: #ff00ff;
+  clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
+}
+
+.logo::after {
+  color: #00ffff;
+  clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
+}
+
+.logo:hover::before {
+  opacity: 0.8;
+  animation: glitch-top 0.3s ease infinite;
+}
+
+.logo:hover::after {
+  opacity: 0.8;
+  animation: glitch-bottom 0.3s ease infinite;
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-1px, 1px); }
+  80% { transform: translate(1px, -1px); }
+}
+
+@keyframes glitch-top {
+  0%, 100% { transform: translate(0); }
+  25% { transform: translate(-3px, 0); }
+  75% { transform: translate(3px, 0); }
+}
+
+@keyframes glitch-bottom {
+  0%, 100% { transform: translate(0); }
+  25% { transform: translate(3px, 0); }
+  75% { transform: translate(-3px, 0); }
+}

@@ -3,6 +3,7 @@
 // ═══════════════════════════════════════════════
 
 document.addEventListener('DOMContentLoaded', () => {
+  
 
   // ── MATRIX RAIN ANIMATION ─────────────────────
   const canvas = document.getElementById('matrix-canvas');

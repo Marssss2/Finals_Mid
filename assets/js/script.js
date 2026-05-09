@@ -3,7 +3,82 @@
 // ═══════════════════════════════════════════════
 
 document.addEventListener('DOMContentLoaded', () => {
+  // ── SCRAMBLE TEXT EFFECT ──────────────────────
+function scrambleText(el, finalText, duration = 1500) {
+  const chars = 'アイウエオカキクケコ01ABCDEFGHIJKLMNOP@#$%&';
+  let frame = 0;
+  const totalFrames = duration / 30;
 
+  const interval = setInterval(() => {
+    let result = '';
+    for (let i = 0; i < finalText.length; i++) {
+      if (finalText[i] === ' ' || finalText[i] === '\n') {
+        result += finalText[i];
+      } else if (frame / totalFrames > i / finalText.length) {
+        result += finalText[i];
+      } else {
+        result += chars[Math.floor(Math.random() * chars.length)];
+      }
+    }
+    el.textContent = result;
+    frame++;
+    if (frame >= totalFrames) {
+      el.textContent = finalText;
+      clearInterval(interval);
+    }
+  }, 30);
+}
+
+// Apply to hero tagline
+const taglineEl = document.querySelector('.tagline');
+if (taglineEl) {
+  const original = taglineEl.textContent;
+  setTimeout(() => scrambleText(taglineEl, original, 2000), 1000);
+}
+
+  // ── TYPING ANIMATION ─────────────────────────
+const typingEl = document.querySelector('.intro-title');
+if (typingEl) {
+  const lines = ['Stop searching.', 'Start learning.'];
+  const glowWord = 'learning';
+  let lineIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  typingEl.innerHTML = '<span class="typed-line"></span>';
+  const typedEl = typingEl.querySelector('.typed-line');
+
+  function type() {
+    const currentLine = lines[lineIndex];
+
+    if (!isDeleting) {
+      charIndex++;
+      const text = currentLine.slice(0, charIndex);
+      typedEl.innerHTML = text.includes(glowWord)
+        ? text.replace(glowWord, `<span class="glow-text">${glowWord}</span>`)
+        : text;
+
+      if (charIndex === currentLine.length) {
+        if (lineIndex === lines.length - 1) return; // stop at last line
+        setTimeout(() => { isDeleting = true; type(); }, 1500);
+        return;
+      }
+    } else {
+      charIndex--;
+      typedEl.textContent = currentLine.slice(0, charIndex);
+      if (charIndex === 0) {
+        isDeleting = false;
+        lineIndex++;
+        if (lineIndex >= lines.length) lineIndex = 0;
+      }
+    }
+
+    const speed = isDeleting ? 40 : 70;
+    setTimeout(type, speed);
+  }
+
+  setTimeout(type, 800);
+}
   // ── 1. LOADING SCREEN ─────────────────────────
   const loader = document.getElementById('loader');
   if (loader) {
