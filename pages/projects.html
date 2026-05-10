@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UPSkillS — Project Ideas</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+
+  <!-- LOADING SCREEN -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">UP<span>Skill</span>S</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+      <p class="loader-text">&gt;_ loading project ideas...</p>
+    </div>
+  </div>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- GRID BG -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- HEADER -->
+  <header id="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">UP<span>Skill</span>S</a>
+      <nav class="nav-topics">
+        <a href="../index.html">Home</a>
+        <a href="languages.html">Languages</a>
+        <a href="roadmap.html">Roadmaps</a>
+        <a href="tools.html">Tools</a>
+        <a href="trends.html">Trends</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="../index.html#about">About</a>
+      </nav>
+    </div>
+    <p class="tagline">&gt;_ Upgrade your skills. One resource at a time.</p>
+    <div class="header-line"></div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-badge">&gt;_ practice makes perfect</div>
+    <h1 class="page-hero-title">Project <span>Ideas</span></h1>
+    <p class="page-hero-desc">The best way to learn is by building. Here are project ideas for every language on UPSkillS — from beginner to advanced. Pick one, start building, and add it to your portfolio.</p>
+  </div>
+
+  <!-- QUICK NAV -->
+  <div class="topic-nav-strip">
+    <a href="#python"     class="tnav-pill">🐍 Python</a>
+    <a href="#javascript" class="tnav-pill">⚡ JavaScript</a>
+    <a href="#css"        class="tnav-pill">🎨 CSS</a>
+    <a href="#git"        class="tnav-pill">🔧 Git</a>
+    <a href="#sql"        class="tnav-pill">🗃️ SQL</a>
+    <a href="#webdev"     class="tnav-pill">🌐 Web Dev</a>
+    <a href="#ai"         class="tnav-pill">🤖 AI/ML</a>
+    <a href="#data"       class="tnav-pill">📊 Data Eng</a>
+    <a href="#cpp"        class="tnav-pill">⚙️ C/C++</a>
+    <a href="#typescript" class="tnav-pill">📘 TypeScript</a>
+    <a href="#java"       class="tnav-pill">☕ Java</a>
+    <a href="#php"        class="tnav-pill">🐘 PHP</a>
+    <a href="#cyber"      class="tnav-pill">🔒 Cybersecurity</a>
+    <a href="#analytics"  class="tnav-pill">📈 Analytics</a>
+    <a href="#dbdesign"   class="tnav-pill">🗄️ DB Design</a>
+  </div>
+
+  <main id="main-content">
+
+    <!-- PYTHON -->
+    <section class="topic-section" id="python">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-title-group">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="section-lang-icon" alt="Python" />
+          <h2 class="section-title">Python</h2>
+          <span class="section-pill pill-cyan">Beginner Friendly</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty beginner">Beginner</span>
+            <span class="project-time">⏱ 1–2 days</span>
+          </div>
+          <h3 class="project-title">Personal Expense Tracker</h3>
+          <p class="project-desc">Build a CLI app that lets users log daily expenses, categorize them, and view monthly summaries. Uses file I/O, dictionaries, and basic data manipulation.</p>
+          <div class="project-skills">
+            <span>File I/O</span><span>Dictionaries</span><span>Loops</span><span>Functions</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>Working with files, data structures, user input, and building a complete CLI application from scratch.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty intermediate">Intermediate</span>
+            <span class="project-time">⏱ 3–5 days</span>
+          </div>
+          <h3 class="project-title">Web Scraper & Price Tracker</h3>
+          <p class="project-desc">Scrape product prices from e-commerce sites and send email alerts when prices drop. Uses BeautifulSoup, requests, and smtplib.</p>
+          <div class="project-skills">
+            <span>BeautifulSoup</span><span>Requests</span><span>smtplib</span><span>Scheduling</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>Web scraping, HTTP requests, email automation, and working with external libraries.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JAVASCRIPT -->
+    <section class="topic-section" id="javascript">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-title-group">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="section-lang-icon" alt="JavaScript" />
+          <h2 class="section-title">JavaScript</h2>
+          <span class="section-pill pill-green">Web Essential</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty beginner">Beginner</span>
+            <span class="project-time">⏱ 1–2 days</span>
+          </div>
+          <h3 class="project-title">Quiz App</h3>
+          <p class="project-desc">Build an interactive quiz app with multiple choice questions, score tracking, and a results screen. Pure HTML, CSS, and JavaScript — no frameworks.</p>
+          <div class="project-skills">
+            <span>DOM Manipulation</span><span>Events</span><span>Arrays</span><span>LocalStorage</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>DOM manipulation, event handling, dynamic content rendering, and state management.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty intermediate">Intermediate</span>
+            <span class="project-time">⏱ 3–5 days</span>
+          </div>
+          <h3 class="project-title">Weather Dashboard</h3>
+          <p class="project-desc">Build a weather app that fetches real-time data from the OpenWeatherMap API. Shows current weather, 5-day forecast, and search by city.</p>
+          <div class="project-skills">
+            <span>Fetch API</span><span>Async/Await</span><span>JSON</span><span>API Integration</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>Async JavaScript, REST API integration, JSON parsing, and dynamic UI updates.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CSS -->
+    <section class="topic-section" id="css">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-title-group">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="section-lang-icon" alt="CSS" />
+          <h2 class="section-title">CSS</h2>
+          <span class="section-pill pill-cyan">Design & Layout</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty beginner">Beginner</span>
+            <span class="project-time">⏱ 1 day</span>
+          </div>
+          <h3 class="project-title">Personal Portfolio Page</h3>
+          <p class="project-desc">Design a responsive personal portfolio page with a hero section, skills, projects, and contact info. Focus on clean layout using Flexbox and Grid.</p>
+          <div class="project-skills">
+            <span>Flexbox</span><span>Grid</span><span>Responsive</span><span>CSS Variables</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>Responsive design, CSS layouts, typography, and creating a professional web presence.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty intermediate">Intermediate</span>
+            <span class="project-time">⏱ 2–3 days</span>
+          </div>
+          <h3 class="project-title">Animated Landing Page</h3>
+          <p class="project-desc">Build a modern landing page with CSS animations, hover effects, scroll animations, and a dark/light mode toggle using only CSS custom properties.</p>
+          <div class="project-skills">
+            <span>Animations</span><span>Transitions</span><span>CSS Variables</span><span>Dark Mode</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>CSS animations, transitions, custom properties, and advanced layout techniques.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GIT -->
+    <section class="topic-section" id="git">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-title-group">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="section-lang-icon" alt="Git" />
+          <h2 class="section-title">Git & GitHub</h2>
+          <span class="section-pill pill-green">Must Know</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty beginner">Beginner</span>
+            <span class="project-time">⏱ 1 day</span>
+          </div>
+          <h3 class="project-title">GitHub Profile README</h3>
+          <p class="project-desc">Create a standout GitHub profile README with badges, stats, skills, and projects. Use Markdown and GitHub Actions to auto-update your stats.</p>
+          <div class="project-skills">
+            <span>Markdown</span><span>GitHub Actions</span><span>Badges</span><span>README</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>Markdown syntax, GitHub Actions basics, and building a professional developer profile.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty intermediate">Intermediate</span>
+            <span class="project-time">⏱ 2–3 days</span>
+          </div>
+          <h3 class="project-title">Open Source Contribution</h3>
+          <p class="project-desc">Find a beginner-friendly open source project on GitHub, fork it, fix a bug or add a feature, and submit a pull request. Real-world collaboration experience.</p>
+          <div class="project-skills">
+            <span>Forking</span><span>Branching</span><span>Pull Requests</span><span>Code Review</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>Real-world Git workflow, collaboration, code review process, and open source contribution.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SQL -->
+    <section class="topic-section" id="sql">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <div class="section-title-group">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="section-lang-icon" alt="SQL" />
+          <h2 class="section-title">SQL</h2>
+          <span class="section-pill pill-cyan">Data Foundations</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty beginner">Beginner</span>
+            <span class="project-time">⏱ 1–2 days</span>
+          </div>
+          <h3 class="project-title">Student Database System</h3>
+          <p class="project-desc">Design and build a database for a school system with tables for students, courses, grades, and teachers. Practice CRUD operations and JOINs.</p>
+          <div class="project-skills">
+            <span>CREATE TABLE</span><span>INSERT</span><span>SELECT</span><span>JOIN</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>Database design, table relationships, CRUD operations, and writing complex queries.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty intermediate">Intermediate</span>
+            <span class="project-time">⏱ 3–4 days</span>
+          </div>
+          <h3 class="project-title">Sales Analytics Dashboard</h3>
+          <p class="project-desc">Create a sales database and write complex queries to analyze revenue by region, top products, monthly trends, and customer behavior using window functions.</p>
+          <div class="project-skills">
+            <span>Window Functions</span><span>GROUP BY</span><span>CTEs</span><span>Subqueries</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>Advanced SQL queries, window functions, CTEs, and real-world data analysis techniques.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WEB DEV -->
+    <section class="topic-section" id="webdev">
+      <div class="section-header">
+        <div class="section-num">06</div>
+        <div class="section-title-group">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="section-lang-icon" alt="Web Dev" />
+          <h2 class="section-title">Web Development</h2>
+          <span class="section-pill pill-green">Full Stack</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty intermediate">Intermediate</span>
+            <span class="project-time">⏱ 5–7 days</span>
+          </div>
+          <h3 class="project-title">Full Stack Todo App</h3>
+          <p class="project-desc">Build a complete todo app with user authentication, a Node.js + Express backend, REST API, and a vanilla JS frontend. Data stored in a database.</p>
+          <div class="project-skills">
+            <span>Node.js</span><span>Express</span><span>REST API</span><span>Authentication</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>Full stack development, REST APIs, authentication, and connecting frontend to backend.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty advanced">Advanced</span>
+            <span class="project-time">⏱ 2–3 weeks</span>
+          </div>
+          <h3 class="project-title">E-Commerce Website</h3>
+          <p class="project-desc">Build a full e-commerce site with product listings, cart, checkout, payment integration, admin dashboard, and order management system.</p>
+          <div class="project-skills">
+            <span>Node.js</span><span>Database</span><span>Payment API</span><span>Admin Panel</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>Complex full stack architecture, payment integration, session management, and admin systems.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI/ML -->
+    <section class="topic-section" id="ai">
+      <div class="section-header">
+        <div class="section-num">07</div>
+        <div class="section-title-group">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" class="section-lang-icon" alt="AI/ML" />
+          <h2 class="section-title">AI / Machine Learning</h2>
+          <span class="section-pill pill-cyan">Trending</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty beginner">Beginner</span>
+            <span class="project-time">⏱ 2–3 days</span>
+          </div>
+          <h3 class="project-title">Spam Email Classifier</h3>
+          <p class="project-desc">Build a machine learning model that classifies emails as spam or not spam using scikit-learn. Uses the classic Naive Bayes algorithm with a real dataset.</p>
+          <div class="project-skills">
+            <span>scikit-learn</span><span>Pandas</span><span>NLP</span><span>Classification</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>ML pipeline, text classification, model training and evaluation, and working with real datasets.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty intermediate">Intermediate</span>
+            <span class="project-time">⏱ 1 week</span>
+          </div>
+          <h3 class="project-title">Image Recognition App</h3>
+          <p class="project-desc">Build an app that identifies objects in images using a pre-trained CNN model (MobileNet or ResNet). Add a web interface to upload and classify images.</p>
+          <div class="project-skills">
+            <span>TensorFlow</span><span>CNN</span><span>Transfer Learning</span><span>Flask</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>Transfer learning, convolutional neural networks, model deployment, and web integration.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DATA ENGINEERING -->
+    <section class="topic-section" id="data">
+      <div class="section-header">
+        <div class="section-num">08</div>
+        <div class="section-title-group">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apacheairflow/apacheairflow-original.svg" class="section-lang-icon" alt="Data Eng" />
+          <h2 class="section-title">Data Engineering</h2>
+          <span class="section-pill pill-green">In-Demand</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty intermediate">Intermediate</span>
+            <span class="project-time">⏱ 3–5 days</span>
+          </div>
+          <h3 class="project-title">ETL Pipeline for COVID Data</h3>
+          <p class="project-desc">Build an ETL pipeline that extracts COVID-19 data from a public API, transforms it using Pandas, and loads it into a local database for analysis.</p>
+          <div class="project-skills">
+            <span>Python</span><span>Pandas</span><span>SQL</span><span>ETL</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>ETL pipeline design, data transformation, API integration, and loading data into databases.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty advanced">Advanced</span>
+            <span class="project-time">⏱ 1–2 weeks</span>
+          </div>
+          <h3 class="project-title">Real-Time Data Dashboard</h3>
+          <p class="project-desc">Build a real-time data pipeline using Apache Kafka or Airflow that streams data, processes it, and visualizes it on a live dashboard using Plotly or Power BI.</p>
+          <div class="project-skills">
+            <span>Airflow</span><span>Kafka</span><span>Spark</span><span>Visualization</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>Stream processing, pipeline orchestration, real-time data handling, and dashboard creation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- C/C++ -->
+    <section class="topic-section" id="cpp">
+      <div class="section-header">
+        <div class="section-num">09</div>
+        <div class="section-title-group">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" class="section-lang-icon" alt="C++" />
+          <h2 class="section-title">C / C++</h2>
+          <span class="section-pill pill-cyan">Systems Programming</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty beginner">Beginner</span>
+            <span class="project-time">⏱ 1–2 days</span>
+          </div>
+          <h3 class="project-title">Student Grade Calculator</h3>
+          <p class="project-desc">Build a C++ program that takes student names and grades, calculates averages, determines letter grades, and displays a formatted report using OOP.</p>
+          <div class="project-skills">
+            <span>Classes</span><span>Arrays</span><span>File I/O</span><span>OOP</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>OOP in C++, file handling, data structures, and building complete console applications.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty intermediate">Intermediate</span>
+            <span class="project-time">⏱ 1 week</span>
+          </div>
+          <h3 class="project-title">Simple Shell / CLI</h3>
+          <p class="project-desc">Build a simple Unix-like shell in C that can execute commands, handle piping, redirection, and background processes. Classic systems programming project.</p>
+          <div class="project-skills">
+            <span>Processes</span><span>Pipes</span><span>fork()</span><span>exec()</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>System calls, process management, inter-process communication, and low-level programming.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TYPESCRIPT -->
+    <section class="topic-section" id="typescript">
+      <div class="section-header">
+        <div class="section-num">10</div>
+        <div class="section-title-group">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" class="section-lang-icon" alt="TypeScript" />
+          <h2 class="section-title">TypeScript</h2>
+          <span class="section-pill pill-green">JS Supercharged</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty beginner">Beginner</span>
+            <span class="project-time">⏱ 1–2 days</span>
+          </div>
+          <h3 class="project-title">Type-Safe Todo CLI</h3>
+          <p class="project-desc">Rebuild a todo app in TypeScript with strict typing, interfaces, and enums. Demonstrates the power of TypeScript over plain JavaScript with full type safety.</p>
+          <div class="project-skills">
+            <span>Interfaces</span><span>Enums</span><span>Types</span><span>Generics</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>TypeScript fundamentals, type safety, interfaces, generics, and the TypeScript compiler.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty intermediate">Intermediate</span>
+            <span class="project-time">⏱ 3–5 days</span>
+          </div>
+          <h3 class="project-title">REST API with TypeScript + Express</h3>
+          <p class="project-desc">Build a fully typed REST API using TypeScript and Express. Includes typed request/response objects, middleware, error handling, and database integration.</p>
+          <div class="project-skills">
+            <span>Express</span><span>Types</span><span>Middleware</span><span>Database</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>TypeScript in backend development, typed APIs, middleware patterns, and production code practices.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JAVA -->
+    <section class="topic-section" id="java">
+      <div class="section-header">
+        <div class="section-num">11</div>
+        <div class="section-title-group">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="section-lang-icon" alt="Java" />
+          <h2 class="section-title">Java</h2>
+          <span class="section-pill pill-cyan">Enterprise Ready</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty beginner">Beginner</span>
+            <span class="project-time">⏱ 2–3 days</span>
+          </div>
+          <h3 class="project-title">Library Management System</h3>
+          <p class="project-desc">Build a console-based library system in Java using OOP. Manage books, members, borrowing records, and generate reports using classes and inheritance.</p>
+          <div class="project-skills">
+            <span>OOP</span><span>Inheritance</span><span>Collections</span><span>File I/O</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>Java OOP principles, collections framework, inheritance, and building complete applications.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty intermediate">Intermediate</span>
+            <span class="project-time">⏱ 1 week</span>
+          </div>
+          <h3 class="project-title">Spring Boot REST API</h3>
+          <p class="project-desc">Build a complete REST API using Spring Boot with CRUD operations, JPA/Hibernate for database access, and proper exception handling and validation.</p>
+          <div class="project-skills">
+            <span>Spring Boot</span><span>JPA</span><span>REST API</span><span>MySQL</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>Spring Boot framework, JPA/Hibernate ORM, REST API design, and enterprise Java development.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHP -->
+    <section class="topic-section" id="php">
+      <div class="section-header">
+        <div class="section-num">12</div>
+        <div class="section-title-group">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" class="section-lang-icon" alt="PHP" />
+          <h2 class="section-title">PHP</h2>
+          <span class="section-pill pill-green">Backend Web</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty beginner">Beginner</span>
+            <span class="project-time">⏱ 2–3 days</span>
+          </div>
+          <h3 class="project-title">Contact Form with Email</h3>
+          <p class="project-desc">Build a contact form that collects user data, validates inputs server-side with PHP, stores submissions in MySQL, and sends email notifications using PHPMailer.</p>
+          <div class="project-skills">
+            <span>PHP Forms</span><span>MySQL</span><span>Validation</span><span>PHPMailer</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>Server-side validation, MySQL integration, email sending, and secure form handling.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty intermediate">Intermediate</span>
+            <span class="project-time">⏱ 1 week</span>
+          </div>
+          <h3 class="project-title">Blog CMS with Laravel</h3>
+          <p class="project-desc">Build a full blog content management system using Laravel. Includes user authentication, post CRUD, categories, tags, comments, and an admin dashboard.</p>
+          <div class="project-skills">
+            <span>Laravel</span><span>Blade</span><span>Eloquent ORM</span><span>Auth</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>Laravel MVC framework, Eloquent ORM, Blade templating, authentication, and CMS development.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CYBERSECURITY -->
+    <section class="topic-section" id="cyber">
+      <div class="section-header">
+        <div class="section-num">13</div>
+        <div class="section-title-group">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" class="section-lang-icon" alt="Cybersecurity" />
+          <h2 class="section-title">Cybersecurity</h2>
+          <span class="section-pill pill-cyan">Stay Protected</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty beginner">Beginner</span>
+            <span class="project-time">⏱ 1–2 days</span>
+          </div>
+          <h3 class="project-title">Password Strength Checker</h3>
+          <p class="project-desc">Build a Python tool that analyzes password strength, checks against common password lists, and gives recommendations for improvement with a security score.</p>
+          <div class="project-skills">
+            <span>Python</span><span>Regex</span><span>File I/O</span><span>Security</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>Password security principles, regex patterns, security scoring, and building security tools.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty intermediate">Intermediate</span>
+            <span class="project-time">⏱ 3–5 days</span>
+          </div>
+          <h3 class="project-title">Network Port Scanner</h3>
+          <p class="project-desc">Build a Python-based port scanner similar to Nmap that scans for open ports, identifies running services, and generates security reports. For ethical use only.</p>
+          <div class="project-skills">
+            <span>Python</span><span>Sockets</span><span>Threading</span><span>Networking</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>Network programming, socket connections, threading, and ethical security testing fundamentals.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DATA ANALYTICS -->
+    <section class="topic-section" id="analytics">
+      <div class="section-header">
+        <div class="section-num">14</div>
+        <div class="section-title-group">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="section-lang-icon" alt="Analytics" />
+          <h2 class="section-title">Data Analytics</h2>
+          <span class="section-pill pill-green">Insights from Data</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty beginner">Beginner</span>
+            <span class="project-time">⏱ 2–3 days</span>
+          </div>
+          <h3 class="project-title">COVID-19 Data Analysis</h3>
+          <p class="project-desc">Analyze public COVID-19 datasets using Pandas and Matplotlib. Create visualizations for daily cases, deaths, vaccination rates, and country comparisons.</p>
+          <div class="project-skills">
+            <span>Pandas</span><span>Matplotlib</span><span>NumPy</span><span>Data Cleaning</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>Data cleaning, exploratory data analysis, visualization, and working with real-world datasets.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty intermediate">Intermediate</span>
+            <span class="project-time">⏱ 1 week</span>
+          </div>
+          <h3 class="project-title">Sales Performance Dashboard</h3>
+          <p class="project-desc">Build an interactive sales analytics dashboard using Power BI or Tableau connected to a real dataset. Include KPIs, trend analysis, and geographic maps.</p>
+          <div class="project-skills">
+            <span>Power BI</span><span>DAX</span><span>Data Modeling</span><span>Visualization</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>BI tools, data modeling, DAX formulas, interactive dashboards, and storytelling with data.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DATABASE DESIGN -->
+    <section class="topic-section" id="dbdesign">
+      <div class="section-header">
+        <div class="section-num">15</div>
+        <div class="section-title-group">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" class="section-lang-icon" alt="DB Design" />
+          <h2 class="section-title">Database Design</h2>
+          <span class="section-pill pill-cyan">Structure Your Data</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty beginner">Beginner</span>
+            <span class="project-time">⏱ 1–2 days</span>
+          </div>
+          <h3 class="project-title">Hospital Management ERD</h3>
+          <p class="project-desc">Design a complete database schema for a hospital system. Create an ERD with patients, doctors, appointments, prescriptions, and wards. Apply normalization rules.</p>
+          <div class="project-skills">
+            <span>ERD</span><span>Normalization</span><span>Relationships</span><span>Schema Design</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>Entity-relationship modeling, normalization (1NF, 2NF, 3NF), and professional database design.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-difficulty intermediate">Intermediate</span>
+            <span class="project-time">⏱ 3–4 days</span>
+          </div>
+          <h3 class="project-title">E-Commerce Database Design</h3>
+          <p class="project-desc">Design and implement a complete e-commerce database with products, categories, users, orders, payments, and reviews. Optimize with indexes and views.</p>
+          <div class="project-skills">
+            <span>Schema Design</span><span>Indexes</span><span>Views</span><span>Stored Procedures</span>
+          </div>
+          <div class="project-learn">
+            <span class="project-learn-label">&gt;_ What you'll learn:</span>
+            <p>Advanced database design, performance optimization, indexes, views, and stored procedures.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-banner" style="margin-top:1rem;">
+      <div class="cta-inner">
+        <div class="cta-text">
+          <h3>Ready to start building?</h3>
+          <p>Pick a project, watch the tutorials, and start coding. Every project you build brings you one step closer to your dream tech career.</p>
+        </div>
+        <div class="cta-btns">
+          <a href="languages.html" class="btn-primary">&gt;_ Browse Tutorials</a>
+          <a href="roadmap.html" class="btn-secondary">View Roadmaps</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-logo">UP<span>Skill</span>S</p>
+      <p class="footer-sub">Built for students. Curated with purpose.</p>
+      <div class="footer-line"></div>
+      <p class="footer-note">All video resources belong to their respective creators on YouTube.<br>UPSkillS is a non-commercial student project — DHVSU College of Engineering &amp; Architecture.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/script.js"></script>
+  <script>
+    window.onload = function() {
+      const c = document.getElementById('matrix-canvas');
+      if (!c) return;
+      const x = c.getContext('2d');
+      c.width = window.innerWidth; c.height = window.innerHeight;
+      const ch = '01アイウエオカキクABCDEFGHIJKLMNOP0123456789';
+      const fs = 14, cols = Math.floor(c.width/fs), dr = Array(cols).fill(1);
+      setInterval(() => {
+        x.fillStyle='rgba(8,11,17,0.05)'; x.fillRect(0,0,c.width,c.height);
+        x.font=fs+'px monospace';
+        dr.forEach((d,i)=>{
+          x.fillStyle=Math.random()>0.95?'#00ff88':'#00e5ff';
+          x.globalAlpha=0.7;
+          x.fillText(ch[Math.floor(Math.random()*ch.length)],i*fs,d*fs);
+          if(d*fs>c.height&&Math.random()>0.975)dr[i]=0;
+          dr[i]++;
+        });
+      },50);
+    };
+  </script>
+</body>
+</html>

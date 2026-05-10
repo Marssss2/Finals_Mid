@@ -3519,3 +3519,49 @@ footer {
 @media (max-width: 600px) {
   .watch-grid { grid-template-columns: 1fr; }
 }
+
+/* ─── MOTIVATIONAL QUOTE STRIP ──────────────────────────────── */
+.quote-strip {
+  background: var(--bg-2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 0;
+}
+
+.quote-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+  flex-direction: column;
+  animation: heroFadeUp 0.7s var(--ease) both;
+}
+
+.quote-mark {
+  font-family: 'Space Mono', monospace;
+  font-size: 3rem;
+  color: var(--accent);
+  opacity: 0.4;
+  line-height: 1;
+  margin-bottom: -12px;
+}
+
+.quote-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.65;
+  font-style: italic;
+  transition: opacity 0.4s ease;
+}
+
+.quote-author {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+}

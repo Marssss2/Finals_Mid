@@ -3,6 +3,47 @@
 // ═══════════════════════════════════════════════
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  /* ─── MOTIVATIONAL QUOTES ───────────────────────────────────── */
+  var quotes = [
+    { text: "The best time to start learning was yesterday. The second best time is now.", author: "— Anonymous" },
+    { text: "Every expert was once a beginner. Keep going.", author: "— Helen Hayes" },
+    { text: "Code is like humor. When you have to explain it, it's bad.", author: "— Cory House" },
+    { text: "First, solve the problem. Then, write the code.", author: "— John Johnson" },
+    { text: "The only way to learn a new programming language is by writing programs in it.", author: "— Dennis Ritchie" },
+    { text: "It's not about what you know. It's about how fast you can learn.", author: "— Anonymous" },
+    { text: "Programs must be written for people to read, and only incidentally for machines to execute.", author: "— Harold Abelson" },
+    { text: "The function of good software is to make the complex appear to be simple.", author: "— Grady Booch" },
+    { text: "Talk is cheap. Show me the code.", author: "— Linus Torvalds" },
+    { text: "Simplicity is the soul of efficiency.", author: "— Austin Freeman" },
+    { text: "One of the best programming skills you can have is knowing when to walk away.", author: "— Oscar Godson" },
+    { text: "Your most unhappy customers are your greatest source of learning.", author: "— Bill Gates" },
+    { text: "Consistency beats talent every single time.", author: "— Anonymous" },
+    { text: "Don't compare your chapter 1 to someone else's chapter 20.", author: "— Anonymous" },
+    { text: "Every line of code you write is a step forward. Keep stepping.", author: "— Anonymous" }
+  ];
+
+ (function renderQuote() {
+    var quoteText   = document.getElementById('quoteText');
+    var quoteAuthor = document.getElementById('quoteAuthor');
+    var strip       = document.getElementById('quoteStrip');
+    if (!quoteText || !quoteAuthor) return;
+
+    var random = quotes[Math.floor(Math.random() * quotes.length)];
+
+    // Start hidden
+    if (strip) strip.style.opacity = '0';
+
+    quoteText.textContent   = random.text;
+    quoteAuthor.textContent = random.author;
+
+    // Fade in after short delay
+    setTimeout(function() {
+      if (strip) strip.style.transition = 'opacity 1.2s ease';
+      if (strip) strip.style.opacity    = '1';
+    }, 300);
+  })();
+
   // ── SCRAMBLE TEXT EFFECT ──────────────────────
 function scrambleText(el, finalText, duration = 1500) {
   const chars = 'アイウエオカキクケコ01ABCDEFGHIJKLMNOP@#$%&';
