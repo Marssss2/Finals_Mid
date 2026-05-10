@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UPSkillS — Tech Trends & Job Market</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- LOADING SCREEN -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">UP<span>Skill</span>S</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+      <p class="loader-text">&gt;_ loading trends...</p>
+    </div>
+  </div>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- GRID BG -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- HEADER -->
+  <header id="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">UP<span>Skill</span>S</a>
+      <nav class="nav-topics">
+        <a href="../index.html">Home</a>
+        <a href="languages.html">Languages</a>
+        <a href="roadmap.html">Roadmaps</a>
+        <a href="tools.html">Tools</a>
+        <a href="trends.html" class="active">Trends</a>
+        <a href="../index.html#about">About</a>
+      </nav>
+    </div>
+    <p class="tagline">&gt;_ Upgrade your skills. One resource at a time.</p>
+    <div class="header-line"></div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-badge">&gt;_ stack overflow survey 2024</div>
+    <h1 class="page-hero-title">Tech Trends &amp; <span>Job Market</span></h1>
+    <p class="page-hero-desc">Stay ahead of the curve. Here's what the tech industry looks like in 2024 — the most popular languages, highest paying jobs, and most in-demand skills based on the Stack Overflow Developer Survey 2024.</p>
+    <p class="trends-source">📊 Data Source: <a href="https://survey.stackoverflow.co/2024/" target="_blank" rel="noopener">Stack Overflow Developer Survey 2024</a> — 65,000+ respondents worldwide</p>
+  </div>
+
+  <!-- MAIN -->
+  <main id="main-content">
+
+    <!-- STATS STRIP -->
+    <div class="trends-stats-strip">
+      <div class="trends-stat">
+        <span class="trends-stat-num cyan">65,000+</span>
+        <span class="trends-stat-label">Survey Respondents</span>
+      </div>
+      <div class="trends-stat-sep">|</div>
+      <div class="trends-stat">
+        <span class="trends-stat-num green">185</span>
+        <span class="trends-stat-label">Countries</span>
+      </div>
+      <div class="trends-stat-sep">|</div>
+      <div class="trends-stat">
+        <span class="trends-stat-num cyan">2024</span>
+        <span class="trends-stat-label">Survey Year</span>
+      </div>
+      <div class="trends-stat-sep">|</div>
+      <div class="trends-stat">
+        <span class="trends-stat-num green">17th</span>
+        <span class="trends-stat-label">Annual Survey</span>
+      </div>
+    </div>
+
+    <!-- 01 MOST POPULAR LANGUAGES -->
+    <section class="topic-section" id="popular">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-title-group">
+          <h2 class="section-title">Most Popular Languages</h2>
+          <span class="section-pill pill-cyan">2024</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <p class="trends-desc">Percentage of developers who used this language in the past year.</p>
+
+      <div class="trends-chart-wrap">
+        <canvas id="popularChart"></canvas>
+      </div>
+
+      <div class="trends-cards">
+        <div class="trends-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="trends-lang-icon" alt="JS" />
+          <div class="trends-card-body">
+            <p class="trends-card-name">JavaScript</p>
+            <div class="trends-bar-wrap"><div class="trends-bar" style="width:62.3%; background:var(--cyan);"></div></div>
+            <span class="trends-pct">62.3%</span>
+          </div>
+          <span class="trends-rank">#1</span>
+        </div>
+        <div class="trends-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="trends-lang-icon" alt="Python" />
+          <div class="trends-card-body">
+            <p class="trends-card-name">Python</p>
+            <div class="trends-bar-wrap"><div class="trends-bar" style="width:51%; background:#3776ab;"></div></div>
+            <span class="trends-pct">51%</span>
+          </div>
+          <span class="trends-rank">#2</span>
+        </div>
+        <div class="trends-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" class="trends-lang-icon" alt="TS" />
+          <div class="trends-card-body">
+            <p class="trends-card-name">TypeScript</p>
+            <div class="trends-bar-wrap"><div class="trends-bar" style="width:38.5%; background:#3178c6;"></div></div>
+            <span class="trends-pct">38.5%</span>
+          </div>
+          <span class="trends-rank">#3</span>
+        </div>
+        <div class="trends-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="trends-lang-icon" alt="Java" />
+          <div class="trends-card-body">
+            <p class="trends-card-name">Java</p>
+            <div class="trends-bar-wrap"><div class="trends-bar" style="width:30.3%; background:#f89820;"></div></div>
+            <span class="trends-pct">30.3%</span>
+          </div>
+          <span class="trends-rank">#4</span>
+        </div>
+        <div class="trends-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" class="trends-lang-icon" alt="C#" />
+          <div class="trends-card-body">
+            <p class="trends-card-name">C#</p>
+            <div class="trends-bar-wrap"><div class="trends-bar" style="width:27.1%; background:#9b4f96;"></div></div>
+            <span class="trends-pct">27.1%</span>
+          </div>
+          <span class="trends-rank">#5</span>
+        </div>
+        <div class="trends-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" class="trends-lang-icon" alt="C++" />
+          <div class="trends-card-body">
+            <p class="trends-card-name">C++</p>
+            <div class="trends-bar-wrap"><div class="trends-bar" style="width:23%; background:#00599c;"></div></div>
+            <span class="trends-pct">23%</span>
+          </div>
+          <span class="trends-rank">#6</span>
+        </div>
+        <div class="trends-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" class="trends-lang-icon" alt="PHP" />
+          <div class="trends-card-body">
+            <p class="trends-card-name">PHP</p>
+            <div class="trends-bar-wrap"><div class="trends-bar" style="width:18.2%; background:#777bb4;"></div></div>
+            <span class="trends-pct">18.2%</span>
+          </div>
+          <span class="trends-rank">#7</span>
+        </div>
+        <div class="trends-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" class="trends-lang-icon" alt="Go" />
+          <div class="trends-card-body">
+            <p class="trends-card-name">Go</p>
+            <div class="trends-bar-wrap"><div class="trends-bar" style="width:13.5%; background:#00add8;"></div></div>
+            <span class="trends-pct">13.5%</span>
+          </div>
+          <span class="trends-rank">#8</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 HIGHEST PAYING JOBS -->
+    <section class="topic-section" id="jobs">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-title-group">
+          <h2 class="section-title">Highest Paying Tech Jobs</h2>
+          <span class="section-pill pill-green">Global Average</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <p class="trends-desc">Average annual salary in USD based on Stack Overflow 2024 survey data.</p>
+
+      <div class="trends-chart-wrap">
+        <canvas id="salaryChart"></canvas>
+      </div>
+
+      <div class="jobs-grid">
+        <div class="job-card">
+          <div class="job-header">
+            <span class="job-icon">🧠</span>
+            <div>
+              <p class="job-title">AI / ML Engineer</p>
+              <span class="job-salary">$165,000 / yr</span>
+            </div>
+          </div>
+          <div class="job-skills">
+            <span class="job-skill">Python</span>
+            <span class="job-skill">TensorFlow</span>
+            <span class="job-skill">PyTorch</span>
+          </div>
+          <div class="job-demand">
+            <span class="demand-label">Demand</span>
+            <div class="demand-bar"><div style="width:95%; background:var(--green);"></div></div>
+          </div>
+        </div>
+
+        <div class="job-card">
+          <div class="job-header">
+            <span class="job-icon">📊</span>
+            <div>
+              <p class="job-title">Data Engineer</p>
+              <span class="job-salary">$145,000 / yr</span>
+            </div>
+          </div>
+          <div class="job-skills">
+            <span class="job-skill">Python</span>
+            <span class="job-skill">SQL</span>
+            <span class="job-skill">Spark</span>
+          </div>
+          <div class="job-demand">
+            <span class="demand-label">Demand</span>
+            <div class="demand-bar"><div style="width:90%; background:var(--green);"></div></div>
+          </div>
+        </div>
+
+        <div class="job-card">
+          <div class="job-header">
+            <span class="job-icon">☁️</span>
+            <div>
+              <p class="job-title">Cloud Engineer</p>
+              <span class="job-salary">$142,000 / yr</span>
+            </div>
+          </div>
+          <div class="job-skills">
+            <span class="job-skill">AWS</span>
+            <span class="job-skill">Python</span>
+            <span class="job-skill">Terraform</span>
+          </div>
+          <div class="job-demand">
+            <span class="demand-label">Demand</span>
+            <div class="demand-bar"><div style="width:88%; background:var(--cyan);"></div></div>
+          </div>
+        </div>
+
+        <div class="job-card">
+          <div class="job-header">
+            <span class="job-icon">🔒</span>
+            <div>
+              <p class="job-title">Security Engineer</p>
+              <span class="job-salary">$138,000 / yr</span>
+            </div>
+          </div>
+          <div class="job-skills">
+            <span class="job-skill">Python</span>
+            <span class="job-skill">Linux</span>
+            <span class="job-skill">Networking</span>
+          </div>
+          <div class="job-demand">
+            <span class="demand-label">Demand</span>
+            <div class="demand-bar"><div style="width:85%; background:var(--cyan);"></div></div>
+          </div>
+        </div>
+
+        <div class="job-card">
+          <div class="job-header">
+            <span class="job-icon">🌐</span>
+            <div>
+              <p class="job-title">Full Stack Developer</p>
+              <span class="job-salary">$120,000 / yr</span>
+            </div>
+          </div>
+          <div class="job-skills">
+            <span class="job-skill">JavaScript</span>
+            <span class="job-skill">React</span>
+            <span class="job-skill">Node.js</span>
+          </div>
+          <div class="job-demand">
+            <span class="demand-label">Demand</span>
+            <div class="demand-bar"><div style="width:82%; background:var(--cyan);"></div></div>
+          </div>
+        </div>
+
+        <div class="job-card">
+          <div class="job-header">
+            <span class="job-icon">📱</span>
+            <div>
+              <p class="job-title">Mobile Developer</p>
+              <span class="job-salary">$115,000 / yr</span>
+            </div>
+          </div>
+          <div class="job-skills">
+            <span class="job-skill">Swift</span>
+            <span class="job-skill">Kotlin</span>
+            <span class="job-skill">Flutter</span>
+          </div>
+          <div class="job-demand">
+            <span class="demand-label">Demand</span>
+            <div class="demand-bar"><div style="width:75%; background:var(--cyan);"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 MOST IN-DEMAND SKILLS -->
+    <section class="topic-section" id="skills">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-title-group">
+          <h2 class="section-title">Most In-Demand Skills</h2>
+          <span class="section-pill pill-cyan">2024</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <p class="trends-desc">Skills most frequently mentioned in job postings and surveys worldwide.</p>
+
+      <div class="trends-chart-wrap">
+        <canvas id="skillsChart"></canvas>
+      </div>
+    </section>
+
+    <!-- 04 PH JOB MARKET -->
+    <section class="topic-section" id="ph">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-title-group">
+          <h2 class="section-title">Philippines Tech Job Market</h2>
+          <span class="section-pill pill-green">Local Insights</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <p class="trends-desc">Most in-demand tech roles in the Philippines based on job portals (JobStreet, LinkedIn PH, Kalibrr) 2024.</p>
+
+      <div class="ph-grid">
+        <div class="ph-card">
+          <span class="ph-rank cyan">#1</span>
+          <div class="ph-body">
+            <p class="ph-role">Full Stack Developer</p>
+            <p class="ph-salary">₱60,000 – ₱120,000 / mo</p>
+            <div class="ph-skills">
+              <span>React</span><span>Node.js</span><span>SQL</span>
+            </div>
+          </div>
+        </div>
+        <div class="ph-card">
+          <span class="ph-rank green">#2</span>
+          <div class="ph-body">
+            <p class="ph-role">Data Analyst</p>
+            <p class="ph-salary">₱40,000 – ₱80,000 / mo</p>
+            <div class="ph-skills">
+              <span>Python</span><span>SQL</span><span>Power BI</span>
+            </div>
+          </div>
+        </div>
+        <div class="ph-card">
+          <span class="ph-rank cyan">#3</span>
+          <div class="ph-body">
+            <p class="ph-role">Backend Developer</p>
+            <p class="ph-salary">₱50,000 – ₱100,000 / mo</p>
+            <div class="ph-skills">
+              <span>Java</span><span>Python</span><span>PHP</span>
+            </div>
+          </div>
+        </div>
+        <div class="ph-card">
+          <span class="ph-rank green">#4</span>
+          <div class="ph-body">
+            <p class="ph-role">Mobile Developer</p>
+            <p class="ph-salary">₱45,000 – ₱90,000 / mo</p>
+            <div class="ph-skills">
+              <span>Flutter</span><span>React Native</span><span>Kotlin</span>
+            </div>
+          </div>
+        </div>
+        <div class="ph-card">
+          <span class="ph-rank cyan">#5</span>
+          <div class="ph-body">
+            <p class="ph-role">QA Engineer</p>
+            <p class="ph-salary">₱35,000 – ₱70,000 / mo</p>
+            <div class="ph-skills">
+              <span>Selenium</span><span>Python</span><span>JIRA</span>
+            </div>
+          </div>
+        </div>
+        <div class="ph-card">
+          <span class="ph-rank green">#6</span>
+          <div class="ph-body">
+            <p class="ph-role">DevOps Engineer</p>
+            <p class="ph-salary">₱70,000 – ₱130,000 / mo</p>
+            <div class="ph-skills">
+              <span>Docker</span><span>AWS</span><span>Linux</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-banner" style="margin-top:1rem;">
+      <div class="cta-inner">
+        <div class="cta-text">
+          <h3>Start learning the in-demand skills today.</h3>
+          <p>Pick a topic from our curated library and follow a structured roadmap toward your dream tech job.</p>
+        </div>
+        <div class="cta-btns">
+          <a href="languages.html" class="btn-primary">&gt;_ Browse Topics</a>
+          <a href="roadmap.html" class="btn-secondary">View Roadmaps</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-logo">UP<span>Skill</span>S</p>
+      <p class="footer-sub">Built for students. Curated with purpose.</p>
+      <div class="footer-line"></div>
+      <p class="footer-note">Data sourced from Stack Overflow Developer Survey 2024. All video resources belong to their respective creators on YouTube.<br>UPSkillS is a non-commercial student project — DHVSU College of Engineering &amp; Architecture.</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/script.js"></script>
+  <script>
+    // Matrix
+    window.onload = function() {
+      const c = document.getElementById('matrix-canvas');
+      if (!c) return;
+      const x = c.getContext('2d');
+      c.width = window.innerWidth;
+      c.height = window.innerHeight;
+      const ch = '01アイウエオカキクABCDEFGHIJKLMNOP0123456789';
+      const fs = 14, cols = Math.floor(c.width/fs), dr = Array(cols).fill(1);
+      setInterval(() => {
+        x.fillStyle='rgba(8,11,17,0.05)'; x.fillRect(0,0,c.width,c.height);
+        x.font=fs+'px monospace';
+        dr.forEach((d,i)=>{
+          x.fillStyle=Math.random()>0.95?'#00ff88':'#00e5ff';
+          x.globalAlpha=0.7;
+          x.fillText(ch[Math.floor(Math.random()*ch.length)],i*fs,d*fs);
+          if(d*fs>c.height&&Math.random()>0.975)dr[i]=0;
+          dr[i]++;
+        });
+      },50);
+    };
+
+    // Charts
+    document.addEventListener('DOMContentLoaded', () => {
+      const chartDefaults = {
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { ticks: { color: '#8fafc8', font: { family: 'JetBrains Mono', size: 11 } }, grid: { color: '#1a2438' } },
+          y: { ticks: { color: '#8fafc8', font: { family: 'JetBrains Mono', size: 11 } }, grid: { color: '#1a2438' } }
+        }
+      };
+
+      // Popular Languages Chart
+      new Chart(document.getElementById('popularChart'), {
+        type: 'bar',
+        data: {
+          labels: ['JavaScript', 'Python', 'TypeScript', 'Java', 'C#', 'C++', 'PHP', 'Go'],
+          datasets: [{
+            data: [62.3, 51, 38.5, 30.3, 27.1, 23, 18.2, 13.5],
+            backgroundColor: ['#00e5ff','#3776ab','#3178c6','#f89820','#9b4f96','#00599c','#777bb4','#00add8'],
+            borderRadius: 4,
+          }]
+        },
+        options: {
+          ...chartDefaults,
+          plugins: { legend: { display: false }, tooltip: {
+            callbacks: { label: ctx => ` ${ctx.raw}% of developers` }
+          }},
+          scales: {
+            ...chartDefaults.scales,
+            y: { ...chartDefaults.scales.y, max: 70, ticks: { ...chartDefaults.scales.y.ticks, callback: v => v + '%' } }
+          }
+        }
+      });
+
+      // Salary Chart
+      new Chart(document.getElementById('salaryChart'), {
+        type: 'bar',
+        data: {
+          labels: ['AI/ML Eng', 'Data Eng', 'Cloud Eng', 'Security Eng', 'Full Stack', 'Mobile Dev'],
+          datasets: [{
+            data: [165000, 145000, 142000, 138000, 120000, 115000],
+            backgroundColor: ['#00ff88','#00e5ff','#00ff88','#00e5ff','#00ff88','#00e5ff'],
+            borderRadius: 4,
+          }]
+        },
+        options: {
+          ...chartDefaults,
+          plugins: { legend: { display: false }, tooltip: {
+            callbacks: { label: ctx => ` $${ctx.raw.toLocaleString()} / yr` }
+          }},
+          scales: {
+            ...chartDefaults.scales,
+            y: { ...chartDefaults.scales.y, ticks: { ...chartDefaults.scales.y.ticks, callback: v => '$' + (v/1000) + 'k' } }
+          }
+        }
+      });
+
+      // Skills Chart
+      new Chart(document.getElementById('skillsChart'), {
+        type: 'radar',
+        data: {
+          labels: ['Python', 'SQL', 'JavaScript', 'Cloud', 'Git', 'Docker', 'AI/ML', 'TypeScript'],
+          datasets: [{
+            data: [85, 82, 90, 75, 95, 70, 88, 72],
+            borderColor: '#00e5ff',
+            backgroundColor: 'rgba(0,229,255,0.1)',
+            pointBackgroundColor: '#00e5ff',
+            pointBorderColor: '#00e5ff',
+          }]
+        },
+        options: {
+          plugins: { legend: { display: false } },
+          scales: {
+            r: {
+              ticks: { color: '#8fafc8', backdropColor: 'transparent', font: { family: 'JetBrains Mono', size: 10 } },
+              grid: { color: '#1a2438' },
+              pointLabels: { color: '#c8d8e8', font: { family: 'JetBrains Mono', size: 11 } },
+              angleLines: { color: '#1a2438' }
+            }
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

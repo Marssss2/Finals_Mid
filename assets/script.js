@@ -197,3 +197,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+// ── VIDEO HOVER ON INSTITUTION CARDS ──────────
+  document.querySelectorAll('.institution-card').forEach(card => {
+    const video = card.querySelector('.inst-video');
+    if (!video) return;
+    card.addEventListener('mouseenter', () => video.play());
+    card.addEventListener('mouseleave', () => {
+      video.pause();
+      video.currentTime = 0;
+    });
+  });
+
+// ← closing ng DOMContentLoaded
