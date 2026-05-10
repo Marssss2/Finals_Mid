@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UPSkillS — Tech Trends & Job Market</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- LOADING SCREEN -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">UP<span>Skill</span>S</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+      <p class="loader-text">&gt;_ loading trends...</p>
+    </div>
+  </div>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- GRID BG -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- HEADER -->
+  <header id="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">UP<span>Skill</span>S</a>
+
+      <nav class="nav-topics">
+        <a href="../index.html">Home</a>
+        <a href="languages.html">Languages</a>
+        <a href="roadmap.html">Roadmaps</a>
+        <a href="tools.html">Tools</a>
+        <a href="trends.html" class="active">Trends</a>
+        <a href="../index.html#about">About</a>
+      </nav>
+
+    </div>
+    <p class="tagline">&gt;_ Upgrade your skills. One resource at a time.</p>
+    <div class="header-line"></div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-badge">&gt;_ stack overflow survey 2025 · industry data 2026</div>
+    <h1 class="page-hero-title">Tech Trends &amp; <span>Job Market</span></h1>
+    <p class="page-hero-desc">Stay ahead of the curve. Here's what the tech industry looks like in 2025–2026 — the most popular languages, highest paying jobs, and most in-demand skills based on the Stack Overflow Developer Survey 2025 and live industry salary data.</p>
+    <p class="trends-source">
+      📊 Primary Source: <a href="https://survey.stackoverflow.co/2025/" target="_blank" rel="noopener">Stack Overflow Developer Survey 2025</a> — 49,000+ respondents, 177 countries
+      &nbsp;·&nbsp;
+      📈 Salary Data: Glassdoor, Levels.fyi, JobStreet PH (2025–2026 estimates)
+    </p>
+    <p class="trends-source" style="margin-top:6px; font-size:0.78rem; opacity:0.65;">
+      ⚠️ Salary figures are projected estimates based on current industry data. Actual compensation varies by company, experience, and location.
+    </p>
+  </div>
+
+  <!-- MAIN -->
+  <main id="main-content">
+
+    <!-- STATS STRIP -->
+    <div class="trends-stats-strip">
+      <div class="trends-stat">
+        <span class="trends-stat-num cyan">49,000+</span>
+        <span class="trends-stat-label">Survey Respondents</span>
+      </div>
+      <div class="trends-stat-sep">|</div>
+      <div class="trends-stat">
+        <span class="trends-stat-num green">177</span>
+        <span class="trends-stat-label">Countries</span>
+      </div>
+      <div class="trends-stat-sep">|</div>
+      <div class="trends-stat">
+        <span class="trends-stat-num cyan">2025</span>
+        <span class="trends-stat-label">Survey Year</span>
+      </div>
+      <div class="trends-stat-sep">|</div>
+      <div class="trends-stat">
+        <span class="trends-stat-num green">15th</span>
+        <span class="trends-stat-label">Annual Survey</span>
+      </div>
+    </div>
+
+    <!-- 01 MOST POPULAR LANGUAGES -->
+    <section class="topic-section" id="popular">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-title-group">
+          <h2 class="section-title">Most Popular Languages</h2>
+          <span class="section-pill pill-cyan">2025</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <p class="trends-desc">
+        Percentage of developers who used this language in the past year.
+        <strong style="color:var(--green);">Python surged +7pp</strong> — its biggest single-year jump ever, driven by the AI boom.
+        Docker saw the largest overall increase of any technology at <strong style="color:var(--cyan);">+17pp</strong>.
+      </p>
+
+      <div class="trends-chart-wrap">
+        <canvas id="popularChart"></canvas>
+      </div>
+
+      <div class="trends-cards">
+        <!-- JavaScript -->
+        <div class="trends-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="trends-lang-icon" alt="JS" />
+          <div class="trends-card-body">
+            <p class="trends-card-name">JavaScript</p>
+            <div class="trends-bar-wrap"><div class="trends-bar" style="width:66%; background:var(--cyan);"></div></div>
+            <span class="trends-pct">66%</span>
+          </div>
+          <span class="trends-rank">#1</span>
+        </div>
+        <!-- Python -->
+        <div class="trends-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="trends-lang-icon" alt="Python" />
+          <div class="trends-card-body">
+            <p class="trends-card-name">Python <span style="font-size:0.65rem;color:var(--green);">▲+7pp</span></p>
+            <div class="trends-bar-wrap"><div class="trends-bar" style="width:58%; background:#3776ab;"></div></div>
+            <span class="trends-pct">58%</span>
+          </div>
+          <span class="trends-rank">#2</span>
+        </div>
+        <!-- TypeScript -->
+        <div class="trends-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" class="trends-lang-icon" alt="TS" />
+          <div class="trends-card-body">
+            <p class="trends-card-name">TypeScript</p>
+            <div class="trends-bar-wrap"><div class="trends-bar" style="width:43%; background:#3178c6;"></div></div>
+            <span class="trends-pct">43%</span>
+          </div>
+          <span class="trends-rank">#3</span>
+        </div>
+        <!-- Java -->
+        <div class="trends-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="trends-lang-icon" alt="Java" />
+          <div class="trends-card-body">
+            <p class="trends-card-name">Java</p>
+            <div class="trends-bar-wrap"><div class="trends-bar" style="width:30.3%; background:#f89820;"></div></div>
+            <span class="trends-pct">30.3%</span>
+          </div>
+          <span class="trends-rank">#4</span>
+        </div>
+        <!-- C# -->
+        <div class="trends-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" class="trends-lang-icon" alt="C#" />
+          <div class="trends-card-body">
+            <p class="trends-card-name">C#</p>
+            <div class="trends-bar-wrap"><div class="trends-bar" style="width:27%; background:#9b4f96;"></div></div>
+            <span class="trends-pct">27%</span>
+          </div>
+          <span class="trends-rank">#5</span>
+        </div>
+        <!-- C++ -->
+        <div class="trends-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" class="trends-lang-icon" alt="C++" />
+          <div class="trends-card-body">
+            <p class="trends-card-name">C++</p>
+            <div class="trends-bar-wrap"><div class="trends-bar" style="width:23.5%; background:#00599c;"></div></div>
+            <span class="trends-pct">23.5%</span>
+          </div>
+          <span class="trends-rank">#6</span>
+        </div>
+        <!-- PHP -->
+        <div class="trends-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" class="trends-lang-icon" alt="PHP" />
+          <div class="trends-card-body">
+            <p class="trends-card-name">PHP</p>
+            <div class="trends-bar-wrap"><div class="trends-bar" style="width:18%; background:#777bb4;"></div></div>
+            <span class="trends-pct">18%</span>
+          </div>
+          <span class="trends-rank">#7</span>
+        </div>
+        <!-- Go -->
+        <div class="trends-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" class="trends-lang-icon" alt="Go" />
+          <div class="trends-card-body">
+            <p class="trends-card-name">Go <span style="font-size:0.65rem;color:var(--green);">▲trending</span></p>
+            <div class="trends-bar-wrap"><div class="trends-bar" style="width:14.5%; background:#00add8;"></div></div>
+            <span class="trends-pct">14.5%</span>
+          </div>
+          <span class="trends-rank">#8</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 HIGHEST PAYING JOBS -->
+    <section class="topic-section" id="jobs">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-title-group">
+          <h2 class="section-title">Highest Paying Tech Jobs</h2>
+          <span class="section-pill pill-green">2025–2026 Global Avg</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <p class="trends-desc">
+        Estimated average total compensation in USD based on Glassdoor, Levels.fyi, and industry reports (2025–2026).
+        AI skills now command a <strong style="color:var(--green);">56% wage premium</strong> over equivalent non-AI roles (PwC AI Jobs Barometer 2025).
+      </p>
+
+      <div class="trends-chart-wrap">
+        <canvas id="salaryChart"></canvas>
+      </div>
+
+      <div class="jobs-grid">
+        <!-- AI / ML Engineer -->
+        <div class="job-card">
+          <div class="job-header">
+            <span class="job-icon">🧠</span>
+            <div>
+              <p class="job-title">AI / ML Engineer</p>
+              <span class="job-salary">$177,000 / yr <span style="font-size:0.7rem;opacity:0.7;">est.</span></span>
+            </div>
+          </div>
+          <div class="job-skills">
+            <span class="job-skill">Python</span>
+            <span class="job-skill">PyTorch</span>
+            <span class="job-skill">LLMs</span>
+            <span class="job-skill">MLOps</span>
+          </div>
+          <div class="job-demand">
+            <span class="demand-label">Demand · AI job postings ▲156% YoY</span>
+            <div class="demand-bar"><div style="width:98%; background:var(--green);"></div></div>
+          </div>
+        </div>
+
+        <!-- Data Engineer -->
+        <div class="job-card">
+          <div class="job-header">
+            <span class="job-icon">📊</span>
+            <div>
+              <p class="job-title">Data Engineer</p>
+              <span class="job-salary">$155,000 / yr <span style="font-size:0.7rem;opacity:0.7;">est.</span></span>
+            </div>
+          </div>
+          <div class="job-skills">
+            <span class="job-skill">Python</span>
+            <span class="job-skill">SQL</span>
+            <span class="job-skill">Spark</span>
+            <span class="job-skill">dbt</span>
+          </div>
+          <div class="job-demand">
+            <span class="demand-label">Demand</span>
+            <div class="demand-bar"><div style="width:92%; background:var(--green);"></div></div>
+          </div>
+        </div>
+
+        <!-- Cloud / DevOps Engineer -->
+        <div class="job-card">
+          <div class="job-header">
+            <span class="job-icon">☁️</span>
+            <div>
+              <p class="job-title">Cloud / DevOps Engineer</p>
+              <span class="job-salary">$148,000 / yr <span style="font-size:0.7rem;opacity:0.7;">est.</span></span>
+            </div>
+          </div>
+          <div class="job-skills">
+            <span class="job-skill">AWS</span>
+            <span class="job-skill">Docker ▲+17pp</span>
+            <span class="job-skill">Kubernetes</span>
+            <span class="job-skill">Terraform</span>
+          </div>
+          <div class="job-demand">
+            <span class="demand-label">Demand</span>
+            <div class="demand-bar"><div style="width:90%; background:var(--cyan);"></div></div>
+          </div>
+        </div>
+
+        <!-- Security Engineer -->
+        <div class="job-card">
+          <div class="job-header">
+            <span class="job-icon">🔒</span>
+            <div>
+              <p class="job-title">Security Engineer</p>
+              <span class="job-salary">$142,000 / yr <span style="font-size:0.7rem;opacity:0.7;">est.</span></span>
+            </div>
+          </div>
+          <div class="job-skills">
+            <span class="job-skill">Python</span>
+            <span class="job-skill">Linux</span>
+            <span class="job-skill">Networking</span>
+          </div>
+          <div class="job-demand">
+            <span class="demand-label">Demand</span>
+            <div class="demand-bar"><div style="width:87%; background:var(--cyan);"></div></div>
+          </div>
+        </div>
+
+        <!-- Full Stack Developer -->
+        <div class="job-card">
+          <div class="job-header">
+            <span class="job-icon">🌐</span>
+            <div>
+              <p class="job-title">Full Stack Developer</p>
+              <span class="job-salary">$125,000 / yr <span style="font-size:0.7rem;opacity:0.7;">est.</span></span>
+            </div>
+          </div>
+          <div class="job-skills">
+            <span class="job-skill">JavaScript</span>
+            <span class="job-skill">React</span>
+            <span class="job-skill">Node.js</span>
+            <span class="job-skill">TypeScript</span>
+          </div>
+          <div class="job-demand">
+            <span class="demand-label">Demand</span>
+            <div class="demand-bar"><div style="width:84%; background:var(--cyan);"></div></div>
+          </div>
+        </div>
+
+        <!-- Mobile Developer -->
+        <div class="job-card">
+          <div class="job-header">
+            <span class="job-icon">📱</span>
+            <div>
+              <p class="job-title">Mobile Developer</p>
+              <span class="job-salary">$118,000 / yr <span style="font-size:0.7rem;opacity:0.7;">est.</span></span>
+            </div>
+          </div>
+          <div class="job-skills">
+            <span class="job-skill">Swift</span>
+            <span class="job-skill">Kotlin</span>
+            <span class="job-skill">Flutter</span>
+            <span class="job-skill">React Native</span>
+          </div>
+          <div class="job-demand">
+            <span class="demand-label">Demand</span>
+            <div class="demand-bar"><div style="width:77%; background:var(--cyan);"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 MOST IN-DEMAND SKILLS -->
+    <section class="topic-section" id="skills">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-title-group">
+          <h2 class="section-title">Most In-Demand Skills</h2>
+          <span class="section-pill pill-cyan">2025–2026</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <p class="trends-desc">
+        Skills most frequently mentioned in job postings and developer surveys worldwide.
+        <strong style="color:var(--green);">AI/ML</strong> and <strong style="color:var(--cyan);">Docker</strong> saw the biggest year-over-year jumps in 2025.
+        84% of developers now use or plan to use AI tools in their workflow.
+      </p>
+
+      <div class="trends-chart-wrap">
+        <canvas id="skillsChart"></canvas>
+      </div>
+    </section>
+
+    <!-- 04 PH JOB MARKET -->
+    <section class="topic-section" id="ph">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-title-group">
+          <h2 class="section-title">Philippines Tech Job Market</h2>
+          <span class="section-pill pill-green">2026 Local Data</span>
+        </div>
+        <div class="section-line"></div>
+      </div>
+      <p class="trends-desc">
+        Most in-demand tech roles in the Philippines based on JobStreet PH (May 2026), LinkedIn PH, and Kalibrr.
+        Salaries expected to rise <strong style="color:var(--green);">5.5%</strong> in 2026. Metro Manila roles pay 20–50% above provincial rates.
+      </p>
+
+      <div class="ph-grid">
+        <!-- #1 Full Stack Developer -->
+        <div class="ph-card">
+          <span class="ph-rank cyan">#1</span>
+          <div class="ph-body">
+            <p class="ph-role">Full Stack Developer</p>
+            <p class="ph-salary">₱68,000 – ₱150,000 / mo</p>
+            <div class="ph-skills">
+              <span>React</span><span>Node.js</span><span>TypeScript</span><span>SQL</span>
+            </div>
+          </div>
+        </div>
+        <!-- #2 Data Engineer -->
+        <div class="ph-card">
+          <span class="ph-rank green">#2</span>
+          <div class="ph-body">
+            <p class="ph-role">Data Engineer</p>
+            <p class="ph-salary">₱80,000 – ₱160,000 / mo</p>
+            <div class="ph-skills">
+              <span>Python</span><span>SQL</span><span>Spark</span><span>dbt</span>
+            </div>
+          </div>
+        </div>
+        <!-- #3 AI / LLM Engineer -->
+        <div class="ph-card">
+          <span class="ph-rank cyan">#3</span>
+          <div class="ph-body">
+            <p class="ph-role">AI / LLM Engineer</p>
+            <p class="ph-salary">₱100,000 – ₱185,000 / mo</p>
+            <div class="ph-skills">
+              <span>Python</span><span>PyTorch</span><span>LangChain</span><span>MLOps</span>
+            </div>
+          </div>
+        </div>
+        <!-- #4 Backend Developer -->
+        <div class="ph-card">
+          <span class="ph-rank green">#4</span>
+          <div class="ph-body">
+            <p class="ph-role">Backend Developer</p>
+            <p class="ph-salary">₱52,000 – ₱120,000 / mo</p>
+            <div class="ph-skills">
+              <span>Java</span><span>Python</span><span>FastAPI</span><span>Go</span>
+            </div>
+          </div>
+        </div>
+        <!-- #5 Cloud / DevOps Engineer -->
+        <div class="ph-card">
+          <span class="ph-rank cyan">#5</span>
+          <div class="ph-body">
+            <p class="ph-role">Cloud / DevOps Engineer</p>
+            <p class="ph-salary">₱85,000 – ₱165,000 / mo</p>
+            <div class="ph-skills">
+              <span>AWS</span><span>Docker</span><span>Kubernetes</span><span>Linux</span>
+            </div>
+          </div>
+        </div>
+        <!-- #6 Mobile Developer -->
+        <div class="ph-card">
+          <span class="ph-rank green">#6</span>
+          <div class="ph-body">
+            <p class="ph-role">Mobile Developer</p>
+            <p class="ph-salary">₱50,000 – ₱110,000 / mo</p>
+            <div class="ph-skills">
+              <span>Flutter</span><span>React Native</span><span>Kotlin</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-banner" style="margin-top:1rem;">
+      <div class="cta-inner">
+        <div class="cta-text">
+          <h3>Start learning the in-demand skills today.</h3>
+          <p>Pick a topic from our curated library and follow a structured roadmap toward your dream tech job.</p>
+        </div>
+        <div class="cta-btns">
+          <a href="languages.html" class="btn-primary">&gt;_ Browse Topics</a>
+          <a href="roadmap.html" class="btn-secondary">View Roadmaps</a>
+        </div>
+      </div>
+    </div>
+<!-- ═══════════════════════════════════════════════════════════
+     05  LATEST NEWS & RESOURCES
+     Data compiled: 2025–2026 | Sources verified & linked below
+     ═══════════════════════════════════════════════════════════ -->
+<section class="topic-section" id="news">
+  <div class="section-header">
+    <div class="section-num">05</div>
+    <div class="section-title-group">
+      <h2 class="section-title">Latest News &amp; Resources</h2>
+      <span class="section-pill pill-cyan">2025–2026</span>
+    </div>
+    <div class="section-line"></div>
+  </div>
+  <p class="trends-desc">
+    Handpicked articles and guides for upcoming programmers — sourced from
+    Stack Overflow, freeCodeCamp, roadmap.sh, DEV Community, and more.
+    All links verified as of 2025–2026.
+  </p>
+
+  <!-- MAGAZINE LAYOUT: 1 featured + grid of smaller cards -->
+  <div class="news-magazine">
+
+    <!-- ── FEATURED ARTICLE ─────────────────────────────────── -->
+    <a class="news-featured"
+   href="https://survey.stackoverflow.co/2025/"
+   target="_blank" rel="noopener noreferrer"
+   aria-label="Read: Stack Overflow Developer Survey 2025">
+
+  <!-- Background image with dark overlay -->
+  <div class="news-featured-bg" style="
+    background-image: url('https://cdn.sstatic.net/Sites/stackoverflow/Img/apple-touch-icon.png');
+  " aria-hidden="true"></div>
+  <div class="news-featured-overlay" aria-hidden="true"></div>
+
+  <div class="news-featured-badge">&gt;_ Featured · Stack Overflow · 2025</div>
+      <h3 class="news-featured-title">
+        Stack Overflow Developer Survey 2025
+      </h3>
+      <p class="news-featured-desc">
+        The definitive annual snapshot of the global developer community.
+        49,000+ respondents across 177 countries weigh in on languages,
+        tools, AI adoption, salaries, and job satisfaction — the single
+        most reliable source for tech trend data.
+      </p>
+      <div class="news-featured-meta">
+        <span class="news-source-badge badge-so">Stack Overflow</span>
+        <span class="news-date">2025 · 49,000+ respondents</span>
+        <span class="news-read-link">Read Report ↗</span>
+      </div>
+    </a>
+
+    <!-- ── SMALLER CARDS GRID ───────────────────────────────── -->
+    <div class="news-grid">
+
+      <!-- Card 1 -->
+      <a class="news-card"
+         href="https://roadmap.sh/roadmaps"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Visit roadmap.sh — Developer Roadmaps 2025–2026">
+        <div class="news-card-top">
+          <span class="news-source-badge badge-gh">roadmap.sh</span>
+          <span class="news-date">Updated 2026</span>
+        </div>
+        <h4 class="news-card-title">
+          Developer Roadmaps 2025–2026
+        </h4>
+        <p class="news-card-desc">
+          Community-driven, visual step-by-step paths for Frontend,
+          Backend, DevOps, AI, and more. The most-starred learning
+          resource on GitHub.
+        </p>
+        <span class="news-read-link">Explore ↗</span>
+      </a>
+
+      <!-- Card 2 -->
+      <a class="news-card"
+         href="https://www.freecodecamp.org/news/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Visit freeCodeCamp News">
+        <div class="news-card-top">
+          <span class="news-source-badge badge-fcc">freeCodeCamp</span>
+          <span class="news-date">Ongoing · Free</span>
+        </div>
+        <h4 class="news-card-title">
+          freeCodeCamp News &amp; Tutorials
+        </h4>
+        <p class="news-card-desc">
+          Thousands of free programming tutorials updated continuously.
+          Covers Python, JavaScript, web dev, data science, and career advice for beginners.
+        </p>
+        <span class="news-read-link">Read ↗</span>
+      </a>
+
+      <!-- Card 3 -->
+      <a class="news-card"
+         href="https://medium.com/@fahimulhaq/the-truth-about-learning-to-code-in-2025-0de29fb5b24c"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Read: The Truth About Learning to Code in 2025 — Medium">
+        <div class="news-card-top">
+          <span class="news-source-badge badge-med">Medium</span>
+          <span class="news-date">Aug 2025</span>
+        </div>
+        <h4 class="news-card-title">
+          The Truth About Learning to Code in 2025
+        </h4>
+        <p class="news-card-desc">
+          A senior engineer from Microsoft &amp; Meta breaks down exactly
+          how to learn coding in the AI era — and why most tutorials are
+          setting beginners up to fail.
+        </p>
+        <span class="news-read-link">Read ↗</span>
+      </a>
+
+      <!-- Card 4 -->
+      <a class="news-card"
+         href="https://zerotomastery.io/blog/top-10-articles-from-2025/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Read: Top 10 Articles Every Developer Should Read from 2025">
+        <div class="news-card-top">
+          <span class="news-source-badge badge-ztm">Zero To Mastery</span>
+          <span class="news-date">Dec 2025</span>
+        </div>
+        <h4 class="news-card-title">
+          Top 10 Dev Articles of 2025
+        </h4>
+        <p class="news-card-desc">
+          The ten articles every person in tech should have read this year —
+          covering AI tools, career growth, clean code, and staying relevant
+          as a developer.
+        </p>
+        <span class="news-read-link">Read ↗</span>
+      </a>
+
+      <!-- Card 5 -->
+      <a class="news-card"
+         href="https://dev.to/the_mj_super/how-im-learning-to-code-in-the-ai-age-2025-2026-edition-3b8l"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Read: How I'm Learning to Code in the AI Age 2025–2026 — DEV Community">
+        <div class="news-card-top">
+          <span class="news-source-badge badge-dev">DEV Community</span>
+          <span class="news-date">Sep 2025</span>
+        </div>
+        <h4 class="news-card-title">
+          Learning to Code in the AI Age (2025–2026 Edition)
+        </h4>
+        <p class="news-card-desc">
+          A beginner's honest account of learning to code alongside AI tools —
+          what works, what doesn't, and how to avoid the most common traps.
+        </p>
+        <span class="news-read-link">Read ↗</span>
+      </a>
+
+      <!-- Card 6 -->
+      <a class="news-card"
+         href="https://blog.jetbrains.com/education/2025/12/18/best-programming-courses-in-2025-new-and-favorite-picks-on-jetbrains-academy/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Read: Best Programming Courses in 2025 — JetBrains">
+        <div class="news-card-top">
+          <span class="news-source-badge badge-jb">JetBrains</span>
+          <span class="news-date">Dec 2025</span>
+        </div>
+        <h4 class="news-card-title">
+          Best Programming Courses in 2025
+        </h4>
+        <p class="news-card-desc">
+          JetBrains' roundup of the most effective courses for Python,
+          JavaScript, Rust, and more — including free AWS skill paths
+          and in-IDE hands-on learning.
+        </p>
+        <span class="news-read-link">Read ↗</span>
+      </a>
+
+    </div><!-- /news-grid -->
+  </div><!-- /news-magazine -->
+
+  <!-- SOURCE DISCLAIMER -->
+  <p class="trends-source" style="margin-top:2rem; text-align:center;">
+    📰 All articles sourced from publicly available, non-commercial publications.
+    Data compiled <strong>2025–2026</strong>. Links open in a new tab.
+  </p>
+
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     06  WATCH: TECH NEWS & TRENDS 2025–2026
+     Thumbnails on load → iframe plays on hover (no autoplay until hover)
+     ═══════════════════════════════════════════════════════════ -->
+<section class="topic-section" id="watch">
+  <div class="section-header">
+    <div class="section-num">06</div>
+    <div class="section-title-group">
+      <h2 class="section-title">Watch: Tech Trends 2025–2026</h2>
+      <span class="section-pill pill-cyan">YouTube</span>
+    </div>
+    <div class="section-line"></div>
+  </div>
+  <p class="trends-desc">
+    Latest tech news and trend breakdowns from top developer channels.
+    Hover over any card to play the video inline — no redirect needed.
+    All videos published 2025–2026.
+  </p>
+
+  <div class="watch-grid">
+
+    <!-- Video 1 — Fireship -->
+    <div class="watch-card" data-videoid="EKOU3JWDNLI">
+      <div class="watch-thumb">
+        <img src="https://img.youtube.com/vi/EKOU3JWDNLI/mqdefault.jpg"
+             alt="The unhinged world of tech in 2026 — Fireship" loading="lazy" />
+        <div class="watch-play-icon" aria-hidden="true">▶</div>
+        <iframe class="watch-iframe" title="The unhinged world of tech in 2026"
+          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
+          data-src="https://www.youtube.com/embed/EKOU3JWDNLI?autoplay=1&rel=0">
+        </iframe>
+      </div>
+      <div class="watch-info">
+        <span class="watch-channel">Fireship</span>
+        <span class="watch-date">Jan 2026</span>
+        <h4 class="watch-title">The Unhinged World of Tech in 2026</h4>
+        <p class="watch-desc">From household robots to quantum computing — Fireship's fast-paced breakdown of everything wild happening in tech right now.</p>
+      </div>
+    </div>
+
+    <!-- Video 2 — ByteByteGo -->
+    <div class="watch-card" data-videoid="cqLALf4bFPI">
+      <div class="watch-thumb">
+        <img src="https://img.youtube.com/vi/cqLALf4bFPI/mqdefault.jpg"
+             alt="What's Next in AI: 5 Trends to Watch in 2026 — ByteByteGo" loading="lazy" />
+        <div class="watch-play-icon" aria-hidden="true">▶</div>
+        <iframe class="watch-iframe" title="What's Next in AI: 5 Trends to Watch in 2026"
+          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
+          data-src="https://www.youtube.com/embed/cqLALf4bFPI?autoplay=1&rel=0">
+        </iframe>
+      </div>
+      <div class="watch-info">
+        <span class="watch-channel">ByteByteGo</span>
+        <span class="watch-date">Mar 2026</span>
+        <h4 class="watch-title">What's Next in AI: 5 Trends to Watch in 2026</h4>
+        <p class="watch-desc">Reasoning models, open-weight AI, multimodal breakthroughs — backed by data from McKinsey, Stanford, and OpenAI.</p>
+      </div>
+    </div>
+
+    <!-- Video 3 -->
+    <div class="watch-card" data-videoid="B23W1gRT9eY">
+      <div class="watch-thumb">
+        <img src="https://img.youtube.com/vi/B23W1gRT9eY/mqdefault.jpg"
+             alt="Top 6 AI Trends That Will Define 2026" loading="lazy" />
+        <div class="watch-play-icon" aria-hidden="true">▶</div>
+        <iframe class="watch-iframe" title="Top 6 AI Trends That Will Define 2026"
+          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
+          data-src="https://www.youtube.com/embed/B23W1gRT9eY?autoplay=1&rel=0">
+        </iframe>
+      </div>
+      <div class="watch-info">
+        <span class="watch-channel">Data Lumina</span>
+        <span class="watch-date">Jan 2026</span>
+        <h4 class="watch-title">Top 6 AI Trends That Will Define 2026</h4>
+        <p class="watch-desc">Six data-backed AI trends from McKinsey, Stanford, and Epoch AI — with specific steps developers can take right now.</p>
+      </div>
+    </div>
+
+    <!-- Video 4 — IBM -->
+    <div class="watch-card" data-videoid="ARXS-uk19h8">
+      <div class="watch-thumb">
+        <img src="https://img.youtube.com/vi/ARXS-uk19h8/mqdefault.jpg"
+             alt="AI Year in Review: Trends Shaping 2026 — IBM" loading="lazy" />
+        <div class="watch-play-icon" aria-hidden="true">▶</div>
+        <iframe class="watch-iframe" title="AI Year in Review: Trends Shaping 2026"
+          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
+          data-src="https://www.youtube.com/embed/ARXS-uk19h8?autoplay=1&rel=0">
+        </iframe>
+      </div>
+      <div class="watch-info">
+        <span class="watch-channel">IBM Technology</span>
+        <span class="watch-date">Jan 2026</span>
+        <h4 class="watch-title">AI Year in Review: Trends Shaping 2026</h4>
+        <p class="watch-desc">IBM's Mixture of Experts podcast — what defined AI in 2025 and what every developer should watch in 2026.</p>
+      </div>
+    </div>
+
+    <!-- Video 5 -->
+    <div class="watch-card" data-videoid="CkQOrNaunVs">
+      <div class="watch-thumb">
+        <img src="https://img.youtube.com/vi/CkQOrNaunVs/mqdefault.jpg"
+             alt="2025 AI Trends You Should Know Before 2026" loading="lazy" />
+        <div class="watch-play-icon" aria-hidden="true">▶</div>
+        <iframe class="watch-iframe" title="2025 AI Trends You Should Know Before 2026"
+          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
+          data-src="https://www.youtube.com/embed/CkQOrNaunVs?autoplay=1&rel=0">
+        </iframe>
+      </div>
+      <div class="watch-info">
+        <span class="watch-channel">AI Explained</span>
+        <span class="watch-date">Dec 2025</span>
+        <h4 class="watch-title">2025 AI Trends You SHOULD Know Before 2026</h4>
+        <p class="watch-desc">A grounded recap of how AI evolved in 2025 — agents, models, and the moments that actually mattered for developers.</p>
+      </div>
+    </div>
+
+    <!-- Video 6 -->
+    <div class="watch-card" data-videoid="meN95syqeY4">
+      <div class="watch-thumb">
+        <img src="https://img.youtube.com/vi/meN95syqeY4/mqdefault.jpg"
+             alt="5 AI Trends 2026: What Every Developer Must Know" loading="lazy" />
+        <div class="watch-play-icon" aria-hidden="true">▶</div>
+        <iframe class="watch-iframe" title="5 AI Trends 2026: What Every Developer Must Know"
+          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
+          data-src="https://www.youtube.com/embed/meN95syqeY4?autoplay=1&rel=0">
+        </iframe>
+      </div>
+      <div class="watch-info">
+        <span class="watch-channel">Dev Channel</span>
+        <span class="watch-date">Dec 2025</span>
+        <h4 class="watch-title">5 AI Trends 2026: What Every Developer Must Know NOW</h4>
+        <p class="watch-desc">Five game-changing AI trends experts predict will dominate 2026 — explained for developers at every skill level.</p>
+      </div>
+    </div>
+
+    <!-- Video 7 -->
+    <div class="watch-card" data-videoid="IjHIE2DMUNg">
+      <div class="watch-thumb">
+        <img src="https://img.youtube.com/vi/IjHIE2DMUNg/mqdefault.jpg"
+             alt="15 New Things AI Can Do in 2026" loading="lazy" />
+        <div class="watch-play-icon" aria-hidden="true">▶</div>
+        <iframe class="watch-iframe" title="15 New Things AI Can Do in 2026"
+          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
+          data-src="https://www.youtube.com/embed/IjHIE2DMUNg?autoplay=1&rel=0">
+        </iframe>
+      </div>
+      <div class="watch-info">
+        <span class="watch-channel">Future Business Tech</span>
+        <span class="watch-date">Apr 2026</span>
+        <h4 class="watch-title">15 New Things AI Can Do in 2026 That Were Impossible Last Year</h4>
+        <p class="watch-desc">AI capabilities that didn't exist a year ago — what they mean for developers and where the industry is heading next.</p>
+      </div>
+    </div>
+
+    <!-- Video 8 -->
+    <div class="watch-card" data-videoid="ZtNRIYGWl8c">
+      <div class="watch-thumb">
+        <img src="https://img.youtube.com/vi/ZtNRIYGWl8c/mqdefault.jpg"
+             alt="AI Is Coming for Developers — Lama Dev" loading="lazy" />
+        <div class="watch-play-icon" aria-hidden="true">▶</div>
+        <iframe class="watch-iframe" title="AI Is Coming for Developers"
+          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
+          data-src="https://www.youtube.com/embed/ZtNRIYGWl8c?autoplay=1&rel=0">
+        </iframe>
+      </div>
+      <div class="watch-info">
+        <span class="watch-channel">Lama Dev</span>
+        <span class="watch-date">Apr 2026</span>
+        <h4 class="watch-title">AI Is Coming for Developers… They Said</h4>
+        <p class="watch-desc">An honest look at what AI actually means for your future as a developer — and why learning the fundamentals still matters most.</p>
+      </div>
+    </div>
+
+  </div><!-- /watch-grid -->
+
+  <p class="trends-source" style="margin-top:1.5rem; text-align:center;">
+  All videos from verified YouTube channels · Published 2025–2026 · Click outside to stop playback
+  </p>
+</section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-logo">UP<span>Skill</span>S</p>
+      <p class="footer-sub">Built for students. Curated with purpose.</p>
+      <div class="footer-line"></div>
+      <p class="footer-note">
+        Language data: Stack Overflow Developer Survey 2025 (49,000+ respondents). Salary estimates: Glassdoor, Levels.fyi, PwC AI Jobs Barometer 2025.
+        PH salary data: JobStreet Philippines (May 2026), YapWorld 2026 Tech Salary Index. All figures are estimates and may vary by experience, company, and location.
+        All video resources belong to their respective creators on YouTube.<br>
+        UPSkillS is a non-commercial student project — DHVSU College of Engineering &amp; Architecture.
+      </p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/script.js"></script>
+  <script>
+    // Matrix
+    window.onload = function() {
+      const c = document.getElementById('matrix-canvas');
+      if (!c) return;
+      const x = c.getContext('2d');
+      c.width = window.innerWidth;
+      c.height = window.innerHeight;
+      const ch = '01アイウエオカキクABCDEFGHIJKLMNOP0123456789';
+      const fs = 14, cols = Math.floor(c.width/fs), dr = Array(cols).fill(1);
+      setInterval(() => {
+        x.fillStyle='rgba(8,11,17,0.05)'; x.fillRect(0,0,c.width,c.height);
+        x.font=fs+'px monospace';
+        dr.forEach((d,i)=>{
+          x.fillStyle=Math.random()>0.95?'#00ff88':'#00e5ff';
+          x.globalAlpha=0.7;
+          x.fillText(ch[Math.floor(Math.random()*ch.length)],i*fs,d*fs);
+          if(d*fs>c.height&&Math.random()>0.975)dr[i]=0;
+          dr[i]++;
+        });
+      },50);
+    };
+
+    // Charts
+    document.addEventListener('DOMContentLoaded', () => {
+      const chartDefaults = {
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { ticks: { color: '#8fafc8', font: { family: 'JetBrains Mono', size: 11 } }, grid: { color: '#1a2438' } },
+          y: { ticks: { color: '#8fafc8', font: { family: 'JetBrains Mono', size: 11 } }, grid: { color: '#1a2438' } }
+        }
+      };
+
+      // ── 01 Most Popular Languages (SO 2025 data) ──────────────────
+      new Chart(document.getElementById('popularChart'), {
+        type: 'bar',
+        data: {
+          labels: ['JavaScript', 'Python', 'TypeScript', 'Java', 'C#', 'C++', 'PHP', 'Go'],
+          datasets: [{
+            label: '% of developers (SO 2025)',
+            data: [66, 58, 43, 30.3, 27, 23.5, 18, 14.5],
+            backgroundColor: [
+              '#00e5ff','#3776ab','#3178c6',
+              '#f89820','#9b4f96','#00599c',
+              '#777bb4','#00add8'
+            ],
+            borderRadius: 4,
+          }]
+        },
+        options: {
+          ...chartDefaults,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: ctx => ` ${ctx.raw}% of developers`,
+                afterLabel: ctx => ctx.dataIndex === 1 ? '  ▲ +7pp year-over-year' : ''
+              }
+            }
+          },
+          scales: {
+            ...chartDefaults.scales,
+            y: {
+              ...chartDefaults.scales.y,
+              max: 75,
+              ticks: { ...chartDefaults.scales.y.ticks, callback: v => v + '%' }
+            }
+          }
+        }
+      });
+
+      // ── 02 Highest Paying Tech Jobs (2025–2026 estimates) ─────────
+      new Chart(document.getElementById('salaryChart'), {
+        type: 'bar',
+        data: {
+          labels: ['AI/ML Eng', 'Data Eng', 'Cloud/DevOps', 'Security Eng', 'Full Stack', 'Mobile Dev'],
+          datasets: [{
+            label: 'Avg salary USD (est. 2025–2026)',
+            data: [177000, 155000, 148000, 142000, 125000, 118000],
+            backgroundColor: [
+              '#00ff88','#00e5ff','#00ff88',
+              '#00e5ff','#00ff88','#00e5ff'
+            ],
+            borderRadius: 4,
+          }]
+        },
+        options: {
+          ...chartDefaults,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: { label: ctx => ` $${ctx.raw.toLocaleString()} / yr (est.)` }
+            }
+          },
+          scales: {
+            ...chartDefaults.scales,
+            y: {
+              ...chartDefaults.scales.y,
+              ticks: { ...chartDefaults.scales.y.ticks, callback: v => '$' + (v/1000) + 'k' }
+            }
+          }
+        }
+      });
+
+      // ── 03 Most In-Demand Skills (2025–2026) ──────────────────────
+      // Scores reflect job-posting frequency + developer survey demand index (normalized 0–100)
+      new Chart(document.getElementById('skillsChart'), {
+        type: 'radar',
+        data: {
+          labels: ['Python', 'SQL', 'JavaScript', 'Cloud/Docker', 'Git', 'AI / LLMs', 'TypeScript', 'Kubernetes'],
+          datasets: [{
+            label: 'Demand index 2025–2026',
+            data: [92, 84, 90, 86, 95, 93, 78, 72],
+            borderColor: '#00e5ff',
+            backgroundColor: 'rgba(0,229,255,0.1)',
+            pointBackgroundColor: '#00e5ff',
+            pointBorderColor: '#00e5ff',
+          }]
+        },
+        options: {
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: ctx => ` Demand index: ${ctx.raw}/100` } }
+          },
+          scales: {
+            r: {
+              min: 50,
+              max: 100,
+              ticks: {
+                color: '#8fafc8',
+                backdropColor: 'transparent',
+                font: { family: 'JetBrains Mono', size: 10 },
+                callback: v => v
+              },
+              grid: { color: '#1a2438' },
+              pointLabels: { color: '#c8d8e8', font: { family: 'JetBrains Mono', size: 11 } },
+              angleLines: { color: '#1a2438' }
+            }
+          }
+        }
+      });
+    });
+    
+  </script>
+</body>
+</html>
