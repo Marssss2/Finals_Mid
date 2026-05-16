@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UPSkillS — Developer Glossary</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    /* ═══════════════════════════════════════════════
+       GLOSSARY PAGE STYLES
+    ═══════════════════════════════════════════════ */
+
+    /* ── Search bar ── */
+    .glossary-search-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(8, 11, 17, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid #1a2438;
+      padding: 16px 0;
+      margin-bottom: 0;
+    }
+
+    .glossary-search-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .glossary-search-box {
+      position: relative;
+      flex: 1;
+    }
+
+    .glossary-search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #8fafc8;
+      font-size: 0.9rem;
+      pointer-events: none;
+      font-family: monospace;
+    }
+
+    .glossary-input {
+      width: 100%;
+      padding: 12px 40px 12px 42px;
+      background: #0d1117;
+      border: 1px solid #1a2438;
+      border-radius: 10px;
+      color: #c8d8e8;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .glossary-input:focus {
+      border-color: #00e5ff;
+      box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.1);
+    }
+
+    .glossary-input::placeholder { color: #3a4a5a; }
+
+    .glossary-clear {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #8fafc8;
+      cursor: pointer;
+      font-size: 1rem;
+      display: none;
+      padding: 2px 6px;
+      border-radius: 4px;
+      transition: color 0.2s ease;
+    }
+    .glossary-clear:hover { color: #00e5ff; }
+
+    /* Filter pills */
+    .glossary-filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      max-width: 860px;
+      margin: 12px auto 0;
+      padding: 0 24px;
+    }
+
+    .glossary-filter {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      padding: 5px 14px;
+      border-radius: 100px;
+      border: 1px solid #1a2438;
+      background: transparent;
+      color: #8fafc8;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      transition: all 0.2s ease;
+    }
+    .glossary-filter:hover       { border-color: #00e5ff; color: #00e5ff; }
+    .glossary-filter.active      { background: rgba(0,229,255,0.1); border-color: #00e5ff; color: #00e5ff; }
+    .glossary-filter.active-green { background: rgba(0,255,136,0.1); border-color: #00ff88; color: #00ff88; }
+
+    /* ── Stats bar ── */
+    .glossary-stats {
+      max-width: 860px;
+      margin: 20px auto 0;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .glossary-count {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: #8fafc8;
+    }
+
+    .glossary-count span {
+      color: #00e5ff;
+      font-weight: 700;
+    }
+
+    /* ── Main content ── */
+    .glossary-main {
+      max-width: 860px;
+      margin: 28px auto 80px;
+      padding: 0 24px;
+    }
+
+    /* ── Letter group ── */
+    .glossary-letter-group {
+      margin-bottom: 40px;
+    }
+
+    .glossary-letter-heading {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: #00e5ff;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 0 10px;
+      border-bottom: 1px solid #1a2438;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .glossary-letter-heading::before {
+      content: '//';
+      opacity: 0.4;
+    }
+
+    /* ── Term card ── */
+    .glossary-term {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 0;
+      border: 1px solid #1a2438;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+      animation: fadeUp 0.4s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .glossary-term:hover {
+      border-color: #1e3a4a;
+      transform: translateX(3px);
+    }
+
+    .glossary-term.hidden { display: none; }
+
+    .glossary-term-left {
+      background: #0d1117;
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      border-right: 1px solid #1a2438;
+    }
+
+    .glossary-term-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #c8d8e8;
+      line-height: 1.3;
+    }
+
+    .glossary-term-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.58rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+      font-weight: 700;
+      width: fit-content;
+    }
+
+    .badge-concept  { background: rgba(0,229,255,0.1);  color: #00e5ff; border: 1px solid rgba(0,229,255,0.3);  }
+    .badge-acronym  { background: rgba(0,255,136,0.1);  color: #00ff88; border: 1px solid rgba(0,255,136,0.3);  }
+    .badge-web      { background: rgba(255,165,0,0.1);  color: #ffa500; border: 1px solid rgba(255,165,0,0.3);  }
+    .badge-ai       { background: rgba(180,100,255,0.1);color: #c97dff; border: 1px solid rgba(180,100,255,0.3);}
+    .badge-data     { background: rgba(255,80,80,0.1);  color: #ff6b6b; border: 1px solid rgba(255,80,80,0.3);  }
+    .badge-devops   { background: rgba(0,200,180,0.1);  color: #00c8b4; border: 1px solid rgba(0,200,180,0.3);  }
+
+    .glossary-term-right {
+      background: #080b11;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .glossary-term-def {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: #8fafc8;
+      line-height: 1.65;
+    }
+
+    .glossary-term-example {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: #3a4a5a;
+      font-style: italic;
+      padding-top: 4px;
+      border-top: 1px solid #1a2438;
+      margin-top: 4px;
+    }
+
+    .glossary-term-example span { color: #00ff88; font-style: normal; }
+
+    /* ── No results ── */
+    .glossary-no-results {
+      text-align: center;
+      padding: 60px 20px;
+      display: none;
+    }
+
+    .glossary-no-results .nr-icon { font-size: 2.5rem; margin-bottom: 12px; }
+
+    .glossary-no-results p {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      color: #3a4a5a;
+    }
+
+    .glossary-no-results span { color: #00e5ff; }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .glossary-term { grid-template-columns: 1fr; }
+      .glossary-term-left { border-right: none; border-bottom: 1px solid #1a2438; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOADING SCREEN -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">UP<span>Skill</span>S</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+      <p class="loader-text">&gt;_ loading glossary...</p>
+    </div>
+  </div>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- BG -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- HEADER -->
+  <header id="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">UP<span>Skill</span>S</a>
+      <nav class="nav-topics">
+        <a href="../index.html">Home</a>
+        <a href="languages.html">Languages</a>
+        <a href="roadmap.html">Roadmaps</a>
+        <a href="tools.html">Tools</a>
+        <a href="trends.html">Trends</a>
+        <a href="glossary.html" class="active">Glossary</a>
+        <a href="../index.html#about">About</a>
+      </nav>
+    </div>
+    <p class="tagline">&gt;_ Upgrade your skills. One resource at a time.</p>
+    <div class="header-line"></div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-badge">&gt;_ developer reference · 2025–2026</div>
+    <h1 class="page-hero-title">Developer <span>Glossary</span></h1>
+    <p class="page-hero-desc">Every programming term and tech acronym you need to know — explained in plain language. Search, filter, and learn at your own pace.</p>
+  </div>
+
+  <!-- STICKY SEARCH -->
+  <div class="glossary-search-wrap">
+    <div class="glossary-search-inner">
+      <div class="glossary-search-box">
+        <span class="glossary-search-icon">&gt;_</span>
+        <input
+          class="glossary-input"
+          id="glossaryInput"
+          type="text"
+          placeholder="Search terms, acronyms, definitions..."
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="Search glossary"
+        />
+        <button class="glossary-clear" id="glossaryClear" aria-label="Clear search">✕</button>
+      </div>
+    </div>
+
+    <!-- Filter pills -->
+    <div class="glossary-filters" role="group" aria-label="Filter by category">
+      <button class="glossary-filter active" data-filter="all">All</button>
+      <button class="glossary-filter" data-filter="concept">Concepts</button>
+      <button class="glossary-filter" data-filter="acronym">Acronyms</button>
+      <button class="glossary-filter" data-filter="web">Web Dev</button>
+      <button class="glossary-filter" data-filter="ai">AI / ML</button>
+      <button class="glossary-filter" data-filter="data">Data</button>
+      <button class="glossary-filter" data-filter="devops">DevOps</button>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="glossary-stats">
+    <p class="glossary-count">Showing <span id="termCount">0</span> terms</p>
+  </div>
+
+  <!-- MAIN -->
+  <main class="glossary-main" id="glossaryMain" aria-label="Glossary terms">
+
+    <!-- No results -->
+    <div class="glossary-no-results" id="noResults">
+      <div class="nr-icon">🔍</div>
+      <p>No terms found for "<span id="noResultsQuery"></span>"</p>
+      <p style="margin-top:8px; font-size:0.7rem;">Try a different keyword or clear the filter.</p>
+    </div>
+
+    <!-- Terms injected by JS -->
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-logo">UP<span>Skill</span>S</p>
+      <p class="footer-sub">Built for students. Curated with purpose.</p>
+      <div class="footer-line"></div>
+      <p class="footer-note">
+        Definitions written for students and beginners. Compiled 2025–2026.<br>
+        UPSkillS is a non-commercial student project — DHVSU College of Engineering &amp; Architecture.
+      </p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/script.js"></script>
+  <script>
+  /* ═══════════════════════════════════════════════════════════════
+     GLOSSARY DATA
+     To add a term: push an object into the TERMS array below.
+     Fields: term, badge, category, definition, example (optional)
+  ═══════════════════════════════════════════════════════════════ */
+  var TERMS = [
+    /* ── A ── */
+    { term: 'Algorithm',      badge: 'concept', category: 'concept', definition: 'A step-by-step set of instructions designed to solve a problem or perform a task. Every program is built on algorithms.',                                      example: 'A sorting algorithm arranges a list of numbers from lowest to highest.' },
+    { term: 'API',            badge: 'acronym', category: 'acronym', definition: 'Application Programming Interface — a set of rules that allows two software applications to talk to each other and share data.',                              example: 'A weather app uses an API to fetch current temperature data from a weather service.' },
+    { term: 'Array',          badge: 'concept', category: 'concept', definition: 'A data structure that stores multiple values in a single variable, accessed by index (position number starting at 0).',                                       example: 'let fruits = ["apple", "banana", "mango"] — fruits[0] is "apple".' },
+    { term: 'Agile',          badge: 'concept', category: 'devops',  definition: 'A software development methodology focused on short development cycles, collaboration, and adapting to change rather than following a rigid plan.',             example: 'An Agile team delivers working features every two weeks instead of waiting months.' },
+    { term: 'Authentication', badge: 'concept', category: 'web',     definition: 'The process of verifying who a user is — confirming their identity before granting access to a system.',                                                      example: 'Entering your email and password to log in is authentication.' },
+    { term: 'Authorization',  badge: 'concept', category: 'web',     definition: 'The process of determining what an authenticated user is allowed to do. Different from authentication — auth tells you who, authorization tells you what.',    example: 'A regular user can read posts; only an admin is authorized to delete them.' },
+
+    /* ── B ── */
+    { term: 'Backend',        badge: 'concept', category: 'web',     definition: 'The server-side of an application — the part users don\'t see. It handles logic, databases, authentication, and data processing.',                            example: 'When you submit a form, the backend validates and saves your data to a database.' },
+    { term: 'Boolean',        badge: 'concept', category: 'concept', definition: 'A data type with only two possible values: true or false. Used in conditions and logic.',                                                                      example: 'isLoggedIn = true means the user is logged in.' },
+    { term: 'Bug',            badge: 'concept', category: 'concept', definition: 'An error or flaw in code that causes a program to behave unexpectedly or incorrectly.',                                                                        example: 'A bug in the checkout page caused users to be charged twice.' },
+
+    /* ── C ── */
+    { term: 'Cache',          badge: 'concept', category: 'concept', definition: 'Temporary storage that saves frequently accessed data so it can be retrieved faster without re-fetching from the original source.',                            example: 'A browser caches images so a webpage loads faster on your second visit.' },
+    { term: 'CI/CD',          badge: 'acronym', category: 'devops',  definition: 'Continuous Integration / Continuous Deployment — automated processes that test and deploy code changes frequently and reliably.',                              example: 'Every time a developer pushes code, CI/CD automatically runs tests and deploys to production.' },
+    { term: 'Class',          badge: 'concept', category: 'concept', definition: 'A blueprint for creating objects in object-oriented programming. It defines properties (data) and methods (behavior) that its objects will have.',             example: 'A Car class has properties like color and speed, and methods like accelerate() and brake().' },
+    { term: 'CLI',            badge: 'acronym', category: 'acronym', definition: 'Command-Line Interface — a text-based interface where users type commands to interact with the computer, instead of using a graphical interface.',             example: 'Running "npm install" in a terminal is using the CLI.' },
+    { term: 'Cloud Computing', badge: 'concept', category: 'devops', definition: 'Delivering computing services (servers, storage, databases, networking) over the internet on a pay-as-you-go basis.',                                         example: 'Storing your photos on Google Drive instead of your hard drive is cloud computing.' },
+    { term: 'Compiler',       badge: 'concept', category: 'concept', definition: 'A program that translates source code written in a high-level language into machine code that a computer can execute.',                                        example: 'A C++ compiler converts your C++ code into an .exe file the computer can run.' },
+    { term: 'CSS',            badge: 'acronym', category: 'web',     definition: 'Cascading Style Sheets — the language used to style and visually format HTML elements on a webpage (colors, fonts, layouts, animations).',                    example: 'CSS makes a button red, rounded, and centered on the page.' },
+    { term: 'CRUD',           badge: 'acronym', category: 'acronym', definition: 'Create, Read, Update, Delete — the four fundamental operations performed on data in any database or application.',                                             example: 'A notes app lets you create, read, update, and delete notes — that\'s CRUD.' },
+
+    /* ── D ── */
+    { term: 'Data Structure', badge: 'concept', category: 'concept', definition: 'A way of organizing and storing data so it can be accessed and modified efficiently. Examples: arrays, linked lists, trees, stacks, queues.',                example: 'A stack follows Last-In-First-Out (LIFO) — like a stack of plates.' },
+    { term: 'Database',       badge: 'concept', category: 'data',    definition: 'An organized collection of structured data, typically stored electronically and accessed via a database management system (DBMS).',                           example: 'A school database stores student names, grades, and attendance records.' },
+    { term: 'Debugging',      badge: 'concept', category: 'concept', definition: 'The process of finding and fixing errors (bugs) in code. It involves identifying why a program behaves incorrectly and correcting the issue.',               example: 'Using console.log() to print values and find where your code goes wrong is debugging.' },
+    { term: 'Deployment',     badge: 'concept', category: 'devops',  definition: 'The process of making a software application available for use — moving it from a development environment to a live server accessible by users.',             example: 'Pushing your website to Vercel so anyone can access it is deployment.' },
+    { term: 'Docker',         badge: 'concept', category: 'devops',  definition: 'A platform that packages applications and their dependencies into containers — isolated, portable units that run consistently anywhere.',                     example: 'A Docker container ensures your app runs the same on your laptop and on the cloud server.' },
+    { term: 'DNS',            badge: 'acronym', category: 'web',     definition: 'Domain Name System — translates human-readable domain names (like google.com) into IP addresses that computers use to locate servers.',                     example: 'When you type "facebook.com", DNS converts it to the IP address 157.240.3.35.' },
+
+    /* ── E ── */
+    { term: 'Endpoint',       badge: 'concept', category: 'web',     definition: 'A specific URL in an API where requests are sent and responses are received. Each endpoint corresponds to a specific function or resource.',                  example: '/api/users is an endpoint that returns a list of users when called.' },
+    { term: 'Environment Variable', badge: 'concept', category: 'devops', definition: 'A variable stored outside the code that holds configuration values like API keys, database credentials, or settings that vary between environments.',  example: 'Storing your database password in a .env file instead of hardcoding it in your script.' },
+
+    /* ── F ── */
+    { term: 'Framework',      badge: 'concept', category: 'concept', definition: 'A pre-built collection of code, tools, and conventions that provides a foundation for building applications — reducing the need to write everything from scratch.', example: 'React is a JavaScript framework for building user interfaces.' },
+    { term: 'Frontend',       badge: 'concept', category: 'web',     definition: 'The client-side of an application — everything the user sees and interacts with directly, built with HTML, CSS, and JavaScript.',                            example: 'The buttons, forms, and layout you see on a website are the frontend.' },
+    { term: 'Function',       badge: 'concept', category: 'concept', definition: 'A reusable block of code that performs a specific task. Functions take inputs (parameters), process them, and optionally return an output.',                  example: 'function add(a, b) { return a + b; } — calling add(3, 4) returns 7.' },
+
+    /* ── G ── */
+    { term: 'Git',            badge: 'concept', category: 'devops',  definition: 'A distributed version control system that tracks changes in code over time, allowing multiple developers to collaborate without overwriting each other\'s work.', example: 'git commit saves a snapshot of your changes; git push shares them with your team.' },
+    { term: 'GitHub',         badge: 'concept', category: 'devops',  definition: 'A web-based platform built on Git that hosts code repositories and provides collaboration tools like pull requests, issues, and code review.',                example: 'Developers push their code to GitHub so teammates can review and contribute.' },
+    { term: 'GPU',            badge: 'acronym', category: 'ai',      definition: 'Graphics Processing Unit — originally for rendering graphics, now widely used for AI and ML workloads because of its ability to perform parallel computations.', example: 'Training a deep learning model on a GPU is 100x faster than on a CPU.' },
+
+    /* ── H ── */
+    { term: 'HTML',           badge: 'acronym', category: 'web',     definition: 'HyperText Markup Language — the standard language used to create and structure content on the web using elements like headings, paragraphs, links, and images.', example: '<h1>Hello World</h1> displays a large heading on a webpage.' },
+    { term: 'HTTP',           badge: 'acronym', category: 'web',     definition: 'HyperText Transfer Protocol — the foundation of data communication on the web. HTTPS is the secure version using encryption.',                              example: 'Your browser uses HTTP/HTTPS to request and receive webpages from servers.' },
+    { term: 'Hosting',        badge: 'concept', category: 'web',     definition: 'A service that stores your website\'s files on a server and makes them accessible to users on the internet.',                                                 example: 'Vercel and Netlify provide free hosting for static websites.' },
+
+    /* ── I ── */
+    { term: 'IDE',            badge: 'acronym', category: 'acronym', definition: 'Integrated Development Environment — a software application that provides tools for writing, testing, and debugging code in one place.',                      example: 'VS Code and PyCharm are popular IDEs used by developers worldwide.' },
+    { term: 'IP Address',     badge: 'concept', category: 'web',     definition: 'Internet Protocol Address — a unique numerical label assigned to every device connected to a network, used to identify and locate it.',                      example: '192.168.1.1 is a common local IP address for home routers.' },
+    { term: 'Iteration',      badge: 'concept', category: 'concept', definition: 'Repeating a set of instructions a specified number of times or until a condition is met. Also called looping.',                                              example: 'A for loop that prints numbers 1 to 10 iterates 10 times.' },
+
+    /* ── J ── */
+    { term: 'JavaScript',     badge: 'concept', category: 'web',     definition: 'A high-level, interpreted programming language that makes webpages interactive. It runs in the browser and on servers (Node.js).',                           example: 'JavaScript makes a button show a popup when clicked.' },
+    { term: 'JSON',           badge: 'acronym', category: 'acronym', definition: 'JavaScript Object Notation — a lightweight, human-readable format for storing and transmitting data, widely used in APIs.',                                  example: '{"name": "Juan", "age": 20} is JSON data representing a user.' },
+
+    /* ── K ── */
+    { term: 'Kubernetes',     badge: 'concept', category: 'devops',  definition: 'An open-source system for automating deployment, scaling, and management of containerized applications across clusters of machines.',                         example: 'Kubernetes automatically restarts a crashed container and distributes traffic across healthy ones.' },
+
+    /* ── L ── */
+    { term: 'Library',        badge: 'concept', category: 'concept', definition: 'A collection of pre-written code that developers can use to perform common tasks without writing them from scratch.',                                         example: 'Pandas is a Python library that makes working with data tables much easier.' },
+    { term: 'LLM',            badge: 'acronym', category: 'ai',      definition: 'Large Language Model — a type of AI trained on massive amounts of text data, capable of generating, summarizing, translating, and understanding language.',   example: 'ChatGPT is powered by an LLM called GPT-4.' },
+    { term: 'Loop',           badge: 'concept', category: 'concept', definition: 'A programming construct that repeats a block of code multiple times until a specified condition is met.',                                                     example: 'A while loop keeps asking for a password until the correct one is entered.' },
+
+    /* ── M ── */
+    { term: 'Machine Learning', badge: 'concept', category: 'ai',   definition: 'A branch of AI where systems learn from data to make predictions or decisions without being explicitly programmed for each task.',                            example: 'A spam filter uses ML to learn which emails are spam based on past examples.' },
+    { term: 'Middleware',     badge: 'concept', category: 'web',     definition: 'Software that acts as a bridge between an operating system or database and applications. In web dev, it processes requests before they reach the main handler.', example: 'An authentication middleware checks if a user is logged in before allowing access to a route.' },
+    { term: 'ML',             badge: 'acronym', category: 'ai',      definition: 'Machine Learning — a subset of AI focused on building systems that learn from data to improve their performance over time.',                                  example: 'ML powers Netflix\'s recommendation system.' },
+    { term: 'MVP',            badge: 'acronym', category: 'acronym', definition: 'Minimum Viable Product — the simplest version of a product with just enough features to satisfy early users and gather feedback.',                           example: 'Launching a basic sign-up form before building the full app is shipping an MVP.' },
+
+    /* ── N ── */
+    { term: 'Node.js',        badge: 'concept', category: 'web',     definition: 'A JavaScript runtime that allows JavaScript to run on the server side, outside of a browser.',                                                               example: 'Node.js powers the backend of LinkedIn and Netflix.' },
+    { term: 'Null',           badge: 'concept', category: 'concept', definition: 'A special value representing the intentional absence of any value or object. Different from undefined or zero.',                                             example: 'If no user is logged in, currentUser = null.' },
+
+    /* ── O ── */
+    { term: 'Object',         badge: 'concept', category: 'concept', definition: 'A collection of related data and functions (called properties and methods). Objects model real-world entities in code.',                                     example: 'let user = { name: "Juan", age: 20, greet() { return "Hello"; } }' },
+    { term: 'OOP',            badge: 'acronym', category: 'concept', definition: 'Object-Oriented Programming — a programming paradigm that organizes code into objects that combine data (properties) and behavior (methods).',              example: 'In OOP, a BankAccount object has a balance property and a deposit() method.' },
+    { term: 'Open Source',    badge: 'concept', category: 'concept', definition: 'Software whose source code is publicly available for anyone to use, modify, and distribute, usually under a license.',                                       example: 'Linux, Python, and React are all open-source projects.' },
+
+    /* ── P ── */
+    { term: 'Package Manager', badge: 'concept', category: 'devops', definition: 'A tool that automates the installation, updating, and removal of software libraries and dependencies.',                                                      example: 'npm (Node Package Manager) installs JavaScript packages with one command.' },
+    { term: 'Parameter',      badge: 'concept', category: 'concept', definition: 'A variable defined in a function declaration that receives values (arguments) when the function is called.',                                                 example: 'In function greet(name), "name" is the parameter. greet("Juan") passes "Juan" as the argument.' },
+    { term: 'Python',         badge: 'concept', category: 'concept', definition: 'A high-level, beginner-friendly programming language known for its clean syntax, widely used in AI, data science, automation, and web development.',        example: 'print("Hello, World!") is a complete Python program.' },
+
+    /* ── R ── */
+    { term: 'Recursion',      badge: 'concept', category: 'concept', definition: 'A programming technique where a function calls itself to solve smaller instances of the same problem until reaching a base case.',                           example: 'A recursive function calculates factorial: factorial(5) calls factorial(4), and so on.' },
+    { term: 'Repository',     badge: 'concept', category: 'devops',  definition: 'A storage location for code and its history. In Git, a repo tracks all changes, branches, and versions of a project.',                                      example: 'Your project on GitHub is stored in a repository.' },
+    { term: 'REST',           badge: 'acronym', category: 'web',     definition: 'Representational State Transfer — an architectural style for building APIs using standard HTTP methods (GET, POST, PUT, DELETE).',                          example: 'A REST API endpoint GET /users returns a list of all users.' },
+    { term: 'Runtime',        badge: 'concept', category: 'concept', definition: 'The period when a program is executing, or the environment in which a program runs.',                                                                       example: 'Node.js is the runtime environment for JavaScript outside the browser.' },
+
+    /* ── S ── */
+    { term: 'SDK',            badge: 'acronym', category: 'acronym', definition: 'Software Development Kit — a collection of tools, libraries, and documentation that helps developers build applications for a specific platform.',           example: 'The Android SDK provides tools to build and test Android apps.' },
+    { term: 'Server',         badge: 'concept', category: 'web',     definition: 'A computer or program that provides services or resources to other computers (clients) over a network.',                                                     example: 'When you visit a website, a server sends the page content to your browser.' },
+    { term: 'SQL',            badge: 'acronym', category: 'data',    definition: 'Structured Query Language — a standard language for managing and querying relational databases.',                                                            example: 'SELECT * FROM users WHERE age > 18; retrieves all users older than 18.' },
+    { term: 'SSH',            badge: 'acronym', category: 'devops',  definition: 'Secure Shell — a network protocol that provides a secure, encrypted connection to remote computers or servers over an unsecured network.',                  example: 'Developers use SSH to securely log into a cloud server and run commands.' },
+
+    /* ── T ── */
+    { term: 'Terminal',       badge: 'concept', category: 'devops',  definition: 'A text-based interface for interacting with a computer\'s operating system by typing commands.',                                                             example: 'Opening Terminal and typing "python app.py" runs your Python script.' },
+    { term: 'Token',          badge: 'concept', category: 'web',     definition: 'A piece of data used to authenticate and authorize a user. JWT (JSON Web Token) is a common format for tokens in web applications.',                        example: 'After logging in, the server sends you a token. You include it in future requests to prove who you are.' },
+    { term: 'TypeScript',     badge: 'concept', category: 'web',     definition: 'A strongly-typed superset of JavaScript that adds optional static typing. It compiles down to plain JavaScript.',                                            example: 'TypeScript catches errors like passing a string where a number is expected before the code runs.' },
+
+    /* ── U ── */
+    { term: 'UI',             badge: 'acronym', category: 'web',     definition: 'User Interface — the visual elements of a software product that users interact with, including buttons, forms, menus, and layouts.',                        example: 'The buttons and navigation bar on a website are part of its UI.' },
+    { term: 'URL',            badge: 'acronym', category: 'web',     definition: 'Uniform Resource Locator — the web address used to locate a resource on the internet.',                                                                     example: 'https://upskills.vercel.app/glossary is a URL.' },
+    { term: 'UX',             badge: 'acronym', category: 'web',     definition: 'User Experience — how a person feels when interacting with a system. Good UX means the product is easy, efficient, and enjoyable to use.',                 example: 'A checkout process with too many steps has bad UX — users abandon their cart.' },
+
+    /* ── V ── */
+    { term: 'Variable',       badge: 'concept', category: 'concept', definition: 'A named container that stores a value which can change during program execution.',                                                                           example: 'let score = 0; — "score" is a variable that starts at 0 and can be updated.' },
+    { term: 'Version Control', badge: 'concept', category: 'devops', definition: 'A system that records changes to files over time so you can recall specific versions later and collaborate without conflicts.',                              example: 'Git is the most widely used version control system in the world.' },
+    { term: 'Virtual Machine', badge: 'concept', category: 'devops', definition: 'An emulation of a computer system that runs on another physical machine. It allows multiple OS environments on one physical host.',                        example: 'Running Ubuntu Linux inside Windows using VirtualBox is using a virtual machine.' },
+
+    /* ── W ── */
+    { term: 'Web Scraping',   badge: 'concept', category: 'data',    definition: 'Automatically extracting data from websites using code, typically by parsing HTML content.',                                                                example: 'A Python script using BeautifulSoup to collect product prices from an e-commerce site.' },
+    { term: 'WebSocket',      badge: 'concept', category: 'web',     definition: 'A communication protocol that provides a persistent, two-way connection between a client and server, enabling real-time data exchange.',                   example: 'Chat apps use WebSockets so messages appear instantly without refreshing the page.' },
+
+    /* ── X ── */
+    { term: 'XML',            badge: 'acronym', category: 'acronym', definition: 'Extensible Markup Language — a flexible markup language for storing and transporting structured data, similar to JSON but more verbose.',                   example: '<user><name>Juan</name><age>20</age></user> is XML.' },
+
+    /* ── Y ── */
+    { term: 'YAML',           badge: 'acronym', category: 'devops',  definition: 'YAML Ain\'t Markup Language — a human-readable data serialization format commonly used for configuration files in DevOps tools.',                          example: 'Docker Compose uses a docker-compose.yml (YAML) file to define services.' },
+
+    /* ── Z ── */
+    { term: 'Zero-Day',       badge: 'concept', category: 'concept', definition: 'A software vulnerability that is unknown to the vendor and has no available patch, making it immediately exploitable by attackers.',                        example: 'A zero-day exploit in a browser allowed hackers to access users\' systems before a fix was released.' }
+  ];
+
+  /* ═══════════════════════════════════════════════════════════════
+     RENDER ENGINE
+  ═══════════════════════════════════════════════════════════════ */
+  var currentFilter = 'all';
+  var currentQuery  = '';
+  var main          = document.getElementById('glossaryMain');
+  var noResults     = document.getElementById('noResults');
+  var termCount     = document.getElementById('termCount');
+  var input         = document.getElementById('glossaryInput');
+  var clearBtn      = document.getElementById('glossaryClear');
+
+  var BADGE_CLASS = {
+    concept: 'badge-concept',
+    acronym: 'badge-acronym',
+    web:     'badge-web',
+    ai:      'badge-ai',
+    data:    'badge-data',
+    devops:  'badge-devops'
+  };
+
+  var BADGE_LABEL = {
+    concept: 'CONCEPT',
+    acronym: 'ACRONYM',
+    web:     'WEB DEV',
+    ai:      'AI / ML',
+    data:    'DATA',
+    devops:  'DEVOPS'
+  };
+
+  function renderGlossary() {
+    var q      = currentQuery.toLowerCase().trim();
+    var filter = currentFilter;
+
+    /* Filter + search */
+    var filtered = TERMS.filter(function (t) {
+      var matchFilter = filter === 'all' || t.category === filter;
+      var matchQuery  = !q ||
+        t.term.toLowerCase().includes(q) ||
+        t.definition.toLowerCase().includes(q) ||
+        (t.example && t.example.toLowerCase().includes(q));
+      return matchFilter && matchQuery;
+    });
+
+    /* Sort A-Z */
+    filtered.sort(function (a, b) { return a.term.localeCompare(b.term); });
+
+    /* Group by first letter */
+    var groups = {};
+    filtered.forEach(function (t) {
+      var letter = t.term[0].toUpperCase();
+      if (!groups[letter]) groups[letter] = [];
+      groups[letter].push(t);
+    });
+
+    /* Clear old content (keep noResults div) */
+    var oldGroups = main.querySelectorAll('.glossary-letter-group');
+    oldGroups.forEach(function (g) { g.remove(); });
+
+    /* No results */
+    if (filtered.length === 0) {
+      noResults.style.display = 'block';
+      document.getElementById('noResultsQuery').textContent = q || filter;
+      termCount.textContent = '0';
+      return;
+    }
+
+    noResults.style.display = 'none';
+    termCount.textContent   = filtered.length;
+
+    /* Render groups */
+    Object.keys(groups).sort().forEach(function (letter) {
+      var group = document.createElement('div');
+      group.className = 'glossary-letter-group';
+
+      var heading = document.createElement('div');
+      heading.className   = 'glossary-letter-heading';
+      heading.textContent = letter;
+      group.appendChild(heading);
+
+      groups[letter].forEach(function (t, idx) {
+        var el = document.createElement('div');
+        el.className = 'glossary-term';
+        el.style.animationDelay = (idx * 0.04) + 's';
+
+        var exampleHTML = t.example
+          ? '<p class="glossary-term-example"><span>e.g.</span> ' + t.example + '</p>'
+          : '';
+
+        el.innerHTML =
+          '<div class="glossary-term-left">' +
+            '<p class="glossary-term-name">' + t.term + '</p>' +
+            '<span class="glossary-term-badge ' + (BADGE_CLASS[t.badge] || 'badge-concept') + '">' +
+              (BADGE_LABEL[t.badge] || t.badge.toUpperCase()) +
+            '</span>' +
+          '</div>' +
+          '<div class="glossary-term-right">' +
+            '<p class="glossary-term-def">' + t.definition + '</p>' +
+            exampleHTML +
+          '</div>';
+
+        group.appendChild(el);
+      });
+
+      main.appendChild(group);
+    });
+  }
+
+  /* ── Search ── */
+  input.addEventListener('input', function () {
+    currentQuery = input.value;
+    clearBtn.style.display = currentQuery ? 'block' : 'none';
+    renderGlossary();
+  });
+
+  clearBtn.addEventListener('click', function () {
+    input.value    = '';
+    currentQuery   = '';
+    clearBtn.style.display = 'none';
+    input.focus();
+    renderGlossary();
+  });
+
+  /* ── Filter pills ── */
+  document.querySelectorAll('.glossary-filter').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.glossary-filter').forEach(function (b) {
+        b.classList.remove('active', 'active-green');
+      });
+      btn.classList.add('active');
+      currentFilter = btn.getAttribute('data-filter');
+      renderGlossary();
+    });
+  });
+
+  /* ── Keyboard shortcut: / to focus search ── */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === '/' && document.activeElement !== input) {
+      e.preventDefault();
+      input.focus();
+    }
+  });
+
+  /* ── Initial render ── */
+  renderGlossary();
+
+  /* ── Matrix + loader (reuse from main script) ── */
+  window.onload = function () {
+    var c = document.getElementById('matrix-canvas');
+    if (!c) return;
+    var x = c.getContext('2d');
+    c.width  = window.innerWidth;
+    c.height = window.innerHeight;
+    var ch   = '01アイウエオABCDEFGHIJKLMNOP0123456789@#$%';
+    var fs   = 14;
+    var cols = Math.floor(c.width / fs);
+    var dr   = Array(cols).fill(1);
+    setInterval(function () {
+      x.fillStyle = 'rgba(8,11,17,0.05)'; x.fillRect(0, 0, c.width, c.height);
+      x.font = fs + 'px monospace';
+      dr.forEach(function (d, i) {
+        x.fillStyle  = Math.random() > 0.95 ? '#00ff88' : '#00e5ff';
+        x.globalAlpha = 0.7;
+        x.fillText(ch[Math.floor(Math.random() * ch.length)], i * fs, d * fs);
+        if (d * fs > c.height && Math.random() > 0.975) dr[i] = 0;
+        dr[i]++;
+      });
+    }, 50);
+
+    var loader = document.getElementById('loader');
+    if (loader) setTimeout(function () { loader.classList.add('hidden'); }, 1600);
+  };
+  </script>
+</body>
+</html>
