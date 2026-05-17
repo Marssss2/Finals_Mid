@@ -1643,8 +1643,11 @@ footer {
   z-index: 99999;
   align-items: center;
   justify-content: center;
+  padding: 20px;        /* ← add this */
 }
-.welcome-overlay.active { display: flex; }
+.welcome-overlay.active {
+  display: flex;
+}
 
 .welcome-modal {
   background: #0d1117;
@@ -1653,6 +1656,8 @@ footer {
   padding: 60px 52px;
   width: 100%;
   max-width: 560px;
+  text-align: center;          /* ← add this */
+  animation: welcomeFadeIn 0.4s ease both;  /* ← add this */
 }
 
 @keyframes welcomeFadeIn {
