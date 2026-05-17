@@ -7,17 +7,18 @@
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-    <!-- Welcome Modal -->
+  <!-- Welcome Modal -->
   <div class="welcome-overlay" id="welcomeOverlay">
     <div class="welcome-modal">
-      <div class="logo" data-text="UPSkillS">UP<span>Skill</span>S</div>ofile...</div>
+      <div class="welcome-logo">UP<span>Skill</span>S</div>
+      <p class="welcome-label">&gt;_ beyond basics. into mastery.</p>
       <h2 class="welcome-title">Welcome to UPSkillS! 👋</h2>
       <p class="welcome-sub">Before we begin, what should we call you?<br>Your name will be saved for future visits.</p>
-      <input 
-        type="text" 
-        class="welcome-input" 
-        id="welcomeNameInput" 
-        placeholder="Enter your name..." 
+      <input
+        type="text"
+        class="welcome-input"
+        id="welcomeNameInput"
+        placeholder="Enter your name..."
         maxlength="40"
       />
       <button class="welcome-btn" onclick="saveWelcomeName()">
@@ -468,42 +469,38 @@ Despite our differences in expertise, we worked collaboratively as one team, com
       }
       setInterval(drawMatrix, 50);
     }
-    // ── WELCOME MODAL ──────────────────────────
-    function saveWelcomeName() {
-        const name = document.getElementById('welcomeNameInput').value.trim();
-        if (!name) { 
-            document.getElementById('welcomeNameInput').style.borderColor = '#ff5050';
-            return; 
-        }
-        localStorage.setItem('upskills_username', name);
-        document.getElementById('welcomeOverlay').classList.remove('active');
-        showGreeting(name);
+     // ── WELCOME MODAL ──────────────────────────
+  function saveWelcomeName() {
+    var name = document.getElementById('welcomeNameInput').value.trim();
+    if (!name) {
+      document.getElementById('welcomeNameInput').style.borderColor = '#ff5050';
+      return;
     }
+    localStorage.setItem('upskills_username', name);
+    document.getElementById('welcomeOverlay').classList.remove('active');
+    showGreeting(name);
+  }
 
-    function showGreeting(name) {
-        const firstName = name;
-        const greeting = document.querySelector('.header-greeting');
-        if (greeting) {
-            greeting.innerHTML = '&gt;_ Welcome back, <span>' + firstName + '</span>!';
-        }
+  function showGreeting(name) {
+    var greeting = document.querySelector('.header-greeting');
+    if (greeting) {
+      greeting.innerHTML = '&gt;_ Welcome back, <span>' + name + '</span>!';
     }
+  }
 
-    // Enter key support
-    document.getElementById('welcomeNameInput').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') saveWelcomeName();
-    });
-
-    // Check kung may name na sa localStorage
-    window.addEventListener('load', function() {
-        const savedName = localStorage.getItem('upskills_username');
-        if (!savedName) {
-            setTimeout(() => {
-                document.getElementById('welcomeOverlay').classList.add('active');
-            }, 1800);
-        } else {
-            showGreeting(savedName);
-        }
-    });
-  </script>
+  document.getElementById('welcomeNameInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') saveWelcomeName();
+  });
+ window.addEventListener('load', function() {
+    var savedName = localStorage.getItem('upskills_username');
+    if (!savedName) {
+      setTimeout(function() {
+        document.getElementById('welcomeOverlay').classList.add('active');
+      }, 1800);
+    } else {
+      showGreeting(savedName);
+    }
+  });
+</script>
 </body>
 </html>
