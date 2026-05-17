@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UPSkillS — Welcome</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #080b11;
+      font-family: 'JetBrains Mono', monospace;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Matrix Canvas */
+    #intro-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      opacity: 0.15;
+    }
+
+    /* Scanline */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        0deg, transparent, transparent 2px,
+        rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px
+      );
+    }
+
+    /* Radial glow */
+    body::after {
+      content: '';
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 600px;
+      background: radial-gradient(ellipse, rgba(0,229,255,0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Main container */
+    .intro-container {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    /* Badge */
+    .intro-badge {
+      font-size: 0.65rem;
+      color: #00ff88;
+      border: 1px solid #00ff88;
+      padding: 4px 16px;
+      border-radius: 2px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeInUp 0.6s ease forwards 0.3s;
+      box-shadow: 0 0 10px rgba(0,255,136,0.2);
+    }
+
+    /* Logo */
+    .intro-logo {
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 700;
+      letter-spacing: -3px;
+      color: #fff;
+      opacity: 0;
+      animation: fadeInUp 0.7s ease forwards 0.6s;
+      position: relative;
+      line-height: 1;
+    }
+
+    .intro-logo span {
+      color: #00e5ff;
+      text-shadow:
+        0 0 20px rgba(0,229,255,0.9),
+        0 0 50px rgba(0,229,255,0.5),
+        0 0 100px rgba(0,229,255,0.3);
+      animation: logoPulse 2s ease-in-out infinite 1.5s;
+    }
+
+    @keyframes logoPulse {
+      0%, 100% { text-shadow: 0 0 20px rgba(0,229,255,0.9), 0 0 50px rgba(0,229,255,0.5); }
+      50%       { text-shadow: 0 0 30px rgba(0,229,255,1), 0 0 80px rgba(0,229,255,0.7), 0 0 120px rgba(0,229,255,0.4); }
+    }
+
+    /* Glowing underline */
+    .intro-logo::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #00e5ff, transparent);
+      box-shadow: 0 0 12px #00e5ff;
+      opacity: 0;
+      animation: fadeIn 0.5s ease forwards 1s;
+    }
+
+    /* Tagline */
+    .intro-tagline {
+      font-size: clamp(0.75rem, 2vw, 1rem);
+      color: #445566;
+      letter-spacing: 0.08em;
+      opacity: 0;
+      animation: fadeInUp 0.7s ease forwards 1s;
+    }
+
+    .intro-tagline span {
+      color: #6a7f96;
+    }
+
+    /* Description */
+    .intro-desc {
+      font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+      color: #6a7f96;
+      max-width: 480px;
+      line-height: 1.9;
+      opacity: 0;
+      animation: fadeInUp 0.7s ease forwards 1.3s;
+    }
+
+    /* Stats row */
+    .intro-stats {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      opacity: 0;
+      animation: fadeInUp 0.7s ease forwards 1.6s;
+    }
+
+    .intro-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+    }
+
+    .intro-stat-num {
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .intro-stat-num.cyan  { color: #00e5ff; text-shadow: 0 0 12px rgba(0,229,255,0.4); }
+    .intro-stat-num.green { color: #00ff88; text-shadow: 0 0 12px rgba(0,255,136,0.4); }
+
+    .intro-stat-label {
+      font-size: 0.55rem;
+      color: #445566;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .intro-stat-sep { color: #1a2438; font-size: 1.5rem; }
+
+    /* Enter button */
+    .intro-btn {
+      opacity: 0;
+      animation: fadeInUp 0.7s ease forwards 2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .intro-btn-inner {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: transparent;
+      border: 1px solid #00e5ff;
+      color: #00e5ff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 0.85rem 2.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro-btn-inner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,229,255,0.1), transparent);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .intro-btn-inner:hover {
+      background: rgba(0,229,255,0.08);
+      box-shadow: 0 0 30px rgba(0,229,255,0.4), 0 0 60px rgba(0,229,255,0.1);
+      transform: translateY(-2px);
+    }
+
+    .intro-btn-inner:hover::before { opacity: 1; }
+
+    .btn-arrow {
+      font-size: 1rem;
+      animation: arrowPulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes arrowPulse {
+      0%, 100% { transform: translateX(0); }
+      50%       { transform: translateX(4px); }
+    }
+
+    .intro-btn-hint {
+      font-size: 0.6rem;
+      color: #2a3545;
+      letter-spacing: 0.06em;
+    }
+
+    /* Corner decorations */
+    .corner {
+      position: fixed;
+      width: 40px;
+      height: 40px;
+      opacity: 0.3;
+      z-index: 5;
+    }
+    .corner-tl { top: 20px; left: 20px; border-top: 1px solid #00e5ff; border-left: 1px solid #00e5ff; }
+    .corner-tr { top: 20px; right: 20px; border-top: 1px solid #00e5ff; border-right: 1px solid #00e5ff; }
+    .corner-bl { bottom: 20px; left: 20px; border-bottom: 1px solid #00e5ff; border-left: 1px solid #00e5ff; }
+    .corner-br { bottom: 20px; right: 20px; border-bottom: 1px solid #00e5ff; border-right: 1px solid #00e5ff; }
+
+    /* Footer text */
+    .intro-footer {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.58rem;
+      color: #1e2d40;
+      letter-spacing: 0.06em;
+      z-index: 10;
+      white-space: nowrap;
+    }
+
+    /* Version tag */
+    .intro-version {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 0.58rem;
+      color: #1e2d40;
+      z-index: 10;
+    }
+
+    /* Fade out transition */
+    .fade-out {
+      animation: fadeOut 0.8s ease forwards !important;
+    }
+
+    /* Keyframes */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to   { opacity: 0; }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Matrix Canvas -->
+  <canvas id="intro-canvas"></canvas>
+
+  <!-- Corner decorations -->
+  <div class="corner corner-tl"></div>
+  <div class="corner corner-tr"></div>
+  <div class="corner corner-bl"></div>
+  <div class="corner corner-br"></div>
+
+  <!-- Version -->
+  <p class="intro-version">v1.0.0 — 2025</p>
+
+  <!-- Main Content -->
+  <div class="intro-container" id="introContainer">
+
+    <div class="intro-badge">&gt;_ Student Learning Platform</div>
+
+    <div class="intro-logo">UP<span>Skill</span>S</div>
+
+    <p class="intro-tagline">&gt;_ <span>Upgrade your skills. One resource at a time.</span></p>
+
+    <p class="intro-desc">
+      A curated learning hub built by students, for students.
+      Explore 15+ tech topics, follow structured roadmaps,
+      and access the best YouTube tutorials — all in one place.
+    </p>
+
+    <div class="intro-stats">
+      <div class="intro-stat">
+        <span class="intro-stat-num cyan">15+</span>
+        <span class="intro-stat-label">Topics</span>
+      </div>
+      <div class="intro-stat-sep">|</div>
+      <div class="intro-stat">
+        <span class="intro-stat-num green">40+</span>
+        <span class="intro-stat-label">Resources</span>
+      </div>
+      <div class="intro-stat-sep">|</div>
+      <div class="intro-stat">
+        <span class="intro-stat-num cyan">100%</span>
+        <span class="intro-stat-label">Free</span>
+      </div>
+      <div class="intro-stat-sep">|</div>
+      <div class="intro-stat">
+        <span class="intro-stat-num green">0</span>
+        <span class="intro-stat-label">Ads</span>
+      </div>
+    </div>
+
+    <div class="intro-btn" id="enterBtn">
+      <button class="intro-btn-inner" onclick="enterSite()">
+        &gt;_ Enter UPSkillS
+        <span class="btn-arrow">→</span>
+      </button>
+      <p class="intro-btn-hint">// click to begin your learning journey</p>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <p class="intro-footer">DHVSU College of Engineering &amp; Architecture — Non-Commercial Student Project</p>
+
+  <script>
+    // Matrix Rain
+    const canvas = document.getElementById('intro-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&';
+    const fontSize = 14;
+    const columns = Math.floor(canvas.width / fontSize);
+    const drops = Array(columns).fill(1);
+
+    function drawMatrix() {
+      ctx.fillStyle = 'rgba(8,11,17,0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.font = fontSize + 'px JetBrains Mono, monospace';
+
+      drops.forEach((d, i) => {
+        const char = chars[Math.floor(Math.random() * chars.length)];
+        ctx.fillStyle = Math.random() > 0.95 ? '#00ff88' : '#00e5ff';
+        ctx.globalAlpha = Math.random() * 0.5 + 0.2;
+        ctx.fillText(char, i * fontSize, d * fontSize);
+        if (d * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      });
+    }
+
+    setInterval(drawMatrix, 50);
+
+    // Enter button
+    function enterSite() {
+      document.body.style.transition = 'opacity 0.8s ease';
+      document.body.style.opacity = '0';
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 800);
+    }
+
+    // Keyboard shortcut — Enter key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') enterSite();
+    });
+  </script>
+</body>
+</html>
